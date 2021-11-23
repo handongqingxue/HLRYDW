@@ -27,6 +27,7 @@ $(function(){
 	initRyfbtjPieDiv();
 });
 
+//https://www.jianshu.com/p/4f459d16e8b4
 function initRyfbtjPieDiv(){
 	var chartDom = document.getElementById('ryfbtj_pie_div');
 	var myChart = echarts.init(chartDom);
@@ -47,29 +48,91 @@ function initRyfbtjPieDiv(){
 	      type: 'pie',
 	      radius: [50, 80],
 	      center: ['50%', '50%'],
-	      roseType: 'area',
+	      //roseType: 'area',
 	      itemStyle: {
 	    	  "normal": {
-	    	  "borderWidth": 3, // 间距的宽度
-	    	  "borderColor": '#f00', //背景色
+		    	  "borderWidth": 5, // 间距的宽度
+		    	  "borderColor": 'rgba(35,118,190,0.5)', //背景色
 	    	  }
 	    	 },
 	      data: [
-	        { value: 40, name: 'rose 1' },
-	        { value: 38, name: 'rose 2' },
-	        { value: 32, name: 'rose 3' },
-	        { value: 30, name: 'rose 4' },
-	        { value: 28, name: 'rose 5' },
-	        { value: 26, name: 'rose 6' },
-	        { value: 22, name: 'rose 7' },
-	        { value: 18, name: 'rose 8' }
+	        {value: 30, name: '废水处理区',itemStyle:{
+	        	normal:{
+	        		color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: '#F1DD21'
+                    }, {
+                        offset: 1,
+                        color: '#FB8509'
+                    }])
+	        	}
+	        }},
+	        {value: 40, name: '化盐池',itemStyle:{
+	        	normal:{
+	        		color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: '#3E94FF'
+                    }, {
+                        offset: 1,
+                        color: '#7A46FF'
+                    }])
+	        	}
+	        }},
+	        {value: 10, name: '二车间',itemStyle:{
+	        	normal:{
+	        		color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: '#60A5FB'
+                    }, {
+                        offset: 1,
+                        color: '#519DFC'
+                    }])
+	        	}
+	        }},
+	        {value: 60, name: '一车间',itemStyle:{
+	        	normal:{
+	        		color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: '#FF995E'
+                    }, {
+                        offset: 1,
+                        color: '#FF2C4E'
+                    }])
+	        	}
+	        }},
+	        {value: 6, name: '仓库A',itemStyle:{
+	        	normal:{
+	        		color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: '#29C0F8'
+                    }, {
+                        offset: 1,
+                        color: '#2AF0E4'
+                    }])
+	        	}
+	        }},
+	        {value: 8, name: '变电所',itemStyle:{
+	        	normal:{
+	        		color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                        offset: 0,
+                        color: '#22BCFF'
+                    }, {
+                        offset: 1,
+                        color: '#0BE8FF'
+                    }])
+	        	}
+	        }}
 	      ],
 	      label: {
 	        color: 'rgb(255, 255, 255)',
 	        textStyle : {
 	           fontWeight : 'normal',
-	           fontSize : 18
-	        }
+	           fontSize : 15
+	        },
+	        formatter: function (params) {
+	        	//console.log(params)
+                return params.name + " " + params.value + "人";
+            }
 	      }
 	    }
 	  ]
@@ -85,15 +148,62 @@ function initRyfbtjBarDiv(){
 	option = {
 	  xAxis: {
 	    type: 'category',
-	    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+	    axisLine:{
+            lineStyle:{
+                color:"#fff",
+                width:0.5
+            }
+        },
+        axisLabel: {
+            //fontSize:zhxzzh,
+            interval:0,
+            rotate:45
+        },
+	    data: ['一车间', '仓库A', '变电所', '二车间', '废水处理区', '化盐池']
 	  },
-	  yAxis: {
-	    type: 'value'
-	  },
+	    yAxis: [
+	        {
+	        	type:'value',
+                minInterval: 1,
+                axisLine:{
+                    lineStyle:{
+                        color:"#fff",
+                        width:0.5
+                    }
+                },
+                axisLabel:{
+                    fontSize:9
+                },
+	        }
+	    ],
 	  series: [
 	    {
-	      data: [120, 200, 150, 80, 70, 110, 130],
-	      type: 'bar'
+	      data: [120, 200, 150, 80, 70, 110],
+	      type: 'bar',
+	      barWidth:25,
+	      itemStyle:{
+	    	  color: function(params){
+	    		  var colorList = [
+	    			  ["#FF995E","#FF2C4E"],
+	    			  ["#60A5FB","#519DFC"],
+	    			  ["#22BCFF","#0BE8FF"],
+	    			  ["#3E94FF","#7A46FF"],
+	    			  ["#F1DD21","#FB8509"],
+	    			  ["#29C0F8","#2AF0E4"],
+	    		  ];
+	    		  var index = params.dataIndex;
+	    		  return new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+	    			  {
+	                    offset: 0,
+	                    color: colorList[index][0]
+	                  }, 
+	                  {
+	                    offset: 1,
+	                    color: colorList[index][1]
+	                  }
+	              ])
+	    	  }
+	      }
 	    }
 	  ]
 	};
@@ -335,30 +445,65 @@ body{
 	margin-left: 15px;
 }
 .top_div .title_div{
-	width:535px;height:83px;line-height:83px;margin: 0 auto;color:#fff;text-align:center;font-size:35px; background:-webkit-linear-gradient(top,rgba(63,109,233,0.1),rgba(63,109,233,0.5));
+	width:535px;
+	height:83px;
+	line-height:83px;
+	margin: 0 auto;
+	color:#fff;
+	font-size:35px; 
+	text-align:center;
+	background:-webkit-linear-gradient(top,rgba(63,109,233,0.1),rgba(63,109,233,0.5));
 }
 .top_div .border_div{
-	width:90%;height:2px;margin:0 auto;background:linear-gradient(to left,#3E557E,#3F6DE9,#3E557E);
+	width:90%;
+	height:2px;
+	margin:0 auto;
+	background:linear-gradient(to left,#3E557E,#3F6DE9,#3E557E);
+}
+.top_div .right_div{
+	margin-top: -70px;margin-right: 100px;float: right;
+}
+.top_div .right_div .but_img{
+	cursor: pointer;
+}
+.top_div .right_div .qht_but_img{
+	margin-left: 40px;
 }
 
 .left_panel_div{
-	width: 490px;height: 780px;background-color: #0f0;
+	width: 490px;
+	height: 780px;
+	background-color: rgba(35,118,190,0.5);
 }
 .left_panel_div .cqzxrstj_div{
-	width: 100%;height: 200px;background-color: #00f;
+	width: 100%;
+	height: 200px;
+	/*
+	background-color: #00f;
+	*/
 }
 .left_panel_div .cqzxrstj_div .title_div,
 .left_panel_div .gjjc_div .title_div,
 .right_panel_div .ssgj_div .title_div,
 .right_panel_div .ryfbtj_div .title_div{
-	width: 100%;color:#fff;font-size:18px;font-weight: bold;text-align: center;
+	width: 100%;
+	color:#fff;
+	font-size:18px;
+	font-weight: bold;
+	text-align: center;
 }
 .left_panel_div .cqzxrstj_div .pie_div{
-	width: 100%;height: 100px;margin-top:20px;background-color: #0ff;
+	width: 100%;
+	height: 100px;
+	margin-top:20px;
+	background-color: #0ff;
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div{
-	width: 280px;margin-left:80px;
+	width: 280px;
+	margin-left:80px;
+	/*
 	background-color: #f0f;
+	*/
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div .text_span{
 	color:#fff;
@@ -367,13 +512,17 @@ body{
 	color:#f00;
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div .djck_a{
-	margin-left:10px;color:#00f;
+	margin-left:10px;
+	color:#00f;
 }
 .left_panel_div .gjjc_div{
-	width: 100%;height: 300px;margin-top: 30px;
+	width: 100%;
+	height: 300px;
+	margin-top: 30px;
 }
 .left_panel_div .gjjc_div .pie_div{
-	width: 100%;height: 250px;
+	width: 100%;
+	height: 250px;
 }
 .left_panel_div .gjjc_div .center_img{
 	width: 70px;
@@ -382,18 +531,26 @@ body{
 	margin-left: 210px;
 }
 .left_panel_div .gjjc_div .legend_div{
-	width: 300px;height: 150px;margin:0 auto;
+	width: 300px;
+	height: 150px;
+	margin:0 auto;
 }
 .left_panel_div .gjjc_div .legend_div .item_div{
-	width:150px;height: 50px;
+	width:150px;
+	height: 50px;
 }
 .left_panel_div .gjjc_div .legend_div .qtgj_item_div,
 .left_panel_div .gjjc_div .legend_div .dzwlgj_item_div,
 .left_panel_div .gjjc_div .legend_div .sosgj_item_div{
-	margin-top: -50px;margin-left: 150px;
+	margin-top: -50px;
+	margin-left: 150px;
 }
 .left_panel_div .gjjc_div .legend_div .item_div .icon_div{
-	width: 20px;height:20px;margin-top:15px;position: absolute;border-radius:10px;
+	width: 20px;
+	height:20px;
+	margin-top:15px;
+	position: absolute;
+	border-radius:10px;
 }
 .left_panel_div .gjjc_div .legend_div .item_div .bqdygj_icon_div{
 	background:linear-gradient(to left,#29C0F8,#2AF0E4);
@@ -414,26 +571,55 @@ body{
 	background:linear-gradient(to left,#FF995E,#FF2C4E);
 }
 .left_panel_div .gjjc_div .legend_div .item_div .text_div{
-	width:115px;height: 50px;line-height: 50px;margin-left: 35px;color: #fff;font-size: 15px;
+	width:115px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 35px;
+	color: #fff;
+	font-size: 15px;
 }
 
 .right_panel_div{
-	width: 490px;height: 780px;margin-top: -780px;float: right;background-color: #0f0;
+	width: 490px;
+	height: 780px;
+	margin-top: -780px;
+	float: right;
+	background-color: rgba(35,118,190,0.5);
 }
 .right_panel_div .ssgj_div{
-	width: 100%;height: 270px;background: #00f;
+	width: 100%;
+	height: 270px;
+	/*
+	background: #00f;
+	*/
 }
 .right_panel_div .ssgj_div .list_div{
-	width: 90%;height: 120px;margin-top: 40px;margin-left: 20px;background: #0f0;
+	width: 90%;
+	height: 120px;
+	margin-top: 40px;
+	margin-left: 20px;
+	/*
+	background: #0f0;
+	*/
 }
 .right_panel_div .ssgj_div .list_div .item_div{
-	width: 100%;height: 40px;line-height: 40px;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
 }
 .right_panel_div .ssgj_div .list_div .item_div .text_span{
 	color: #FF5200;
 }
 .right_panel_div .ssgj_div .list_div .item_div .but_div{
-	width: 100px;height: 30px;line-height: 30px;color:#00304C;font-weight:bold;text-align:center;border-radius:10px;float: right;margin-top: 5px;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 5px;
+	color:#00304C;
+	font-weight:bold;
+	text-align:center;
+	border-radius:10px;
+	float: right;
 }
 .right_panel_div .ssgj_div .list_div .item_div .ycl_but_div{
 	background-color: #00F6FF;
@@ -453,8 +639,12 @@ body{
 	border-radius:10px;
 }
 .right_panel_div .ryfbtj_div{
-	width: 100%;height: 430px;margin-top: 30px;
+	width: 100%;
+	height: 430px;
+	margin-top: 30px;
+	/*
 	background-color: #f00;
+	*/
 }
 .right_panel_div .ryfbtj_div .bar_div{
 	width: 100%;
@@ -475,6 +665,10 @@ body{
 	</div>
 	<div class="title_div">人员定位管理平台</div>
 	<div class="border_div"></div>
+	<div class="right_div">
+		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png">
+		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
+	</div>
 </div>
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
