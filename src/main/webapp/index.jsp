@@ -10,18 +10,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/echarts.min.js"></script>
-<!-- 
 <script src="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Cesium.js"></script>  
 <link href="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
- --> 
 <script>  
 var path='<%=basePath %>';
 //http://localhost:8080/HLRYDW/
 //颜色渐变:https://www.cnblogs.com/kyshu/p/9076849.html
 $(function(){
-	//initViewer();
-	//loadTileset();
-	resetDivSize();
+	initViewer();
+	loadTileset();
+	//resetDivSize();
 	initGJJCPie();
 	initRyfbtjBarDiv();
 	initRyfbtjPieDiv();
@@ -329,12 +327,25 @@ function resetDivSize(){
 	var topDivHeight=$("#top_div").css("height");
 	topDivHeight=parseInt(topDivHeight.substring(0,topDivHeight.length-2));
 	
+	var panelMarginTop=-(bodyHeight-topDivHeight-20);
 	var leftPanelDiv=$("#left_panel_div");
-	leftPanelDiv.css("margin-top",-(bodyHeight-topDivHeight-20)+"px");
+	leftPanelDiv.css("margin-top",panelMarginTop+"px");
+
+	var rightPanelDiv=$("#right_panel_div");
+	rightPanelDiv.css("margin-top",panelMarginTop+"px");
 }
 
 function initViewer(){
-	viewer = new Cesium.Viewer('cesiumContainer');
+	viewer = new Cesium.Viewer('cesiumContainer',{
+        animation:false,    //左下角的动画仪表盘
+        baseLayerPicker:false,  //右上角的图层选择按钮
+        geocoder:false,  //搜索框
+        homeButton:false,  //home按钮
+        sceneModePicker:false, //模式切换按钮
+        timeline:false,    //底部的时间轴
+        navigationHelpButton:false,  //右上角的帮助按钮
+        fullscreenButton:false   //右下角的全屏按钮
+	});
 	
 	/*
 	//获取经纬度、高度链接：https://www.cnblogs.com/telwanggs/p/11289455.html
@@ -474,6 +485,7 @@ body{
 	width: 490px;
 	height: 780px;
 	background-color: rgba(35,118,190,0.5);
+	position: fixed;
 }
 .left_panel_div .cqzxrstj_div{
 	width: 100%;
@@ -583,8 +595,9 @@ body{
 	width: 490px;
 	height: 780px;
 	margin-top: -780px;
-	float: right;
+	right:0;
 	background-color: rgba(35,118,190,0.5);
+	position: fixed;
 }
 .right_panel_div .ssgj_div{
 	width: 100%;
@@ -714,7 +727,7 @@ body{
 		</div>
 	</div>
 </div>
-<div class="right_panel_div">
+<div class="right_panel_div" id="right_panel_div">
 	<div class="ssgj_div">
 		<div class="title_div">实时告警</div>
 		<div class="list_div">
