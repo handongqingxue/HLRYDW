@@ -17,13 +17,56 @@ var path='<%=basePath %>';
 //http://localhost:8080/HLRYDW/
 //颜色渐变:https://www.cnblogs.com/kyshu/p/9076849.html
 $(function(){
-	initViewer();
-	loadTileset();
-	//resetDivSize();
+	//initViewer();
+	//loadTileset();
+	resetDivSize();
+	initCQZXRSTJBar();
 	initGJJCPie();
 	initRyfbtjBarDiv();
 	initRyfbtjPieDiv();
 });
+
+//https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential
+function initCQZXRSTJBar(){
+	/*
+	option = {
+  title: [
+    {
+      text: '800',
+      x:'center',
+      y:'center',
+      textStyle: { 
+        fontSize: 150,
+        fontStyle: 'normal',
+        fontWeight: 'normal'
+      }
+    }
+  ],
+  polar: {
+    radius: [220, '80%']
+  },
+  angleAxis: {
+    max: 4,
+    startAngle: 75
+  },
+  radiusAxis: {
+    type: 'category',
+    data: [ 'd']
+  },
+  tooltip: {},
+  series: {
+    type: 'bar',
+    data: [3.6],
+    coordinateSystem: 'polar',
+    label: {
+      show: true,
+      position: 'middle',
+      formatter: '{b}: {c}'
+    }
+  }
+};
+	*/
+}
 
 //https://www.jianshu.com/p/4f459d16e8b4
 function initRyfbtjPieDiv(){
@@ -481,10 +524,19 @@ body{
 	margin-left: 40px;
 }
 
-.left_panel_div{
-	width: 490px;
+.left_panel_bg_div{
+	width: 475px;
 	height: 780px;
+	margin-top: -850px;
+	background-image: url('resource/image/202111230004.png');
+	position:fixed; 
+}
+.left_panel_div{
+	width: 480px;
+	height: 780px;
+	/*
 	background-color: rgba(35,118,190,0.5);
+	*/
 	position: fixed;
 }
 .left_panel_div .cqzxrstj_div{
@@ -683,6 +735,7 @@ body{
 		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
 	</div>
 </div>
+<div class="left_panel_bg_div"></div>
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
 		<div class="title_div">厂区在线人数统计</div>
@@ -727,6 +780,7 @@ body{
 		</div>
 	</div>
 </div>
+
 <div class="right_panel_div" id="right_panel_div">
 	<div class="ssgj_div">
 		<div class="title_div">实时告警</div>
