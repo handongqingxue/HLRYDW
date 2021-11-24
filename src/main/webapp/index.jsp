@@ -10,12 +10,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/echarts.min.js"></script>
+<!-- 
 <script src="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Cesium.js"></script>  
 <link href="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+ -->
 <script>  
 var path='<%=basePath %>';
 //http://localhost:8080/HLRYDW/
 //颜色渐变:https://www.cnblogs.com/kyshu/p/9076849.html
+var lpbdMarginLeft;
+var lpbdMarginLeftTimer;
+var lpbdRight;
+var lpbdRightTimer;
 $(function(){
 	//initViewer();
 	//loadTileset();
@@ -371,11 +377,19 @@ function resetDivSize(){
 	topDivHeight=parseInt(topDivHeight.substring(0,topDivHeight.length-2));
 	
 	var panelMarginTop=-(bodyHeight-topDivHeight-20);
+	var leftPanelBgDiv=$("#left_panel_bg_div");
+	leftPanelBgDiv.css("margin-top",panelMarginTop+"px");
 	var leftPanelDiv=$("#left_panel_div");
 	leftPanelDiv.css("margin-top",panelMarginTop+"px");
+	lpbdMarginLeft=leftPanelBgDiv.css("margin-left");
+	lpbdMarginLeft=lpbdMarginLeft.substring(0,lpbdMarginLeft.length-2);
 
+	var rightPanelBgDiv=$("#right_panel_bg_div");
+	rightPanelBgDiv.css("margin-top",panelMarginTop+"px");
 	var rightPanelDiv=$("#right_panel_div");
 	rightPanelDiv.css("margin-top",panelMarginTop+"px");
+	lpbdRight=rightPanelBgDiv.css("right");
+	lpbdRight=lpbdRight.substring(0,lpbdRight.length-2);
 }
 
 function initViewer(){
@@ -474,6 +488,66 @@ function loadTileset(){
 	});
 	*/
 }
+
+function openLeftPanelDiv(){
+	var flag;
+	if(lpbdMarginLeft==-470)
+		flag=true;
+	else if(lpbdMarginLeft==10)
+		flag=false;
+	lpbdMarginLeftTimer=setInterval(() => {
+		changeLeftPanelWidth(flag);
+	}, 10);
+}
+
+function changeLeftPanelWidth(flag){
+	if(flag){
+		lpbdMarginLeft+=10;
+		if(lpbdMarginLeft>10)
+			lpbdMarginLeft=10;
+	}
+	else{
+		lpbdMarginLeft-=10;
+		if(lpbdMarginLeft<-470)
+			lpbdMarginLeft=-470;
+	}
+
+	console.log("lpbdMarginLeft="+lpbdMarginLeft)
+	if(lpbdMarginLeft==10||lpbdMarginLeft==-470)
+		clearInterval(lpbdMarginLeftTimer);
+	$("#left_panel_bg_div").css("margin-left",lpbdMarginLeft+"px");
+	$("#left_panel_div").css("margin-left",lpbdMarginLeft+"px");
+}
+
+function openRightPanelDiv(){
+	var flag;
+	if(lpbdRight==-540)
+		flag=true;
+	else if(lpbdRight==0)
+		flag=false;
+	lpbdRightTimer=setInterval(() => {
+		changeRightPanelWidth(flag);
+	}, 10);
+}
+
+function changeRightPanelWidth(flag){
+	if(flag){
+		lpbdRight+=10;
+		if(lpbdRight>540)
+			lpbdRight=540;
+	}
+	else{
+		lpbdRight-=10;
+		if(lpbdRight<-540)
+			lpbdRight=540;
+	}
+
+	console.log("lpbdRight="+lpbdRight)
+	if(lpbdRight==10||lpbdRight==-540)
+		clearInterval(lpbdRightTimer);
+	$("#right_panel_bg_div").css("right",lpbdRight+"px");
+	$("#right_panel_div").css("right",lpbdRight+"px");
+}
 </script>  
 <title>Insert title here</title>
 <style type="text/css">
@@ -527,7 +601,6 @@ body{
 .left_panel_bg_div{
 	width: 475px;
 	height: 780px;
-	margin-top: -850px;
 	background-image: url('resource/image/202111230004.png');
 	position:fixed; 
 }
@@ -642,13 +715,29 @@ body{
 	color: #fff;
 	font-size: 15px;
 }
+.left_panel_div .open_but_div{
+	width: 5px;
+	height: 100px;
+	margin-left:470px;
+	margin-top:-250px; 
+	background-color: #00f;
+	position:fixed; 
+}
 
-.right_panel_div{
-	width: 490px;
+.right_panel_bg_div{
+	width: 550px;
 	height: 780px;
-	margin-top: -780px;
 	right:0;
+	background-image: url('resource/image/202111230005.png');
+	position:fixed; 
+}
+.right_panel_div{
+	width: 550px;
+	height: 780px;
+	right:0;
+	/*
 	background-color: rgba(35,118,190,0.5);
+	*/
 	position: fixed;
 }
 .right_panel_div .ssgj_div{
@@ -659,10 +748,10 @@ body{
 	*/
 }
 .right_panel_div .ssgj_div .list_div{
-	width: 90%;
+	width: 70%;
 	height: 120px;
 	margin-top: 40px;
-	margin-left: 20px;
+	margin-left: 100px;
 	/*
 	background: #0f0;
 	*/
@@ -719,10 +808,18 @@ body{
 	width: 100%;
 	height: 250px;
 }
+.right_panel_div .open_but_div{
+	width: 5px;
+	height: 100px;
+	margin-right:540px;
+	margin-top:-420px; 
+	background-color: #00f;
+	position:fixed; 
+}
 </style>
 </head>
 <body>
-<div id="cesiumContainer"></div>
+<div id="cesiumContainer" style="width: 100%;height: 952px;"></div>
 <div class="top_div" id="top_div">
 	<div class="left_div">
 		<span>2019-10-16 10:10:10</span>
@@ -735,7 +832,7 @@ body{
 		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
 	</div>
 </div>
-<div class="left_panel_bg_div"></div>
+<div class="left_panel_bg_div" id="left_panel_bg_div"></div>
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
 		<div class="title_div">厂区在线人数统计</div>
@@ -779,8 +876,10 @@ body{
 			</div>
 		</div>
 	</div>
+	<div class="open_but_div" id="open_but_div" onclick="openLeftPanelDiv()"></div>
 </div>
 
+<div class="right_panel_bg_div" id="right_panel_bg_div"></div>
 <div class="right_panel_div" id="right_panel_div">
 	<div class="ssgj_div">
 		<div class="title_div">实时告警</div>
@@ -805,6 +904,7 @@ body{
 		<div class="bar_div" id="ryfbtj_bar_div"></div>
 		<div class="pie_div" id="ryfbtj_pie_div"></div>
 	</div>
+	<div class="open_but_div" id="open_but_div" onclick="openRightPanelDiv()"></div>
 </div>
 </body>
 </html>
