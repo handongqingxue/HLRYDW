@@ -26,37 +26,43 @@ $(function(){
 	//initViewer();
 	//loadTileset();
 	resetDivSize();
-	initCQZXRSTJBar();
+	initCQZXRSTJListBar();
 	initGJJCPie();
 	initRyfbtjBarDiv();
 	initRyfbtjPieDiv();
 });
 
 //https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential
-function initCQZXRSTJBar(){
-	var chartDom = document.getElementById('qyyg_bar_div');
+function initCQZXRSTJListBar(){
+	initCQZXRSTJItemBar('qyyg_bar_div',2000,800,"企业员工");
+	initCQZXRSTJItemBar('cbs_bar_div',2000,700,"承包商");
+	initCQZXRSTJItemBar('wlfk_bar_div',2000,500,"外来访客");
+}		
+		
+function initCQZXRSTJItemBar(barDivName,maxValue,currentValue,barText){
+	var chartDom = document.getElementById(barDivName);
 	var myChart = echarts.init(chartDom);
 	var option;
 
 	option = {
 	  title: [
 	    {
-	      text: '800',
+	      text: currentValue,
 	      x: 'center',
 	      y: 'center',
 	      textStyle: {
 	        color: '#4CF5B0',
-	        fontSize: 150,
+	        fontSize: 20,
 	        fontStyle: 'normal',
 	        fontWeight: 'normal'
 	      }
 	    }
 	  ],
 	  polar: {
-	    radius: [220, '80%']
+	    radius: [40, '60%']
 	  },
 	  angleAxis: {
-	    max: 4,
+	    max: maxValue,
 	    startAngle: -90,
 	    splitLine: {
 	      show: false
@@ -80,7 +86,7 @@ function initCQZXRSTJBar(){
 	  tooltip: {},
 	  series: {
 	    type: 'bar',
-	    data: [3.6],
+	    data: [currentValue],
 	    itemStyle: {
 	      color: function (params) {
 	        var colorArr = ['#5091FF', '#0FDDCE'];
@@ -102,6 +108,8 @@ function initCQZXRSTJBar(){
 	};
 
 	option && myChart.setOption(option);
+	
+	$("#"+barDivName).parent().find(".text_div").text(barText);
 }
 
 //https://www.jianshu.com/p/4f459d16e8b4
@@ -659,11 +667,28 @@ body{
 	font-weight: bold;
 	text-align: center;
 }
-.left_panel_div .cqzxrstj_div .bar_div{
+.left_panel_div .cqzxrstj_div .bar_list_div{
 	width: 100%;
 	height: 100px;
 	margin:20px auto 0;
+	/*
 	background-color: #0ff;
+	*/
+}
+.left_panel_div .cqzxrstj_div .bar_list_div .item_div{
+	width: 33%;height: 100px;
+}
+.left_panel_div .cqzxrstj_div .bar_list_div .cbs_item_div{
+	margin-top: -100px;margin-left: 33%;
+}
+.left_panel_div .cqzxrstj_div .bar_list_div .wlfk_item_div{
+	margin-top: -100px;margin-left: 66%;
+}
+.left_panel_div .cqzxrstj_div .bar_list_div .item_div .bar_div{
+	width: 80px;height: 80px;margin: auto;
+}
+.left_panel_div .cqzxrstj_div .bar_list_div .item_div .text_div{
+	width: 100%;height: 20px;line-height: 20px;color:#fff;text-align: center;
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div{
 	width: 280px;
@@ -866,8 +891,19 @@ body{
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
 		<div class="title_div">厂区在线人数统计</div>
-		<div class="bar_div">
-			<div class="qyyg_bar_div" id="qyyg_bar_div"></div>
+		<div class="bar_list_div">
+			<div class="item_div">
+				<div class="bar_div" id="qyyg_bar_div"></div>
+				<div class="text_div"></div>
+			</div>
+			<div class="item_div cbs_item_div">
+				<div class="bar_div" id="cbs_bar_div"></div>
+				<div class="text_div"></div>
+			</div>
+			<div class="item_div wlfk_item_div">
+				<div class="bar_div" id="wlfk_bar_div"></div>
+				<div class="text_div"></div>
+			</div>
 		</div>
 		<div class="ycrstj_div">
 			<span class="text_span">异常人数统计：</span>
