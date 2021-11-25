@@ -34,44 +34,74 @@ $(function(){
 
 //https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential
 function initCQZXRSTJBar(){
-	/*
+	var chartDom = document.getElementById('qyyg_bar_div');
+	var myChart = echarts.init(chartDom);
+	var option;
+
 	option = {
-  title: [
-    {
-      text: '800',
-      x:'center',
-      y:'center',
-      textStyle: { 
-        fontSize: 150,
-        fontStyle: 'normal',
-        fontWeight: 'normal'
-      }
-    }
-  ],
-  polar: {
-    radius: [220, '80%']
-  },
-  angleAxis: {
-    max: 4,
-    startAngle: 75
-  },
-  radiusAxis: {
-    type: 'category',
-    data: [ 'd']
-  },
-  tooltip: {},
-  series: {
-    type: 'bar',
-    data: [3.6],
-    coordinateSystem: 'polar',
-    label: {
-      show: true,
-      position: 'middle',
-      formatter: '{b}: {c}'
-    }
-  }
-};
-	*/
+	  title: [
+	    {
+	      text: '800',
+	      x: 'center',
+	      y: 'center',
+	      textStyle: {
+	        color: '#4CF5B0',
+	        fontSize: 150,
+	        fontStyle: 'normal',
+	        fontWeight: 'normal'
+	      }
+	    }
+	  ],
+	  polar: {
+	    radius: [220, '80%']
+	  },
+	  angleAxis: {
+	    max: 4,
+	    startAngle: -90,
+	    splitLine: {
+	      show: false
+	    },
+	    axisLabel: {
+	      //周围刻度线的数字
+	      show: false
+	    },
+	    axisLine: {
+	      //外环的线
+	      show: false
+	    },
+	    axisTick: {
+	      //一个一个的小刻度
+	      show: false
+	    }
+	  },
+	  radiusAxis: {
+	    type: 'category'
+	  },
+	  tooltip: {},
+	  series: {
+	    type: 'bar',
+	    data: [3.6],
+	    itemStyle: {
+	      color: function (params) {
+	        var colorArr = ['#5091FF', '#0FDDCE'];
+	        var index = params.dataIndex;
+	        return new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+	          {
+	            offset: 0,
+	            color: colorArr[0]
+	          },
+	          {
+	            offset: 1,
+	            color: colorArr[1]
+	          }
+	        ]);
+	      }
+	    },
+	    coordinateSystem: 'polar'
+	  }
+	};
+
+	option && myChart.setOption(option);
 }
 
 //https://www.jianshu.com/p/4f459d16e8b4
@@ -629,10 +659,10 @@ body{
 	font-weight: bold;
 	text-align: center;
 }
-.left_panel_div .cqzxrstj_div .pie_div{
+.left_panel_div .cqzxrstj_div .bar_div{
 	width: 100%;
 	height: 100px;
-	margin-top:20px;
+	margin:20px auto 0;
 	background-color: #0ff;
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div{
@@ -836,7 +866,9 @@ body{
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
 		<div class="title_div">厂区在线人数统计</div>
-		<div class="pie_div"></div>
+		<div class="bar_div">
+			<div class="qyyg_bar_div" id="qyyg_bar_div"></div>
+		</div>
 		<div class="ycrstj_div">
 			<span class="text_span">异常人数统计：</span>
 			<span class="renShu_span">10</span>
