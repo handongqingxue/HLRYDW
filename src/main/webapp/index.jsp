@@ -10,10 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/echarts.min.js"></script>
-<!-- 
 <script src="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Cesium.js"></script>  
 <link href="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
- -->
 <script>  
 var path='<%=basePath %>';
 //http://localhost:8080/HLRYDW/
@@ -37,7 +35,24 @@ function initCQZXRSTJListBar(){
 	initCQZXRSTJItemBar('qyyg_bar_div',2000,800,"企业员工");
 	initCQZXRSTJItemBar('cbs_bar_div',2000,700,"承包商");
 	initCQZXRSTJItemBar('wlfk_bar_div',2000,500,"外来访客");
-}		
+	//initCQZXRSTJBarCircle();
+}	
+
+/*
+//https://blog.csdn.net/a727911438/article/details/70329228/
+function initCQZXRSTJBarCircle(){
+	var bldWidth=$(".bar_list_div").css("width");
+	bldWidth=bldWidth.substring(0,bldWidth.length-2);
+	var bldItemLength=$(".bar_list_div .item_div").length;
+	var bldItemWidth=bldWidth/bldItemLength;
+	var bldItemBarWidth=$(".bar_list_div .item_div .bar_div").css("width");
+	bldItemBarWidth=bldItemBarWidth.substring(0,bldItemBarWidth.length-2);
+	
+	barRadius=bldItemBarWidth/2;
+	var barAngle=800*360/2000;
+	//alert(Math.sin(60))
+}
+*/
 		
 function initCQZXRSTJItemBar(barDivName,maxValue,currentValue,barText){
 	var chartDom = document.getElementById(barDivName);
@@ -51,7 +66,7 @@ function initCQZXRSTJItemBar(barDivName,maxValue,currentValue,barText){
 	      x: 'center',
 	      y: 'center',
 	      textStyle: {
-	        color: '#4CF5B0',
+	        color:'#0FDDCE',
 	        fontSize: 20,
 	        fontStyle: 'normal',
 	        fontWeight: 'normal'
@@ -87,6 +102,7 @@ function initCQZXRSTJItemBar(barDivName,maxValue,currentValue,barText){
 	  series: {
 	    type: 'bar',
 	    data: [currentValue],
+	    roundCap: true,
 	    itemStyle: {
 	      color: function (params) {
 	        var colorArr = ['#5091FF', '#0FDDCE'];
@@ -594,11 +610,9 @@ body{
 }
 .top_div{
 	width:100%;
-	height:85px;
+	height:95px;
+	background-image: url('resource/image/202111230008.png');
 	position:fixed;
-	background-color:rgba(55,90,108,0.5);
-	border-bottom:linear-gradient(to left,#3E557E,#3F6DE9,#3E557E);
-	border-bottom-width:1px;
 }
 .top_div .left_div{
 	margin-top:30px;
@@ -611,20 +625,14 @@ body{
 	margin-left: 15px;
 }
 .top_div .title_div{
-	width:535px;
-	height:83px;
-	line-height:83px;
+	width:605px;
+	height:94px;
+	line-height:94px;
 	margin: 0 auto;
 	color:#fff;
 	font-size:35px; 
 	text-align:center;
-	background:-webkit-linear-gradient(top,rgba(63,109,233,0.1),rgba(63,109,233,0.5));
-}
-.top_div .border_div{
-	width:90%;
-	height:2px;
-	margin:0 auto;
-	background:linear-gradient(to left,#3E557E,#3F6DE9,#3E557E);
+	background-image: url('resource/image/202111230009.png');
 }
 .top_div .right_div{
 	margin-top: -70px;margin-right: 100px;float: right;
@@ -637,14 +645,14 @@ body{
 }
 
 .left_panel_bg_div{
-	width: 475px;
-	height: 780px;
+	width: 546px;
+	height: 830px;
 	background-image: url('resource/image/202111230004.png');
 	position:fixed; 
 }
 .left_panel_div{
-	width: 480px;
-	height: 780px;
+	width: 546px;
+	height: 830px;
 	/*
 	background-color: rgba(35,118,190,0.5);
 	*/
@@ -780,14 +788,14 @@ body{
 }
 
 .right_panel_bg_div{
-	width: 550px;
-	height: 780px;
+	width: 566px;
+	height: 925px;
 	right:0;
 	background-image: url('resource/image/202111230005.png');
 	position:fixed; 
 }
 .right_panel_div{
-	width: 550px;
+	width: 566px;
 	height: 780px;
 	right:0;
 	/*
@@ -881,7 +889,6 @@ body{
 		<span class="dqyh_key_span">当前用户：</span><span>管理员</span>
 	</div>
 	<div class="title_div">人员定位管理平台</div>
-	<div class="border_div"></div>
 	<div class="right_div">
 		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png">
 		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
@@ -894,6 +901,9 @@ body{
 		<div class="bar_list_div">
 			<div class="item_div">
 				<div class="bar_div" id="qyyg_bar_div"></div>
+				<!-- 
+				<img class="bar_circle" alt="" src="<%=basePath %>resource/image/202111230006.png" style="margin-top: -10px;margin-left: 10px;position: absolute;">
+				 -->
 				<div class="text_div"></div>
 			</div>
 			<div class="item_div cbs_item_div">
