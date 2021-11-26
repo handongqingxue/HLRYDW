@@ -10,8 +10,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/echarts.min.js"></script>
+<!-- 
 <script src="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Cesium.js"></script>  
 <link href="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+ -->
 <script>  
 var path='<%=basePath %>';
 //http://localhost:8080/HLRYDW/
@@ -24,17 +26,17 @@ $(function(){
 	//initViewer();
 	//loadTileset();
 	resetDivSize();
-	initCQZXRSTJListBar();
+	initCQZXRSTJListPie();
 	initGJJCPie();
 	initRyfbtjBarDiv();
 	initRyfbtjPieDiv();
 });
 
 //https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential
-function initCQZXRSTJListBar(){
-	initCQZXRSTJItemBar('qyyg_bar_div',2000,800,"企业员工");
-	initCQZXRSTJItemBar('cbs_bar_div',2000,700,"承包商");
-	initCQZXRSTJItemBar('wlfk_bar_div',2000,500,"外来访客");
+function initCQZXRSTJListPie(){
+	initCQZXRSTJItemPie('qyyg_pie_div',"#063A7F",2000,"#0f0",800,"企业员工");
+	initCQZXRSTJItemPie('cbs_pie_div',"#063A7F",2000,"#f00",700,"承包商");
+	initCQZXRSTJItemPie('wlfk_pie_div',"#063A7F",2000,"#f00",500,"外来访客");
 	//initCQZXRSTJBarCircle();
 }	
 
@@ -54,11 +56,12 @@ function initCQZXRSTJBarCircle(){
 }
 */
 		
-function initCQZXRSTJItemBar(barDivName,maxValue,currentValue,barText){
-	var chartDom = document.getElementById(barDivName);
+function initCQZXRSTJItemPie(pieDivName,maxBgColor,maxValue,currentBgColor,currentValue,pieText){
+	var chartDom = document.getElementById(pieDivName);
 	var myChart = echarts.init(chartDom);
 	var option;
 
+	/*
 	option = {
 	  title: [
 	    {
@@ -122,10 +125,34 @@ function initCQZXRSTJItemBar(barDivName,maxValue,currentValue,barText){
 	    coordinateSystem: 'polar'
 	  }
 	};
+	*/
+	option = {
+	  color:[currentBgColor,maxBgColor],
+	  series: [
+	    {
+	      type: 'pie',
+	      radius: [25, 40],
+	      center: ['50%', '50%'],
+	      label:{
+	    	normal:{
+	    	   show:true,
+		        position: 'center',
+		        color:currentBgColor,
+		        formatter: currentValue.toString()
+	    	}
+	      },
+	      data: [
+	        { value: currentValue},
+	        { value: maxValue-currentValue}
+	      ]
+	    }
+	  ]
+	};
 
 	option && myChart.setOption(option);
 	
-	$("#"+barDivName).parent().find(".text_div").text(barText);
+	$("#"+pieDivName).parent().find(".tit_div .pointer_div").css("background-color",currentBgColor);
+	$("#"+pieDivName).parent().find(".tit_div .text_div").text(pieText);
 }
 
 //https://www.jianshu.com/p/4f459d16e8b4
@@ -675,7 +702,7 @@ body{
 	font-weight: bold;
 	text-align: center;
 }
-.left_panel_div .cqzxrstj_div .bar_list_div{
+.left_panel_div .cqzxrstj_div .pie_list_div{
 	width: 100%;
 	height: 100px;
 	margin:20px auto 0;
@@ -683,20 +710,26 @@ body{
 	background-color: #0ff;
 	*/
 }
-.left_panel_div .cqzxrstj_div .bar_list_div .item_div{
+.left_panel_div .cqzxrstj_div .pie_list_div .item_div{
 	width: 33%;height: 100px;
 }
-.left_panel_div .cqzxrstj_div .bar_list_div .cbs_item_div{
+.left_panel_div .cqzxrstj_div .pie_list_div .cbs_item_div{
 	margin-top: -100px;margin-left: 33%;
 }
-.left_panel_div .cqzxrstj_div .bar_list_div .wlfk_item_div{
+.left_panel_div .cqzxrstj_div .pie_list_div .wlfk_item_div{
 	margin-top: -100px;margin-left: 66%;
 }
-.left_panel_div .cqzxrstj_div .bar_list_div .item_div .bar_div{
-	width: 80px;height: 80px;margin: auto;
+.left_panel_div .cqzxrstj_div .pie_list_div .item_div .tit_div{
+	width: 100px;height: 20px;line-height: 20px;margin: auto;color:#fff;
 }
-.left_panel_div .cqzxrstj_div .bar_list_div .item_div .text_div{
-	width: 100%;height: 20px;line-height: 20px;color:#fff;text-align: center;
+.left_panel_div .cqzxrstj_div .pie_list_div .item_div .tit_div .pointer_div{
+	width: 15px;height: 10px;border-radius:5px;
+}
+.left_panel_div .cqzxrstj_div .pie_list_div .item_div .tit_div .text_div{
+	margin-left: 30px;margin-top: -18px;
+}
+.left_panel_div .cqzxrstj_div .pie_list_div .item_div .pie_div{
+	width: 80px;height: 80px;margin: auto;
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div{
 	width: 280px;
@@ -898,21 +931,27 @@ body{
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
 		<div class="title_div">厂区在线人数统计</div>
-		<div class="bar_list_div">
+		<div class="pie_list_div">
 			<div class="item_div">
-				<div class="bar_div" id="qyyg_bar_div"></div>
-				<!-- 
-				<img class="bar_circle" alt="" src="<%=basePath %>resource/image/202111230006.png" style="margin-top: -10px;margin-left: 10px;position: absolute;">
-				 -->
-				<div class="text_div"></div>
+				<div class="tit_div">
+					<div class="pointer_div"></div>
+					<div class="text_div"></div>
+				</div>
+				<div class="pie_div" id="qyyg_pie_div"></div>
 			</div>
 			<div class="item_div cbs_item_div">
-				<div class="bar_div" id="cbs_bar_div"></div>
-				<div class="text_div"></div>
+				<div class="tit_div">
+					<div class="pointer_div"></div>
+					<div class="text_div"></div>
+				</div>
+				<div class="pie_div" id="cbs_pie_div"></div>
 			</div>
 			<div class="item_div wlfk_item_div">
-				<div class="bar_div" id="wlfk_bar_div"></div>
-				<div class="text_div"></div>
+				<div class="tit_div">
+					<div class="pointer_div"></div>
+					<div class="text_div"></div>
+				</div>
+				<div class="pie_div" id="wlfk_pie_div"></div>
 			</div>
 		</div>
 		<div class="ycrstj_div">
