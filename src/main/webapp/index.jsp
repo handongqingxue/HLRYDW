@@ -34,9 +34,9 @@ $(function(){
 
 //https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential
 function initCQZXRSTJListPie(){
-	initCQZXRSTJItemPie('qyyg_pie_div',"#063A7F",2000,"#0f0",800,"企业员工");
-	initCQZXRSTJItemPie('cbs_pie_div',"#063A7F",2000,"#f00",700,"承包商");
-	initCQZXRSTJItemPie('wlfk_pie_div',"#063A7F",2000,"#f00",500,"外来访客");
+	initCQZXRSTJItemPie('qyyg_pie_div',"#19CDFF",2000,"#FF3950",800,"企业员工");
+	initCQZXRSTJItemPie('cbs_pie_div',"#19CDFF",2000,"#57A0FC",700,"承包商");
+	initCQZXRSTJItemPie('wlfk_pie_div',"#19CDFF",2000,"#FA8E0B",500,"外来访客");
 	//initCQZXRSTJBarCircle();
 }	
 
@@ -572,7 +572,7 @@ function loadTileset(){
 
 function openLeftPanelDiv(){
 	var flag;
-	if(lpbdMarginLeft==-470)
+	if(lpbdMarginLeft==-536)
 		flag=true;
 	else if(lpbdMarginLeft==10)
 		flag=false;
@@ -589,12 +589,12 @@ function changeLeftPanelWidth(flag){
 	}
 	else{
 		lpbdMarginLeft-=10;
-		if(lpbdMarginLeft<-470)
-			lpbdMarginLeft=-470;
+		if(lpbdMarginLeft<-536)
+			lpbdMarginLeft=-536;
 	}
 
 	console.log("lpbdMarginLeft="+lpbdMarginLeft)
-	if(lpbdMarginLeft==10||lpbdMarginLeft==-470)
+	if(lpbdMarginLeft==10||lpbdMarginLeft==-536)
 		clearInterval(lpbdMarginLeftTimer);
 	$("#left_panel_bg_div").css("margin-left",lpbdMarginLeft+"px");
 	$("#left_panel_div").css("margin-left",lpbdMarginLeft+"px");
@@ -602,7 +602,7 @@ function changeLeftPanelWidth(flag){
 
 function openRightPanelDiv(){
 	var flag;
-	if(lpbdRight==-540)
+	if(lpbdRight==-550)
 		flag=true;
 	else if(lpbdRight==0)
 		flag=false;
@@ -614,20 +614,21 @@ function openRightPanelDiv(){
 function changeRightPanelWidth(flag){
 	if(flag){
 		lpbdRight+=10;
-		if(lpbdRight>540)
-			lpbdRight=540;
+		if(lpbdRight>550)
+			lpbdRight=550;
 	}
 	else{
 		lpbdRight-=10;
-		if(lpbdRight<-540)
-			lpbdRight=540;
+		if(lpbdRight<-550)
+			lpbdRight=550;
 	}
 
 	console.log("lpbdRight="+lpbdRight)
-	if(lpbdRight==10||lpbdRight==-540)
+	if(lpbdRight==0||lpbdRight==-550)
 		clearInterval(lpbdRightTimer);
 	$("#right_panel_bg_div").css("right",lpbdRight+"px");
 	$("#right_panel_div").css("right",lpbdRight+"px");
+	$("#right_panel_div #open_but_div").css("right",550+lpbdRight+"px");//从左往右移动，从右面板的宽度里减去已移动过去的宽度
 }
 </script>  
 <title>Insert title here</title>
@@ -686,8 +687,9 @@ body{
 	position: fixed;
 }
 .left_panel_div .cqzxrstj_div{
-	width: 100%;
+	width: 400px;
 	height: 200px;
+	margin: auto;
 	/*
 	background-color: #00f;
 	*/
@@ -733,7 +735,7 @@ body{
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div{
 	width: 280px;
-	margin-left:80px;
+	margin: 30px auto 0;
 	/*
 	background-color: #f0f;
 	*/
@@ -759,9 +761,9 @@ body{
 }
 .left_panel_div .gjjc_div .center_img{
 	width: 70px;
-	height: 95px;
-	margin-top: -173px;
-	margin-left: 210px;
+	height: 91px;
+	margin-top: -170px;
+	margin-left: 237px;
 }
 .left_panel_div .gjjc_div .legend_div{
 	width: 300px;
@@ -812,11 +814,13 @@ body{
 	font-size: 15px;
 }
 .left_panel_div .open_but_div{
-	width: 5px;
+	width: 10px;
 	height: 100px;
-	margin-left:470px;
-	margin-top:-250px; 
+	margin-left:533px;
+	margin-top:-136px;
+	/*
 	background-color: #00f;
+	*/
 	position:fixed; 
 }
 
@@ -905,11 +909,13 @@ body{
 	height: 250px;
 }
 .right_panel_div .open_but_div{
-	width: 5px;
+	width: 10px;
 	height: 100px;
-	margin-right:540px;
-	margin-top:-420px; 
+	right:550px;
+	margin-top:-315px;
+	/*
 	background-color: #00f;
+	*/
 	position:fixed; 
 }
 </style>
