@@ -640,56 +640,9 @@ function changeRightPanelWidth(flag){
 	$("#right_panel_div").css("right",lpbdRight+"px");
 	$("#right_panel_div #open_but_div").css("right",550+lpbdRight+"px");//从左往右移动，从右面板的宽度里减去已移动过去的宽度
 }
-
-function goPage(page){
-	switch (page) {
-	case "main":
-		location.href="main.jsp";
-		break;
-	}
-}
 </script>  
 <title>Insert title here</title>
 <style type="text/css">
-body{
-	margin: 0;
-}
-.top_div{
-	width:100%;
-	height:95px;
-	background-image: url('resource/image/202111230008.png');
-	position:fixed;
-}
-.top_div .left_div{
-	margin-top:30px;
-	margin-left: 80px;
-	color: #00FFFF;
-	font-size:20px; 
-	position: absolute;
-}
-.top_div .left_div .dqyh_key_span{
-	margin-left: 15px;
-}
-.top_div .title_div{
-	width:605px;
-	height:94px;
-	line-height:94px;
-	margin: 0 auto;
-	color:#fff;
-	font-size:35px; 
-	text-align:center;
-	background-image: url('resource/image/202111230009.png');
-}
-.top_div .right_div{
-	margin-top: -70px;margin-right: 100px;float: right;
-}
-.top_div .right_div .but_img{
-	cursor: pointer;
-}
-.top_div .right_div .qht_but_img{
-	margin-left: 40px;
-}
-
 .left_panel_bg_div{
 	width: 546px;
 	height: 830px;
@@ -954,17 +907,7 @@ body{
 </head>
 <body>
 <div id="cesiumContainer" style="width: 100%;height: 952px;"></div>
-<div class="top_div" id="top_div">
-	<div class="left_div">
-		<span>2019-10-16 10:10:10</span>
-		<span class="dqyh_key_span">当前用户：</span><span>管理员</span>
-	</div>
-	<div class="title_div">人员定位管理平台</div>
-	<div class="right_div">
-		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png" onclick="goPage('main')">
-		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
-	</div>
-</div>
+<%@include file="inc/top.jsp"%>
 <div class="left_panel_bg_div" id="left_panel_bg_div"></div>
 <div class="left_panel_div" id="left_panel_div">
 	<div class="cqzxrstj_div">
