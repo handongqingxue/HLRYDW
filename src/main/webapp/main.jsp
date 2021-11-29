@@ -34,6 +34,11 @@ function resetDivSize(){
 	var leftPanelDiv=$("#left_panel_div");
 	leftPanelDiv.css("margin-top",panelMarginTop+"px");
 	leftPanelDiv.css("height",(bodyHeight-topDivHeight)+"px");
+	
+	var leftPanelHeight=leftPanelDiv.css("height");
+	var rightPanelDiv=$("#right_panel_div");
+	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
+	rightPanelDiv.css("margin-top",-(leftPanelHeight-400)+"px");
 }
 </script>  
 <title>Insert title here</title>
@@ -143,6 +148,19 @@ function resetDivSize(){
 	margin-top: -30px;
 	margin-left:100px;
 }
+
+.right_panel_div{
+	width: 50px;
+	height: 300px;
+	margin-top: -600px;
+	right:80px;
+	background-color: #0f0;
+	position: fixed;
+}
+.right_panel_div img{
+	width: 50px;
+	height: 50px;
+}
 </style>
 </head>
 <body>
@@ -207,6 +225,12 @@ function resetDivSize(){
 			<span class="gysgl_name_span">供应商管理</span>
 		</div>
 	</div>
+</div>
+<div class="right_panel_div" id="right_panel_div">
+	<img alt="" src="<%=basePath %>resource/image/202111230018.png">
+	<img alt="" src="<%=basePath %>resource/image/202111230019.png">
+	<img alt="" src="<%=basePath %>resource/image/202111230020.png">
+	<img alt="" src="<%=basePath %>resource/image/202111230021.png">
 </div>
 </body>
 </html>
