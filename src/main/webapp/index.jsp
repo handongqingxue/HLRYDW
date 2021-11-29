@@ -161,6 +161,7 @@ function initRyfbtjPieDiv(){
 	var myChart = echarts.init(chartDom);
 	var option;
 	option = {
+	  /*
 	  toolbox: {
 	    show: true,
 	    feature: {
@@ -170,6 +171,7 @@ function initRyfbtjPieDiv(){
 	      saveAsImage: { show: true }
 	    }
 	  },
+	  */
 	  series: [
 	    {
 	      name: 'Nightingale Chart',
@@ -361,7 +363,7 @@ function initGJJCPie(){
 	  series: [
 	    {
 	      type: 'pie',
-	      radius: [50, 70],
+	      radius: [55, 80],
 	      center: ['50%', '50%'],
 	      data: [
 	        { value: 69, name: '标签电压告警',itemStyle:{
@@ -432,7 +434,15 @@ function initGJJCPie(){
 	        }},
 	      ],
 	      label:{
-	    	  color:"rgb(255,255,255)"
+	    	  color:"rgb(255,255,255)",
+	          textStyle : {
+		         fontWeight : 'normal',
+		         fontSize : 15
+		      },
+		      formatter: function (params) {
+		         //console.log(params)
+	             return params.value;
+	          }
 	      }
 	    }
 	  ]
@@ -630,6 +640,14 @@ function changeRightPanelWidth(flag){
 	$("#right_panel_div").css("right",lpbdRight+"px");
 	$("#right_panel_div #open_but_div").css("right",550+lpbdRight+"px");//从左往右移动，从右面板的宽度里减去已移动过去的宽度
 }
+
+function goPage(page){
+	switch (page) {
+	case "main":
+		location.href="main.jsp";
+		break;
+	}
+}
 </script>  
 <title>Insert title here</title>
 <style type="text/css">
@@ -687,9 +705,8 @@ body{
 	position: fixed;
 }
 .left_panel_div .cqzxrstj_div{
-	width: 400px;
+	width: 480px;
 	height: 200px;
-	margin: auto;
 	/*
 	background-color: #00f;
 	*/
@@ -735,7 +752,7 @@ body{
 }
 .left_panel_div .cqzxrstj_div .ycrstj_div{
 	width: 280px;
-	margin: 30px auto 0;
+	margin: 40px auto 0;
 	/*
 	background-color: #f0f;
 	*/
@@ -753,11 +770,12 @@ body{
 .left_panel_div .gjjc_div{
 	width: 100%;
 	height: 300px;
-	margin-top: 30px;
+	margin-top: 40px;
 }
 .left_panel_div .gjjc_div .pie_div{
 	width: 100%;
 	height: 250px;
+	margin-top: 20px;
 }
 .left_panel_div .gjjc_div .center_img{
 	width: 70px;
@@ -772,12 +790,12 @@ body{
 }
 .left_panel_div .gjjc_div .legend_div .item_div{
 	width:150px;
-	height: 50px;
+	height: 55px;
 }
 .left_panel_div .gjjc_div .legend_div .qtgj_item_div,
 .left_panel_div .gjjc_div .legend_div .dzwlgj_item_div,
 .left_panel_div .gjjc_div .legend_div .sosgj_item_div{
-	margin-top: -50px;
+	margin-top: -55px;
 	margin-left: 150px;
 }
 .left_panel_div .gjjc_div .legend_div .item_div .icon_div{
@@ -851,7 +869,7 @@ body{
 	width: 70%;
 	height: 120px;
 	margin-top: 40px;
-	margin-left: 100px;
+	margin-left: 110px;
 	/*
 	background: #0f0;
 	*/
@@ -861,8 +879,19 @@ body{
 	height: 40px;
 	line-height: 40px;
 }
+.right_panel_div .ssgj_div .list_div .item_div .dot_div{
+	width: 6px;
+	height: 6px;
+	margin-top: 18px;
+	background-color: #FF5200;
+	border-radius:3px;
+	position: absolute;
+}
 .right_panel_div .ssgj_div .list_div .item_div .text_span{
 	color: #FF5200;
+}
+.right_panel_div .ssgj_div .list_div .item_div .name_span{
+	margin-left: 12px;
 }
 .right_panel_div .ssgj_div .list_div .item_div .but_div{
 	width: 100px;
@@ -872,6 +901,7 @@ body{
 	color:#00304C;
 	font-weight:bold;
 	text-align:center;
+	cursor:pointer;
 	border-radius:10px;
 	float: right;
 }
@@ -882,27 +912,29 @@ body{
 	background-color: #FA1B04;
 }
 .right_panel_div .ssgj_div .jrbjym_but_div{
-	width: 240px;
-	height: 60px;
-	line-height: 60px;
+	width: 210px;
+	height: 55px;
+	line-height: 55px;
 	margin:20px auto 0; 
 	color:#fff;
-	font-size:25px;
+	font-size:23px;
 	text-align:center;
 	background-color: #00B551;
+	cursor:pointer;
 	border-radius:10px;
 }
 .right_panel_div .ryfbtj_div{
 	width: 100%;
 	height: 430px;
-	margin-top: 30px;
+	margin-top: 25px;
 	/*
 	background-color: #f00;
 	*/
 }
 .right_panel_div .ryfbtj_div .bar_div{
 	width: 100%;
-	height: 200px;
+	height: 250px;
+	margin-top: -30px;
 }
 .right_panel_div .ryfbtj_div .pie_div{
 	width: 100%;
@@ -929,7 +961,7 @@ body{
 	</div>
 	<div class="title_div">人员定位管理平台</div>
 	<div class="right_div">
-		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png">
+		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png" onclick="goPage('main')">
 		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
 	</div>
 </div>
@@ -1008,15 +1040,18 @@ body{
 		<div class="title_div">实时告警</div>
 		<div class="list_div">
 			<div class="item_div">
-				<span class="text_span">王明阳</span><span class="text_span">工号</span><span class="text_span">004</span><span class="text_span">触发</span><span class="text_span">围栏报警</span>
+				<div class="dot_div"></div>
+				<span class="text_span name_span">王明阳</span><span class="text_span">工号</span><span class="text_span">004</span><span class="text_span">触发</span><span class="text_span">围栏报警</span>
 				<div class="but_div ycl_but_div">已处理</div>
 			</div>
 			<div class="item_div">
-				<span class="text_span">李天亯</span><span class="text_span">工号</span><span class="text_span">007</span><span class="text_span">触发</span><span class="text_span">滞留报警</span>
+				<div class="dot_div"></div>
+				<span class="text_span name_span">李天亯</span><span class="text_span">工号</span><span class="text_span">007</span><span class="text_span">触发</span><span class="text_span">滞留报警</span>
 				<div class="but_div ycl_but_div">已处理</div>
 			</div>
 			<div class="item_div">
-				<span class="text_span">李铁玉</span><span class="text_span">工号</span><span class="text_span">013</span><span class="text_span">触发</span><span class="text_span">SOS报警</span>
+				<div class="dot_div"></div>
+				<span class="text_span name_span">李铁玉</span><span class="text_span">工号</span><span class="text_span">013</span><span class="text_span">触发</span><span class="text_span">SOS报警</span>
 				<div class="but_div wcl_but_div">未处理</div>
 			</div>
 		</div>
