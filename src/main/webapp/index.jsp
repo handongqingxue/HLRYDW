@@ -10,6 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/echarts.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>resource/js/Cesium.js"></script>
+<link rel="stylesheet" href="<%=basePath %>resource/css/widgets.css">
 <!-- 
 <script src="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Cesium.js"></script>  
 <link href="https://cesiumjs.org/releases/1.56.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
