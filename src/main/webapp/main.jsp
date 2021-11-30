@@ -9,7 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
-<script>  
+<script>
+var path='<%=basePath %>';
 $(function(){
 	resetDivSize();
 });
@@ -38,7 +39,20 @@ function resetDivSize(){
 	var leftPanelHeight=leftPanelDiv.css("height");
 	var rightPanelDiv=$("#right_panel_div");
 	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
-	rightPanelDiv.css("margin-top",-(leftPanelHeight-400)+"px");
+	rightPanelDiv.css("margin-top",-(leftPanelHeight-350)+"px");
+}
+
+function showChildMenu(pointerImgId){
+	var pointerImgIdNum=pointerImgId.substring(11);
+	var display=$("#child_item_list_div"+pointerImgIdNum).css("display");
+	if(display=="none"){
+		$("#pointer_img"+pointerImgIdNum).attr("src",path+"resource/image/202111230012.png");
+		$("#child_item_list_div"+pointerImgIdNum).css("display","block");
+	}
+	else{
+		$("#pointer_img"+pointerImgIdNum).attr("src",path+"resource/image/202111230011.png");
+		$("#child_item_list_div"+pointerImgIdNum).css("display","none");
+	}
 }
 </script>  
 <title>Insert title here</title>
@@ -125,14 +139,15 @@ function resetDivSize(){
 	position: absolute;
 }
 .left_panel_div .menu_list_div .item_div .pointer_img{
-	width: 30px;
-	height: 30px;
-	margin-top: 5px;
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
 	margin-right: 20px;
 	float: right;
 }
 .left_panel_div .menu_list_div .child_item_list_div{
 	width: 100%;
+	display: none;
 }
 .left_panel_div .menu_list_div .child_item_list_div .child_item_div{
 	width: 180px;
@@ -150,16 +165,43 @@ function resetDivSize(){
 }
 
 .right_panel_div{
-	width: 50px;
-	height: 300px;
-	margin-top: -600px;
+	width: 60px;
+	height: 380px;
 	right:80px;
 	background-color: #0f0;
 	position: fixed;
 }
-.right_panel_div img{
+.right_panel_div .img1{
 	width: 50px;
 	height: 50px;
+	margin-top: 15px;
+	margin-left: 5px;
+}
+.right_panel_div .img2{
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+.right_panel_div .img3{
+	width: 50px;
+	height: 50px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.right_panel_div .img4{
+	width: 50px;
+	height: 50px;
+	margin-left: 5px;
+}
+.right_panel_div .img5{
+	width: 60px;
+	height: 60px;
+}
+.right_panel_div .img6{
+	width: 50px;
+	height: 77px;
+	margin-left: 5px;
 }
 </style>
 </head>
@@ -172,14 +214,14 @@ function resetDivSize(){
 		<span class="gjdj_span">告警等级：低</span>
 		<div class="yjqr_but_div">一键确认</div>
 	</div>
-	<div class="menu_list_div">
+	<div class="menu_list_div" id="menu_list_div1">
 		<div class="item_div">
 			<img class="ssdw_img" alt="" src="<%=basePath %>resource/image/202111230010.jpg">
 			<span class="ssdw_name_span">实时定位</span>
 			<span class="rs_span">人数：200</span>
-			<img class="pointer_img" alt="" src="<%=basePath %>resource/image/202111230011.png">
+			<img class="pointer_img" id="pointer_img1" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
 		</div>
-		<div class="child_item_list_div">
+		<div class="child_item_list_div" id="child_item_list_div1">
 			<div class="child_item_div">
 				<div class="child_name_div">一车间一楼</div>
 				<div class="child_rs_div">人数：200</div>
@@ -196,9 +238,9 @@ function resetDivSize(){
 		<div class="item_div">
 			<img class="sjfx_img" alt="" src="<%=basePath %>resource/image/202111230014.png">
 			<span class="sjfx_name_span">数据分析</span>
-			<img class="pointer_img" alt="" src="<%=basePath %>resource/image/202111230011.png">
+			<img class="pointer_img" id="pointer_img2" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
 		</div>
-		<div class="child_item_list_div">
+		<div class="child_item_list_div" id="child_item_list_div2">
 			<div class="child_item_div">
 				<div class="child_name_div">历史轨迹</div>
 			</div>
@@ -227,10 +269,12 @@ function resetDivSize(){
 	</div>
 </div>
 <div class="right_panel_div" id="right_panel_div">
-	<img alt="" src="<%=basePath %>resource/image/202111230018.png">
-	<img alt="" src="<%=basePath %>resource/image/202111230019.png">
-	<img alt="" src="<%=basePath %>resource/image/202111230020.png">
-	<img alt="" src="<%=basePath %>resource/image/202111230021.png">
+	<img class="img1" alt="" src="<%=basePath %>resource/image/202111230018.png">
+	<img class="img2" alt="" src="<%=basePath %>resource/image/202111230019.png">
+	<img class="img3" alt="" src="<%=basePath %>resource/image/202111230020.png">
+	<img class="img4" alt="" src="<%=basePath %>resource/image/202111230021.png">
+	<img class="img5" alt="" src="<%=basePath %>resource/image/202111230022.png">
+	<img class="img6" alt="" src="<%=basePath %>resource/image/202111230023.png">
 </div>
 </body>
 </html>
