@@ -10,6 +10,9 @@ function goPage(page){
 	case "main":
 		location.href="main.jsp";
 		break;
+	case "gjxx":
+		location.href="gjxx.jsp";
+		break;
 	}
 }
 </script>
