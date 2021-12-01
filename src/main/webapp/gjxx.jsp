@@ -278,13 +278,18 @@ function resetDivSize(){
 	margin-top:-60px;
 	margin-left:300px;
 	color:#262626;
-	background-color: #0f0;
 }
 .gjgl_list_div .list_div .item_div .fsqy_col_div{
 	width: 100px;
 	margin-top:-60px;
 	margin-left:400px;
 	background-color: #f00;
+}
+.gjgl_list_div .list_div .item_div .bmdw_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:500px;
+	background-color: #0f0;
 }
 </style>
 </head>
@@ -334,6 +339,7 @@ function resetDivSize(){
 			<div class="col_div bjr_col_div">李铁玉</div>
 			<div class="col_div bjlx_col_div">滞留报警</div>
 			<div class="col_div fsqy_col_div">一车间</div>
+			<div class="col_div bmdw_col_div">生产部</div>
 		</div>
 	</div>
 </div>
