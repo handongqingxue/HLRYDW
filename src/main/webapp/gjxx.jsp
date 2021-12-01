@@ -53,9 +53,7 @@ function resetDivSize(){
 <title>Insert title here</title>
 <style type="text/css">
 .gjgl_list_div{
-	/*
-	background-color: red;
-	*/
+	background-color: #EFF3F6;
 	position: fixed;
 }
 .gjgl_list_div .title_div{
@@ -146,6 +144,148 @@ function resetDivSize(){
 	margin-left:220px; 
 	position: absolute;
 }
+.gjgl_list_div .tool_div .sj_span{
+	margin-top: 15px;
+	margin-left:420px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .zhi_span{
+	margin-top: 15px;
+	margin-left:620px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .kh_span{
+	margin-top: 15px;
+	margin-left:820px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .cx_but_div{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 10px;
+	margin-left:1020px; 
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	background-color: #5A61F7;
+	position: absolute;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.gjgl_list_div .list_title_div{
+	width: 100%;
+	height: 40px;
+	background-color: #264476;
+}
+.gjgl_list_div .list_title_div .all_sel_cb{
+	margin-top: 12px;
+	margin-left: 15px;
+}
+.gjgl_list_div .list_title_div .col_div{
+	height: 40px;
+	line-height: 40px;
+	color:#fff;
+	text-align: center;
+}
+.gjgl_list_div .list_title_div .kh_col_div{
+	width: 150px;
+	margin-top:-29px;
+	margin-left:50px;
+}
+.gjgl_list_div .list_title_div .bjr_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:200px;
+}
+.gjgl_list_div .list_title_div .bjlx_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:300px;
+}
+.gjgl_list_div .list_title_div .fsqy_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:400px;
+}
+.gjgl_list_div .list_title_div .bmdw_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:500px;
+}
+.gjgl_list_div .list_title_div .kssj_col_div{
+	width: 200px;
+	margin-top:-40px;
+	margin-left:600px;
+}
+.gjgl_list_div .list_title_div .jssj_col_div{
+	width: 200px;
+	margin-top:-40px;
+	margin-left:800px;
+}
+.gjgl_list_div .list_title_div .clzt_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:1000px;
+}
+.gjgl_list_div .list_title_div .clr_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:1100px;
+}
+.gjgl_list_div .list_title_div .clsj_col_div{
+	width: 200px;
+	margin-top:-40px;
+	margin-left:1200px;
+}
+.gjgl_list_div .list_title_div .cz_col_div{
+	width: 100px;
+	margin-top:-40px;
+	margin-left:1400px;
+}
+.gjgl_list_div .list_div{
+	width: 100%;
+	height: auto;
+}
+.gjgl_list_div .list_div .item_div{
+	width: 100%;
+	height: 60px;
+	background-color: #00f;
+}
+.gjgl_list_div .list_div .item_div .sel_cb{
+	margin-top: 22px;
+	margin-left: 15px;
+}
+.gjgl_list_div .list_div .item_div .col_div{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.gjgl_list_div .list_div .item_div .kh_col_div{
+	width: 150px;
+	margin-top:-39px;
+	margin-left:50px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .bjr_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:200px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .bjlx_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:300px;
+	color:#262626;
+	background-color: #0f0;
+}
+.gjgl_list_div .list_div .item_div .fsqy_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:400px;
+	background-color: #f00;
+}
 </style>
 </head>
 <body>
@@ -168,6 +308,33 @@ function resetDivSize(){
 	<div class="tool_div">
 		<span class="lx_span">类型</span>
 		<span class="zt_span">状态</span>
+		<span class="sj_span">时间</span>
+		<span class="zhi_span">至</span>
+		<span class="kh_span">卡号</span>
+		<div class="cx_but_div">查询</div>
+	</div>
+	<div class="list_title_div">
+		<input class="all_sel_cb" type="checkbox"/>
+		<div class="col_div kh_col_div">卡号</div>
+		<div class="col_div bjr_col_div">报警人</div>
+		<div class="col_div bjlx_col_div">报警类型</div>
+		<div class="col_div fsqy_col_div">发生区域</div>
+		<div class="col_div bmdw_col_div">部门/单位</div>
+		<div class="col_div kssj_col_div">开始时间</div>
+		<div class="col_div jssj_col_div">结束时间</div>
+		<div class="col_div clzt_col_div">处理状态</div>
+		<div class="col_div clr_col_div">处理人</div>
+		<div class="col_div clsj_col_div">处理时间</div>
+		<div class="col_div cz_col_div">操作</div>
+	</div>
+	<div class="list_div">
+		<div class="item_div">
+			<input class="sel_cb" type="checkbox"/>
+			<div class="col_div kh_col_div">123456</div>
+			<div class="col_div bjr_col_div">李铁玉</div>
+			<div class="col_div bjlx_col_div">滞留报警</div>
+			<div class="col_div fsqy_col_div">一车间</div>
+		</div>
 	</div>
 </div>
 </body>
