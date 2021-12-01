@@ -250,7 +250,6 @@ function resetDivSize(){
 .gjgl_list_div .list_div .item_div{
 	width: 100%;
 	height: 60px;
-	background-color: #00f;
 }
 .gjgl_list_div .list_div .item_div .sel_cb{
 	margin-top: 22px;
@@ -283,13 +282,54 @@ function resetDivSize(){
 	width: 100px;
 	margin-top:-60px;
 	margin-left:400px;
-	background-color: #f00;
+	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bmdw_col_div{
 	width: 100px;
 	margin-top:-60px;
 	margin-left:500px;
-	background-color: #0f0;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .kssj_col_div{
+	width: 200px;
+	margin-top:-60px;
+	margin-left:600px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .jssj_col_div{
+	width: 200px;
+	margin-top:-60px;
+	margin-left:800px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .clzt_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:1000px;
+	color:#9A0808;
+}
+.gjgl_list_div .list_div .item_div .clr_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:1100px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .clsj_col_div{
+	width: 200px;
+	margin-top:-60px;
+	margin-left:1200px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .cz_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:1400px;
+}
+.gjgl_list_div .list_div .item_div .cz_col_div .cz_img{
+	width: 30px;
+	height:30px;
+	margin-top: 15px;
+	cursor: pointer;
 }
 </style>
 </head>
@@ -340,6 +380,14 @@ function resetDivSize(){
 			<div class="col_div bjlx_col_div">滞留报警</div>
 			<div class="col_div fsqy_col_div">一车间</div>
 			<div class="col_div bmdw_col_div">生产部</div>
+			<div class="col_div kssj_col_div">1997-07-01 12:05:05</div>
+			<div class="col_div jssj_col_div">1997-07-01 13:05:05</div>
+			<div class="col_div clzt_col_div">未处理</div>
+			<div class="col_div clr_col_div">于祥海</div>
+			<div class="col_div clsj_col_div">1997-07-01 14:05:05</div>
+			<div class="col_div cz_col_div">
+				<img class="cz_img" alt="" src="<%=basePath %>resource/image/202111230025.png">
+			</div>
 		</div>
 	</div>
 </div>
