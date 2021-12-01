@@ -23,12 +23,13 @@ body{
 
 .top_div{
 	width:100%;
-	height:95px;
+	height:80px;
 	background-image: url('resource/image/202111230008.png');
+	background-size: 100% 100%;
 	position:fixed;
 }
 .top_div .left_div{
-	margin-top:30px;
+	margin-top:25px;
 	margin-left: 80px;
 	color: #00FFFF;
 	font-size:20px; 
@@ -38,14 +39,15 @@ body{
 	margin-left: 15px;
 }
 .top_div .title_div{
-	width:605px;
-	height:94px;
-	line-height:94px;
+	width:515px;
+	height:80px;
+	line-height:80px;
 	margin: 0 auto;
 	color:#fff;
 	font-size:35px; 
 	text-align:center;
 	background-image: url('resource/image/202111230009.png');
+	background-size: 100% 100%;
 }
 .top_div .right_div{
 	margin-top: -70px;margin-right: 100px;float: right;
