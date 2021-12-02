@@ -908,7 +908,7 @@ function changeRightPanelWidth(flag){
 </style>
 </head>
 <body>
-<div id="cesiumContainer" style="width: 100%;height: 952px;"></div>
+<div id="cesiumContainer" style="width: 100%;height: 952px;background-image: url('<%=basePath %>resource/image/202111230026.png');"></div>
 <%@include file="inc/top.jsp"%>
 <div class="left_panel_bg_div" id="left_panel_bg_div"></div>
 <div class="left_panel_div" id="left_panel_div">

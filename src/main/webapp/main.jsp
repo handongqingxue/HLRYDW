@@ -192,7 +192,7 @@ function loadTileset(){
 </style>
 </head>
 <body>
-<div id="cesiumContainer" style="width: 100%;height: 952px;"></div>
+<div id="cesiumContainer" style="width: 100%;height: 952px;background-image: url('<%=basePath %>resource/image/202111230026.png');"></div>
 <%@include file="inc/top.jsp"%>
 <%@include file="inc/left.jsp"%>
 <div class="right_panel_div" id="right_panel_div">
