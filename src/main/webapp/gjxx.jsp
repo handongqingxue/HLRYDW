@@ -53,6 +53,24 @@ function resetDivSize(){
 	gjglListDiv.css("height",(leftPanelHeight-80)+"px");
 	gjglListDiv.css("margin-top",-(leftPanelHeight-25)+"px");
 	gjglListDiv.css("margin-left",(leftPanelWidth+25)+"px");
+	
+	var gjglListHeight=gjglListDiv.css("height");
+	gjglListHeight=parseInt(gjglListHeight.substring(0,gjglListHeight.length-2));
+
+	var gjglListTitleDiv=$("#gjgl_list_div #title_div");
+	var gjglListTitleHeight=gjglListTitleDiv.css("height");
+	gjglListTitleHeight=parseInt(gjglListTitleHeight.substring(0,gjglListTitleHeight.length-2));
+
+	var gjglListToolDiv=$("#gjgl_list_div #tool_div");
+	var gjglListToolHeight=gjglListToolDiv.css("height");
+	gjglListToolHeight=parseInt(gjglListToolHeight.substring(0,gjglListToolHeight.length-2));
+
+	var gjglListLTDiv=$("#gjgl_list_div #list_title_div");
+	var gjglListLTHeight=gjglListLTDiv.css("height");
+	gjglListLTHeight=parseInt(gjglListLTHeight.substring(0,gjglListLTHeight.length-2));
+	
+	var gjglListLDiv=$("#gjgl_list_div #list_div");
+	var gjglListLHeight=gjglListLDiv.css("height",(gjglListHeight-gjglListTitleHeight-gjglListToolHeight-gjglListLTHeight)+"px");
 }
 
 function initViewer(){
@@ -378,7 +396,6 @@ function loadTileset(){
 }
 .gjgl_list_div .list_div{
 	width: 100%;
-	height: 650px;
 	background-color: #EFF3F6;
 }
 .gjgl_list_div .list_div .item_div{
@@ -478,7 +495,7 @@ function loadTileset(){
 <%@include file="inc/top.jsp"%>
 <%@include file="inc/left.jsp"%>
 <div class="gjgl_list_div" id="gjgl_list_div">
-	<div class="title_div">
+	<div class="title_div" id="title_div">
 		<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230024.png">
 		<span class="gjgl_text_span">告警管理</span>
 		<div class="but_div">
@@ -490,7 +507,7 @@ function loadTileset(){
 			<div class="but_style2_div yjcl_but_div">一键处理</div>
 		</div>
 	</div>
-	<div class="tool_div">
+	<div class="tool_div" id="tool_div">
 		<span class="lx_span">类型</span>
 		<select class="lx_sel">
 			<option>请选择</option>
@@ -511,7 +528,7 @@ function loadTileset(){
 		<input class="kh_inp" type="text"/>
 		<div class="cx_but_div">查询</div>
 	</div>
-	<div class="list_title_div">
+	<div class="list_title_div" id="list_title_div">
 		<input class="all_sel_cb" type="checkbox"/>
 		<div class="col_div kh_col_div">卡号</div>
 		<div class="col_div bjr_col_div">报警人</div>
@@ -525,7 +542,7 @@ function loadTileset(){
 		<div class="col_div clsj_col_div">处理时间</div>
 		<div class="col_div cz_col_div">操作</div>
 	</div>
-	<div class="list_div">
+	<div class="list_div" id="list_div">
 		<div class="item_div item_style1">
 			<input class="sel_cb" type="checkbox"/>
 			<div class="col_div kh_col_div">123456</div>

@@ -13,6 +13,9 @@ function goPage(page){
 	case "gjxx":
 		location.href="gjxx.jsp";
 		break;
+	case "lsgj":
+		location.href="lsgj.jsp";
+		break;
 	}
 }
 </script>

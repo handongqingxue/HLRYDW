@@ -22,7 +22,7 @@ function showChildMenu(pointerImgId){
 .left_panel_div{
 	width: 325px;
 	height: 500px;
-	background-color: rgba(20,29,57,0.5);
+	background-color: rgba(20,29,57,0.2);
 	position: fixed;
 }
 .left_panel_div .gj_div{
@@ -48,7 +48,8 @@ function showChildMenu(pointerImgId){
 	margin-top:-70px; 
 	color:#898F9B;
 	text-align:center;
-	background-color: #00f;
+	background-color: rgba(83,91,79,0.5);
+	border-radius:5px; 
 }
 .left_panel_div .menu_list_div{
 	width: 100%;height: auto;color: #96D9E9;
@@ -163,7 +164,7 @@ function showChildMenu(pointerImgId){
 		</div>
 		<div class="child_item_list_div" id="child_item_list_div2">
 			<div class="child_item_div">
-				<div class="child_name_div">历史轨迹</div>
+				<div class="child_name_div" onclick="goPage('lsgj')">历史轨迹</div>
 			</div>
 			<div class="child_item_div">
 				<div class="child_name_div">位置追踪</div>
