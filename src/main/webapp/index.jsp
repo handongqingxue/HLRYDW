@@ -660,7 +660,7 @@ function changeRightPanelWidth(flag){
 	position: fixed;
 }
 .left_panel_div .cqzxrstj_div{
-	width: 480px;
+	width: 100%;
 	height: 200px;
 	/*
 	background-color: #00f;
@@ -670,16 +670,20 @@ function changeRightPanelWidth(flag){
 .left_panel_div .gjjc_div .title_div,
 .right_panel_div .ssgj_div .title_div,
 .right_panel_div .ryfbtj_div .title_div{
-	width: 100%;
+	width: 439px;
+	height: 38px;
+	line-height: 38px;
+	margin:auto;
 	color:#fff;
-	font-size:18px;
+	font-size:19px;
 	font-weight: bold;
 	text-align: center;
+	background-image: url("resource/image/202111230028.png");
 }
 .left_panel_div .cqzxrstj_div .pie_list_div{
-	width: 100%;
+	width: 490px;
 	height: 100px;
-	margin:20px auto 0;
+	margin-top:20px;
 	/*
 	background-color: #0ff;
 	*/
