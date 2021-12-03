@@ -19,6 +19,7 @@
 <script>  
 var path='<%=basePath %>';
 //http://localhost:8080/HLRYDW/
+//http://localhost:8080/HLRYDW/fore/goPage?page=index
 //颜色渐变:https://www.cnblogs.com/kyshu/p/9076849.html
 var lpbdMarginLeft;
 var lpbdMarginLeftTimer;
@@ -648,7 +649,7 @@ function changeRightPanelWidth(flag){
 .left_panel_bg_div{
 	width: 546px;
 	height: 830px;
-	background-image: url('resource/image/202111230004.png');
+	background-image: url('../resource/image/202111230004.png');
 	position:fixed; 
 }
 .left_panel_div{
@@ -678,7 +679,7 @@ function changeRightPanelWidth(flag){
 	font-size:19px;
 	font-weight: bold;
 	text-align: center;
-	background-image: url("resource/image/202111230028.png");
+	background-image: url("../resource/image/202111230028.png");
 }
 .left_panel_div .cqzxrstj_div .pie_list_div{
 	width: 490px;
@@ -805,7 +806,7 @@ function changeRightPanelWidth(flag){
 	width: 566px;
 	height: 925px;
 	right:0;
-	background-image: url('resource/image/202111230005.png');
+	background-image: url('../resource/image/202111230005.png');
 	position:fixed; 
 }
 .right_panel_div{

@@ -5,18 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript">
+var path='<%=basePath %>';
 function goPage(page){
-	switch (page) {
-	case "main":
-		location.href="main.jsp";
-		break;
-	case "gjxx":
-		location.href="gjxx.jsp";
-		break;
-	case "lsgj":
-		location.href="lsgj.jsp";
-		break;
-	}
+	location.href=path+"fore/goPage?page="+page;
 }
 </script>
 <style type="text/css">
@@ -27,7 +18,7 @@ body{
 .top_div{
 	width:100%;
 	height:80px;
-	background-image: url('resource/image/202111230008.png');
+	background-image: url('../resource/image/202111230008.png');
 	background-size: 100% 100%;
 	position:fixed;
 }
@@ -49,7 +40,7 @@ body{
 	color:#fff;
 	font-size:35px; 
 	text-align:center;
-	background-image: url('resource/image/202111230009.png');
+	background-image: url('../resource/image/202111230009.png');
 	background-size: 100% 100%;
 }
 .top_div .right_div{
