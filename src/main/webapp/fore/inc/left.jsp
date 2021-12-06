@@ -183,6 +183,15 @@ function showChildMenu(pointerImgId){
 		<div class="item_div">
 			<img class="znxj_img" alt="" src="<%=basePath %>resource/image/202111230016.png">
 			<span class="znxj_name_span">智能巡检</span>
+			<img class="pointer_img" id="pointer_img3" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
+		</div>
+		<div class="child_item_list_div" id="child_item_list_div3">
+			<div class="child_item_div">
+				<div class="child_name_div" onclick="goPage('xgrw')">巡更任务</div>
+			</div>
+			<div class="child_item_div">
+				<div class="child_name_div">智能化考核</div>
+			</div>
 		</div>
 		<div class="item_div">
 			<img class="gysgl_img" alt="" src="<%=basePath %>resource/image/202111230017.png">
