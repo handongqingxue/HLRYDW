@@ -288,6 +288,80 @@ function resetDivSize(){
 	margin:auto;
 	background-color: #fff;
 }
+.xgrw_list_div .list_div .tab_div .item_div{
+	width: 100%;
+	height: 60px;
+}
+.xgrw_list_div .list_div .tab_div .item_style1{
+	background-color: #fff;
+}
+.xgrw_list_div .list_div .tab_div .item_div .col_div{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.xgrw_list_div .list_div .tab_div .item_div .xh_col_div{
+	width: 100px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .rwmc_col_div{
+	width: 150px;
+	margin-top:-60px;
+	margin-left:100px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .zt_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:250px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .xjlx_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:350px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .fzr_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:450px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .zxr_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:550px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .ssbm_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:650px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .pc_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:750px;
+	color:#262626;
+}
+.xgrw_list_div .list_div .tab_div .item_div .gj_col_div{
+	width: 100px;
+	margin-top:-60px;
+	margin-left:850px;
+}
+.xgrw_list_div .list_div .tab_div .item_div .gj_col_div .ck_but_div{
+	width: 60px;
+	height: 33px;
+	line-height: 33px;
+	margin:13px auto;
+	color:#fff;
+	text-align:center;
+	background-color: #5DC0FF;
+	border-radius:10px;
+}
+
 .xgrw_list_div .list_div .tab_pager{
 	width: 98%;
 	height:60px;
@@ -345,6 +419,20 @@ function resetDivSize(){
 		</div>
 		<div class="tab_div" id="tab_div">
 			<div class="item_div item_style1">
+				<div class="col_div xh_col_div">序号</div>
+				<div class="col_div rwmc_col_div">任务名称</div>
+				<div class="col_div zt_col_div">状态</div>
+				<div class="col_div xjlx_col_div">巡检路线</div>
+				<div class="col_div fzr_col_div">负责人</div>
+				<div class="col_div zxr_col_div">执行人</div>
+				<div class="col_div ssbm_col_div">所属部门</div>
+				<div class="col_div pc_col_div">频次</div>
+				<div class="col_div gj_col_div">
+					<div class="ck_but_div">查看</div>
+				</div>
+				<!-- 
+				<div class="col_div cz_col_div">操作</div>
+				 -->
 			</div>
 		</div>
 		<div class="tab_pager" id="tab_pager">
