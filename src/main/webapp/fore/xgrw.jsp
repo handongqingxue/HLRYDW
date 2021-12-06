@@ -295,6 +295,9 @@ function resetDivSize(){
 .xgrw_list_div .list_div .tab_div .item_style1{
 	background-color: #fff;
 }
+.xgrw_list_div .list_div .tab_div .item_style2{
+	background-color: #D8FAE9;
+}
 .xgrw_list_div .list_div .tab_div .item_div .col_div{
 	height: 60px;
 	line-height: 60px;
@@ -350,6 +353,7 @@ function resetDivSize(){
 	width: 100px;
 	margin-top:-60px;
 	margin-left:850px;
+	padding: 1px;
 }
 .xgrw_list_div .list_div .tab_div .item_div .gj_col_div .ck_but_div{
 	width: 60px;
@@ -359,14 +363,85 @@ function resetDivSize(){
 	color:#fff;
 	text-align:center;
 	background-color: #5DC0FF;
+	cursor:pointer;
 	border-radius:10px;
 }
-
+.xgrw_list_div .list_div .tab_div .item_div .cz_col_div{
+	width: 100px;
+	line-height:53px;
+	margin-top:-60px;
+	margin-left:950px;
+}
+.xgrw_list_div .list_div .tab_div .item_div .cz_col_div span{
+	color: #00f;
+	cursor: pointer;
+}
 .xgrw_list_div .list_div .tab_pager{
 	width: 98%;
 	height:60px;
 	margin: 5px auto 0;
 	background-color: #fff;
+}
+.xgrw_list_div .list_div .tab_pager .option_div{
+	width: 420px;
+	height: 60px;
+	line-height: 60px;
+	color:#666; 
+	font-size:14px;
+	/*
+	background-color: #0f0;
+	*/
+	float: right;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .myts_sel{
+	margin-left: 10px;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .syy_but_div{
+	width:28px;
+	height:28px;
+	line-height:28px;
+	margin-left: 150px;
+	margin-top: -45px;
+	text-align:center; 
+	background-color: #F4F4F5;
+	border: #666 solid 1px;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .dqy_num_div{
+	width:28px;
+	height:28px;
+	line-height:28px;
+	margin-left: 190px;
+	margin-top: -30px;
+	color:#fff; 
+	text-align:center; 
+	background-color: #96BAE6;
+	border: #666 solid 1px;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .xyy_but_div{
+	width:28px;
+	height:28px;
+	line-height:28px;
+	margin-left: 230px;
+	margin-top: -30px;
+	text-align:center; 
+	background-color: #F4F4F5;
+	border: #666 solid 1px;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .qw_span{
+	margin-top: -45px;
+	margin-left: 290px;
+	position: absolute;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .qwy_num_inp{
+	margin-top: -30px;
+	margin-left: 323px;
+	color:#666;
+	text-align:center;
+}
+.xgrw_list_div .list_div .tab_pager .option_div .ye_span{
+	margin-top: -43px;
+	margin-left: 10px;
+	position: absolute;
 }
 </style>
 </head>
@@ -430,12 +505,72 @@ function resetDivSize(){
 				<div class="col_div gj_col_div">
 					<div class="ck_but_div">查看</div>
 				</div>
-				<!-- 
-				<div class="col_div cz_col_div">操作</div>
-				 -->
+				<div class="col_div cz_col_div">
+					<span>删除</span>
+				</div>
+			</div>
+			<div class="item_div item_style2">
+				<div class="col_div xh_col_div">序号</div>
+				<div class="col_div rwmc_col_div">任务名称</div>
+				<div class="col_div zt_col_div">状态</div>
+				<div class="col_div xjlx_col_div">巡检路线</div>
+				<div class="col_div fzr_col_div">负责人</div>
+				<div class="col_div zxr_col_div">执行人</div>
+				<div class="col_div ssbm_col_div">所属部门</div>
+				<div class="col_div pc_col_div">频次</div>
+				<div class="col_div gj_col_div">
+					<div class="ck_but_div">查看</div>
+				</div>
+				<div class="col_div cz_col_div">
+					<span>删除</span>
+				</div>
+			</div>
+			<div class="item_div item_style1">
+				<div class="col_div xh_col_div">序号</div>
+				<div class="col_div rwmc_col_div">任务名称</div>
+				<div class="col_div zt_col_div">状态</div>
+				<div class="col_div xjlx_col_div">巡检路线</div>
+				<div class="col_div fzr_col_div">负责人</div>
+				<div class="col_div zxr_col_div">执行人</div>
+				<div class="col_div ssbm_col_div">所属部门</div>
+				<div class="col_div pc_col_div">频次</div>
+				<div class="col_div gj_col_div">
+					<div class="ck_but_div">查看</div>
+				</div>
+				<div class="col_div cz_col_div">
+					<span>删除</span>
+				</div>
+			</div>
+			<div class="item_div item_style2">
+				<div class="col_div xh_col_div">序号</div>
+				<div class="col_div rwmc_col_div">任务名称</div>
+				<div class="col_div zt_col_div">状态</div>
+				<div class="col_div xjlx_col_div">巡检路线</div>
+				<div class="col_div fzr_col_div">负责人</div>
+				<div class="col_div zxr_col_div">执行人</div>
+				<div class="col_div ssbm_col_div">所属部门</div>
+				<div class="col_div pc_col_div">频次</div>
+				<div class="col_div gj_col_div">
+					<div class="ck_but_div">查看</div>
+				</div>
+				<div class="col_div cz_col_div">
+					<span>删除</span>
+				</div>
 			</div>
 		</div>
 		<div class="tab_pager" id="tab_pager">
+			<div class="option_div">
+				<span>共<span>0</span>条</span>
+				<select class="myts_sel">
+					<option>15条/页</option>
+				</select>
+				<div class="syy_but_div">&lt;</div>
+				<div class="dqy_num_div">1</div>
+				<div class="xyy_but_div">&gt;</div>
+				<span class="qw_span">前往</span>
+				<input class="qwy_num_inp" type="text" size="4" value="1"/>
+				<span class="ye_span">页</span>
+			</div>
 		</div>
 	</div>
 </div>
