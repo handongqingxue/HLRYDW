@@ -247,6 +247,30 @@ function resetDivSize(){
 	margin-left: 67%;
 	background-color: #578ECB;
 }
+.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .icon_img{
+	margin-top: 12px;
+	margin-left: 12px;
+}
+.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .dbts_count_span{
+	margin-top: 5px;
+	margin-left: 10px;
+	color: #fff;
+	font-size: 35px;
+	position: absolute;
+}
+.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .zts_count_span{
+	margin-top: 25px;
+	margin-left: 35px;
+	color: #A9DAC1;
+	position: absolute;
+}
+.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .name_span{
+	margin-top: 45px;
+	margin-left: 5px;
+	color: #A9DAC1;
+	font-size: 15px;
+	position: absolute;
+}
 </style>
 </head>
 <body>
@@ -287,10 +311,10 @@ function resetDivSize(){
 		<div class="echarts_div" id="echarts_div">
 			<div class="bfb_div">
 				<div class="item_div dbts_item_div">
-					<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230029.png" style="margin-top: 12px;margin-left: 12px;">
-					<span class="dbts_count_span" style="color: #fff;font-size: 35px;margin-left: 10px;margin-top: 5px;position: absolute;">0</span>
-					<span class="zts_count_span" style="color: #A9DAC1;margin-left: 35px;margin-top: 25px;position: absolute;">/7</span>
-					<span class="name_span" style="color: #A9DAC1;font-size: 15px;margin-left: 5px;margin-top: 45px;position: absolute;">达标天数</span>
+					<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230029.png">
+					<span class="dbts_count_span">0</span>
+					<span class="zts_count_span">/7</span>
+					<span class="name_span">达标天数</span>
 				</div>
 				<div class="item_div xglxdbl_item_div"></div>
 				<div class="item_div xgqydbl_item_div"></div>
