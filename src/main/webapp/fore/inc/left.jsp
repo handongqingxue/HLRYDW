@@ -190,7 +190,7 @@ function showChildMenu(pointerImgId){
 				<div class="child_name_div" onclick="goPage('xgrw')">巡更任务</div>
 			</div>
 			<div class="child_item_div">
-				<div class="child_name_div">智能化考核</div>
+				<div class="child_name_div" onclick="goPage('znhkh')">智能化考核</div>
 			</div>
 		</div>
 		<div class="item_div">
