@@ -20,6 +20,7 @@ $(function(){
 	//initViewer();
 	//loadTileset();
 	initGlxBarDiv()
+	initGqyBarDiv()
 	resetDivSize();
 });
 
@@ -73,6 +74,88 @@ function resetDivSize(){
 	
 	var echartsDiv=$("#znhkh_div #echarts_div");
 	echartsDiv.css("height",(znhkhHeight-znhkhTitleHeight-znhkhToolHeight-50)+"px");
+}
+
+function initGqyBarDiv(){
+	var chartDom = document.getElementById('gqy_bar_div');
+	var myChart = echarts.init(chartDom);
+	var option;
+	option = {
+	  title: {
+		  text: '各区域巡更情况',
+		  textStyle:{
+			  fontSize:14
+		  }
+	  },
+	  grid:{
+		  left: '4%',
+		  top:'15%'
+	  },
+	  xAxis: {
+	    type: 'category',
+	    axisLine:{
+            lineStyle:{
+                width:1.5
+            }
+        },
+        axisLabel: {
+            //fontSize:zhxzzh,
+            interval:0,
+            rotate:45
+        },
+	    data: [
+	    	'aaaaaa', 
+	    	'bbbbbb', 
+	    	'cccccc', 
+	    	'ddddddd', 
+	    	'eeeeeeeee', 
+	    	'ffffffff', 
+	    	'ggggggggg',
+	    	'hhhhhhhh',
+	    	'iiiiiiiii',
+	    	'jjjjjjj',
+	    	'kkkkkkkkk',
+	    	'llllllllll',
+	    	'mmmmmmmmm',
+	    ]
+	  },
+	  yAxis: {
+	    type: 'value',
+	    axisLabel: {
+            show: true,
+            interval: 'auto',
+            formatter: '{value}%'
+        },
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        },
+      	show: true
+	  },
+	  series: [
+	    {
+	      data: [20, 40, 50, 80, 70, 11, 13, 80, 70, 11, 13, 21, 18],
+	      type: 'bar',
+	      itemStyle: {
+             normal: {
+　　　　　　　　         //这里是重点
+                color: function(params) {
+                    return "#4492CE";
+                }
+             }
+          },
+	      barWidth:25,
+	      barGap:'150%',/*多个并排柱子设置柱子之间的间距*/
+          barCategoryGap:'150%',
+	      showBackground: true,
+	      backgroundStyle: {
+	        color: 'rgba(180, 180, 180, 0.2)'
+	      }
+	    }
+	  ]
+	};
+	option && myChart.setOption(option);
 }
 
 function initGlxBarDiv(){
@@ -328,11 +411,23 @@ function initGlxBarDiv(){
 	position: absolute;
 }
 .znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .name_span{
-	margin-top: 45px;
+	margin-top: 48px;
 	margin-left: 5px;
 	color: #fff;
 	font-size: 15px;
 	position: absolute;
+}
+.znhkh_div .tj_info_div .echarts_div .glx_bar_div{
+	width: 1200px;
+	height: 250px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.znhkh_div .tj_info_div .echarts_div .gqy_bar_div{
+	width: 1500px;
+	height: 250px;
+	margin-top: 10px;
+	margin-left: 10px;
 }
 </style>
 </head>
@@ -390,7 +485,8 @@ function initGlxBarDiv(){
 					<span class="name_span">巡更区域达标率</span>
 				</div>
 			</div>
-			<div id="glx_bar_div" style="width: 1200px;height: 300px;margin-left: 10px;margin-top: 20px;"></div>
+			<div class="glx_bar_div" id="glx_bar_div"></div>
+			<div class="gqy_bar_div" id="gqy_bar_div"></div>
 		</div>
 	</div>
 </div>
