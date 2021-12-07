@@ -307,57 +307,82 @@ function initGlxBarDiv(){
 	position: absolute;
 }
 .znhkh_div .tj_info_div .tool_div .bm_sel{
-	width: 100px;
-	margin-top: 15px;
+	width: 160px;
+	height:30px;
+	margin-top: 12px;
 	margin-left: 80px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .znhkh_div .tj_info_div .tool_div .ry_span{
 	margin-top: 15px;
-	margin-left:220px; 
+	margin-left:280px; 
 	position: absolute;
 }
 .znhkh_div .tj_info_div .tool_div .ry_sel{
 	width: 100px;
-	margin-top: 15px;
-	margin-left: 280px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 340px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .znhkh_div .tj_info_div .tool_div .sj_span{
 	margin-top: 15px;
-	margin-left:420px; 
+	margin-left:500px; 
 	position: absolute;
 }
 .znhkh_div .tj_info_div .tool_div .kssj_wp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 470px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 550px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .znhkh_div .tj_info_div .tool_div .zhi_span{
 	margin-top: 15px;
-	margin-left:640px; 
+	margin-left:720px; 
 	position: absolute;
 }
 .znhkh_div .tj_info_div .tool_div .jssj_wp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 670px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 750px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .znhkh_div .tj_info_div .tool_div .cx_but_div{
 	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 10px;
-	margin-left:850px; 
+	height: 33px;
+	line-height: 33px;
+	margin-top: 12px;
+	margin-left:950px; 
 	color: #fff;
-	font-size: 18px;
-	text-align: center;
-	background-color: #5A61F7;
+	font-size: 16px;
+	background-color: #5DC0FF;
 	position: absolute;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 12px;
+}
+.znhkh_div .tj_info_div .tool_div .cx_but_div .text_span{
+	margin-left: 20px;
+}
+.znhkh_div .tj_info_div .tool_div .cx_but_div img{
+	margin-top: 5px;
+	margin-right: 10px;
+	float: right;
 }
 .znhkh_div .tj_info_div .echarts_div{
 	width: 98%;
@@ -461,10 +486,13 @@ function initGlxBarDiv(){
 				<option>于祥海</option>
 			</select>
 			<span class="sj_span">时间</span>
-			<input type="text"  class="Wdate kssj_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+			<input type="text"  class="Wdate kssj_wp" placeholder="请选择开始日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
 			<span class="zhi_span">至</span>
-			<input type="text"  class="Wdate jssj_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
-			<div class="cx_but_div">查询</div>
+			<input type="text"  class="Wdate jssj_wp" placeholder="请选择结束日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+			<div class="cx_but_div">
+				<span class="text_span">查询</span>
+				<img alt="" src="<%=basePath %>resource/image/202111230032.png">
+			</div>
 		</div>
 		<div class="echarts_div" id="echarts_div">
 			<div class="bfb_div">
