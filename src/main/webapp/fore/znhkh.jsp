@@ -251,11 +251,12 @@ function resetDivSize(){
 	margin-top: 12px;
 	margin-left: 12px;
 }
-.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .dbts_count_span{
-	margin-top: 5px;
+.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .dbts_count_span,
+.znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .bfbsz_count_span{
+	margin-top: 10px;
 	margin-left: 10px;
 	color: #fff;
-	font-size: 35px;
+	font-size: 30px;
 	position: absolute;
 }
 .znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .zts_count_span{
@@ -267,7 +268,7 @@ function resetDivSize(){
 .znhkh_div .tj_info_div .echarts_div .bfb_div .item_div .name_span{
 	margin-top: 45px;
 	margin-left: 5px;
-	color: #A9DAC1;
+	color: #fff;
 	font-size: 15px;
 	position: absolute;
 }
@@ -316,8 +317,16 @@ function resetDivSize(){
 					<span class="zts_count_span">/7</span>
 					<span class="name_span">达标天数</span>
 				</div>
-				<div class="item_div xglxdbl_item_div"></div>
-				<div class="item_div xgqydbl_item_div"></div>
+				<div class="item_div xglxdbl_item_div">
+					<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230030.png">
+					<span class="bfbsz_count_span">36%</span>
+					<span class="name_span">巡更路线达标率</span>
+				</div>
+				<div class="item_div xgqydbl_item_div">
+					<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230031.png">
+					<span class="bfbsz_count_span">70%</span>
+					<span class="name_span">巡更区域达标率</span>
+				</div>
 			</div>
 		</div>
 	</div>
