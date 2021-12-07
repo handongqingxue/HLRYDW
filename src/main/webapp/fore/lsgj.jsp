@@ -109,63 +109,91 @@ function resetDivSize(){
 	position: absolute;
 }
 .lsgj_div .tool_div .xzdt_sel{
-	width: 100px;
-	margin-top: 15px;
+	width: 150px;
+	height:30px;
+	margin-top: 12px;
 	margin-left: 100px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .lsgj_div .tool_div .ry_span{
 	margin-top: 15px;
-	margin-left:245px; 
+	margin-left:295px; 
 	position: absolute;
 }
 .lsgj_div .tool_div .ry_inp{
-	width: 100px;
-	margin-top: 15px;
-	margin-left: 300px;
+	width: 120px;
+	height:26px;
+	margin-top: 12px;
+	margin-left: 350px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .lsgj_div .tool_div .sj_span{
 	margin-top: 15px;
-	margin-left:450px; 
+	margin-left:520px; 
 	position: absolute;
 }
 .lsgj_div .tool_div .rq_wp{
 	width: 100px;
-	margin-top: 15px;
-	margin-left: 500px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 570px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .lsgj_div .tool_div .kssj_wp{
-	width: 100px;
-	margin-top: 15px;
-	margin-left: 620px;
+	width: 120px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 690px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .lsgj_div .tool_div .zhi_span{
 	margin-top: 15px;
-	margin-left:740px; 
+	margin-left:830px; 
 	position: absolute;
 }
 .lsgj_div .tool_div .jssj_wp{
-	width: 100px;
-	margin-top: 15px;
-	margin-left: 775px;
+	width: 120px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 865px;
 	position: absolute;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	border-radius:5px; 
 }
 .lsgj_div .tool_div .cx_but_div{
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 10px;
-	margin-left:910px; 
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 12px;
+	margin-left:1020px; 
 	color: #fff;
-	font-size: 18px;
-	text-align: center;
-	background-color: #5A61F7;
+	font-size: 16px;
+	background-color: #5DC0FF;
 	position: absolute;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 12px;
+}
+.lsgj_div .tool_div .cx_but_div .text_span{
+	margin-left: 20px;
+}
+.lsgj_div .tool_div .cx_but_div img{
+	margin-top: 5px;
+	margin-right: 15px;
+	float: right;
 }
 .lsgj_div .space_div{
 	width: 100%;
@@ -191,13 +219,16 @@ function resetDivSize(){
 			<option>二层</option>
 		</select>
 		<span class="ry_span">人员</span>
-		<input class="ry_inp" type="text"/>
+		<input class="ry_inp" type="text" placeholder="请输入人员姓名"/>
 		<span class="sj_span">时间</span>
-		<input type="text"  class="Wdate rq_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" readonly="readonly"/>
-		<input type="text"  class="Wdate kssj_wp" onclick="WdatePicker({ dateFmt: 'HH:mm:ss' })" readonly="readonly"/>
+		<input type="text"  class="Wdate rq_wp" placeholder="请选择日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" readonly="readonly"/>
+		<input type="text"  class="Wdate kssj_wp" placeholder="请选择开始时间" onclick="WdatePicker({ dateFmt: 'HH:mm:ss' })" readonly="readonly"/>
 		<span class="zhi_span">至</span>
-		<input type="text"  class="Wdate jssj_wp" onclick="WdatePicker({ dateFmt: 'HH:mm:ss' })" readonly="readonly"/>
-		<div class="cx_but_div">查询</div>
+		<input type="text"  class="Wdate jssj_wp" placeholder="请选择结束时间" onclick="WdatePicker({ dateFmt: 'HH:mm:ss' })" readonly="readonly"/>
+		<div class="cx_but_div">
+			<span class="text_span">查询</span>
+			<img alt="" src="<%=basePath %>resource/image/202111230032.png">
+		</div>
 	</div>
 	<div class="space_div" id="space_div"></div>
 	<div class="map_div" id="map_div" style="width: 100%;background-color: #fff;"></div>

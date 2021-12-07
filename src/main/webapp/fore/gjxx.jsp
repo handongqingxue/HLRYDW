@@ -261,68 +261,97 @@ function loadTileset(){
 	position: absolute;
 }
 .gjgl_list_div .tool_div .lx_sel{
-	width: 100px;
-	margin-top: 15px;
+	width: 160px;
+	height:30px;
+	margin-top: 12px;
 	margin-left: 80px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .gjgl_list_div .tool_div .zt_span{
 	margin-top: 15px;
-	margin-left:220px; 
+	margin-left:280px; 
 	position: absolute;
 }
 .gjgl_list_div .tool_div .zt_sel{
 	width: 100px;
-	margin-top: 15px;
-	margin-left: 280px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 340px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .gjgl_list_div .tool_div .sj_span{
 	margin-top: 15px;
-	margin-left:420px; 
+	margin-left:480px; 
 	position: absolute;
 }
 .gjgl_list_div .tool_div .kssj_wp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 470px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 530px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .gjgl_list_div .tool_div .zhi_span{
 	margin-top: 15px;
-	margin-left:640px; 
+	margin-left:700px; 
 	position: absolute;
 }
 .gjgl_list_div .tool_div .jssj_wp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 670px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 730px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .gjgl_list_div .tool_div .kh_span{
 	margin-top: 15px;
-	margin-left:845px; 
+	margin-left:905px; 
 	position: absolute;
 }
 .gjgl_list_div .tool_div .kh_inp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 900px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 960px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .gjgl_list_div .tool_div .cx_but_div{
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 10px;
-	margin-left:1090px; 
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 12px;
+	margin-left:1150px;
 	color: #fff;
-	font-size: 18px;
-	text-align: center;
-	background-color: #5A61F7;
+	font-size: 16px;
+	background-color: #5DC0FF;
 	position: absolute;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 12px;
+}
+.gjgl_list_div .tool_div .cx_but_div .text_span{
+	margin-left: 20px;
+}
+.gjgl_list_div .tool_div .cx_but_div img{
+	margin-top: 5px;
+	margin-right: 15px;
+	float: right;
 }
 .gjgl_list_div .list_title_div{
 	width: 100%;
@@ -521,12 +550,15 @@ function loadTileset(){
 			<option>已处理</option>
 		</select>
 		<span class="sj_span">时间</span>
-		<input type="text"  class="Wdate kssj_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+		<input type="text"  class="Wdate kssj_wp" placeholder="请选择开始时间" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
 		<span class="zhi_span">至</span>
-		<input type="text"  class="Wdate jssj_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+		<input type="text"  class="Wdate jssj_wp" placeholder="请选择结束时间" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
 		<span class="kh_span">卡号</span>
-		<input class="kh_inp" type="text"/>
-		<div class="cx_but_div">查询</div>
+		<input class="kh_inp" type="text" placeholder="请输入卡号"/>
+		<div class="cx_but_div">
+			<span class="text_span">查询</span>
+			<img alt="" src="<%=basePath %>resource/image/202111230032.png">
+		</div>
 	</div>
 	<div class="list_title_div" id="list_title_div">
 		<input class="all_sel_cb" type="checkbox"/>

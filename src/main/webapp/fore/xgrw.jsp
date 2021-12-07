@@ -169,57 +169,82 @@ function resetDivSize(){
 	position: absolute;
 }
 .xgrw_list_div .list_div .tool_div .bm_sel{
-	width: 100px;
-	margin-top: 15px;
+	width: 160px;
+	height:30px;
+	margin-top: 12px;
 	margin-left: 80px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .xgrw_list_div .list_div .tool_div .zt_span{
 	margin-top: 15px;
-	margin-left:220px; 
+	margin-left:280px; 
 	position: absolute;
 }
 .xgrw_list_div .list_div .tool_div .zt_sel{
 	width: 100px;
-	margin-top: 15px;
-	margin-left: 280px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 340px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .xgrw_list_div .list_div .tool_div .sj_span{
 	margin-top: 15px;
-	margin-left:420px; 
+	margin-left:500px; 
 	position: absolute;
 }
 .xgrw_list_div .list_div .tool_div .kssj_wp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 470px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 550px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .xgrw_list_div .list_div .tool_div .zhi_span{
 	margin-top: 15px;
-	margin-left:640px; 
+	margin-left:720px; 
 	position: absolute;
 }
 .xgrw_list_div .list_div .tool_div .jssj_wp{
 	width: 150px;
-	margin-top: 15px;
-	margin-left: 670px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 750px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
 	position: absolute;
+	border-radius:5px; 
 }
 .xgrw_list_div .list_div .tool_div .cx_but_div{
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 10px;
-	margin-left:850px; 
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 12px;
+	margin-left:950px; 
 	color: #fff;
-	font-size: 18px;
-	text-align: center;
-	background-color: #5A61F7;
+	font-size: 16px;
+	background-color: #5DC0FF;
 	position: absolute;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 12px;
+}
+.xgrw_list_div .list_div .tool_div .cx_but_div .text_span{
+	margin-left: 20px;
+}
+.xgrw_list_div .list_div .tool_div .cx_but_div img{
+	margin-top: 5px;
+	margin-right: 15px;
+	float: right;
 }
 .xgrw_list_div .list_div .tab_title_div{
 	width: 98%;
@@ -383,7 +408,7 @@ function resetDivSize(){
 	background-color: #fff;
 }
 .xgrw_list_div .list_div .tab_pager .option_div{
-	width: 420px;
+	width: 440px;
 	height: 60px;
 	line-height: 60px;
 	color:#666; 
@@ -394,49 +419,62 @@ function resetDivSize(){
 	float: right;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .myts_sel{
+	width:100px;
+	height:30px;
 	margin-left: 10px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 1px;
+	border-radius: 3px;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .syy_but_div{
 	width:28px;
 	height:28px;
 	line-height:28px;
-	margin-left: 150px;
+	margin-left: 170px;
 	margin-top: -45px;
+	color: #C5CCD6;
 	text-align:center; 
+	font-weight:bold;
 	background-color: #F4F4F5;
-	border: #666 solid 1px;
+	border: #858B99 solid 1px;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .dqy_num_div{
 	width:28px;
 	height:28px;
 	line-height:28px;
-	margin-left: 190px;
+	margin-left: 210px;
 	margin-top: -30px;
 	color:#fff; 
 	text-align:center; 
 	background-color: #96BAE6;
-	border: #666 solid 1px;
+	border: #858B99 solid 1px;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .xyy_but_div{
 	width:28px;
 	height:28px;
 	line-height:28px;
-	margin-left: 230px;
+	margin-left: 250px;
 	margin-top: -30px;
+	color: #C5CCD6;
 	text-align:center; 
+	font-weight:bold;
 	background-color: #F4F4F5;
-	border: #666 solid 1px;
+	border: #858B99 solid 1px;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .qw_span{
 	margin-top: -45px;
-	margin-left: 290px;
+	margin-left: 310px;
 	position: absolute;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .qwy_num_inp{
-	margin-top: -30px;
-	margin-left: 323px;
-	color:#666;
+	height:28px;
+	margin-top: -42px;
+	margin-left: 343px;
+	color:#3B3B3B;
 	text-align:center;
+	border: #E5E7EC solid 1px;
+	border-radius: 3px;
 }
 .xgrw_list_div .list_div .tab_pager .option_div .ye_span{
 	margin-top: -43px;
@@ -475,10 +513,13 @@ function resetDivSize(){
 				<option>已处理</option>
 			</select>
 			<span class="sj_span">时间</span>
-			<input type="text"  class="Wdate kssj_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+			<input type="text"  class="Wdate kssj_wp" placeholder="请选择开始日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
 			<span class="zhi_span">至</span>
-			<input type="text"  class="Wdate jssj_wp" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
-			<div class="cx_but_div">查询</div>
+			<input type="text"  class="Wdate jssj_wp" placeholder="请选择结束日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+			<div class="cx_but_div">
+				<span class="text_span">查询</span>
+				<img alt="" src="<%=basePath %>resource/image/202111230032.png">
+			</div>
 		</div>
 		<div class="tab_title_div" id="tab_title_div">
 			<div class="col_div xh_col_div">序号</div>

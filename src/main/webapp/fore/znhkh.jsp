@@ -364,9 +364,9 @@ function initGlxBarDiv(){
 	border-radius:5px; 
 }
 .znhkh_div .tj_info_div .tool_div .cx_but_div{
-	width: 100px;
-	height: 33px;
-	line-height: 33px;
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
 	margin-top: 12px;
 	margin-left:950px; 
 	color: #fff;
@@ -381,7 +381,7 @@ function initGlxBarDiv(){
 }
 .znhkh_div .tj_info_div .tool_div .cx_but_div img{
 	margin-top: 5px;
-	margin-right: 10px;
+	margin-right: 15px;
 	float: right;
 }
 .znhkh_div .tj_info_div .echarts_div{
