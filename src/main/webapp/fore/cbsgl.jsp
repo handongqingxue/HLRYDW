@@ -177,16 +177,22 @@ function initQYPieDiv(colorArr,seriesDataList){
 function initPieLegendDiv(colorArr,seriesDataList){
 	var pieLegendDiv=$("#pie_legend_div")
 	//pieLegendDiv.empty();
+	var appendStr="";
 	for(var i=0;i<colorArr.length;i++){
 		if(i==4)
 			break;
-		var appendStr="<div class=\"item_div\">"
+		appendStr="<div class=\"item_div\">"
 						+"<div class=\"ysfk_div\" style=\"background-color:"+colorArr[i]+"\"></div>"
 						+"<span class=\"name_span\">"+seriesDataList[i].name+"</span>"
 					+"</div>";
 		pieLegendDiv.append(appendStr);
 	}
-	pieLegendDiv.append("<div class=\"syy_but_div\"></div><span class=\"ym_span\">1/2</span><div class=\"xyy_but_div\"></div>");
+	appendStr="<div class=\"syy_but_div\"></div>"
+			+"<div class=\"syy_but_bg_div\" onclick=\"alert(1)\"></div>"
+			+"<span class=\"ym_span\">1/2</span>"
+			+"<div class=\"xyy_but_div\"></div>"
+			+"<div class=\"xyy_but_bg_div\" onclick=\"alert(2)\"></div>";
+	pieLegendDiv.append(appendStr);
 
 }
 
@@ -439,6 +445,13 @@ function resetDivSize(){
 	border-style: solid;
     border-width: 10px 10px 15px 10px;
     border-color: transparent transparent #CCCBCC transparent;
+    cursor: pointer;
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .syy_but_bg_div{
+	width: 20px;
+    height: 15px;
+    margin-top:-15px;
+    cursor: pointer;
 }
 .cbsgl_div .tj_info_div .echarts_div .pie_legend_div .ym_span{
 	margin-top:-18px;
@@ -454,6 +467,13 @@ function resetDivSize(){
 	border-style: solid;
     border-width: 15px 10px 10px 10px;
     border-color: #D35A28 transparent transparent transparent;
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .xyy_but_bg_div{
+	width: 20px;
+    height: 15px;
+    margin-top:-25px;
+    margin-left:60px;
+    cursor: pointer;
 }
 .cbsgl_div .tj_info_div .echarts_div .bar_div{
 	width: 1400px;
