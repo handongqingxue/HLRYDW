@@ -21,12 +21,12 @@
 <script>
 var path='<%=basePath %>';
 $(function(){
-	initQYPie();
+	initQYTJDiv();
 	resetDivSize();
 });
 
 //https://jshare.com.cn/demos/hhhhiG?hc-theme=sand-signika
-function initQYPie(){
+function initQYTJDiv(){
 	var colorArr=['#4C87B9','#73BA44','#D35A28','#7DCDD7','#136728','#8883D7'];
 	var seriesDataList=[];
 	seriesDataList.push({name:'工作区',y:45.0});
@@ -36,7 +36,12 @@ function initQYPie(){
 	seriesDataList.push({name:'房三工作区',y:6.2});
 	seriesDataList.push({name:'房四工作区',y:3.7});
 	
+	initQYPieDiv(colorArr,seriesDataList);
 	initPieLegendDiv(colorArr,seriesDataList);
+	
+}
+
+function initQYPieDiv(colorArr,seriesDataList){
 	var chart = Highcharts.chart('pie_div', {
 		chart: {
 			type: 'pie',
@@ -404,6 +409,7 @@ function resetDivSize(){
 			<div class="pie_div" id="pie_div"></div>
 			<div class="pie_legend_div" id="pie_legend_div">
 			</div>
+			<div class="bar_div" id="bar_div"></div>
 		</div>
 	</div>
 </div>
