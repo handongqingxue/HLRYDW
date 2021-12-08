@@ -67,7 +67,6 @@ function resetDivSize(){
 	var znhkhTjInfoDiv=$("#znhkh_div #tj_info_div");
 	znhkhTjInfoDiv.css("height",(znhkhHeight-znhkhTitleHeight-2)+"px");
 
-	///
 	var znhkhToolDiv=$("#znhkh_div #tool_div");
 	var znhkhToolHeight=znhkhToolDiv.css("height");
 	znhkhToolHeight=parseInt(znhkhToolHeight.substring(0,znhkhToolHeight.length-2));
@@ -386,7 +385,6 @@ function initGlxBarDiv(){
 }
 .znhkh_div .tj_info_div .echarts_div{
 	width: 98%;
-	height: 300px;
 	margin:20px auto 0;
 	background-color: #fff;
 	padding: 1px;

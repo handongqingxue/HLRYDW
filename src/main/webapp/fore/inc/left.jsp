@@ -195,7 +195,7 @@ function showChildMenu(pointerImgId){
 		</div>
 		<div class="item_div">
 			<img class="gysgl_img" alt="" src="<%=basePath %>resource/image/202111230017.png">
-			<span class="gysgl_name_span">供应商管理</span>
+			<span class="gysgl_name_span" onclick="goPage('cbsgl')">承包商管理</span>
 		</div>
 	</div>
 </div>
