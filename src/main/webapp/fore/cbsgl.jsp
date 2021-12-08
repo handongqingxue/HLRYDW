@@ -22,8 +22,84 @@
 var path='<%=basePath %>';
 $(function(){
 	initQYTJDiv();
+	initGZSJBarDiv();
 	resetDivSize();
 });
+
+function initGZSJBarDiv(){
+	var chartDom = document.getElementById('bar_div');
+	var myChart = echarts.init(chartDom);
+	var option;
+
+	option = {
+	  title: {
+		  text: '工作时间投入比:',
+		  textStyle:{
+			  fontSize:17
+		  }
+	  },
+	  tooltip: {
+	    trigger: 'axis',
+	    axisPointer: {
+	      type: 'shadow'
+	    }
+	  },
+	  legend: {
+	  	textStyle: {
+          color: "#393333",
+          fontSize: 16,
+          fontFamily: "微软雅黑"
+        },
+        itemGap:120,
+		itemWidth:35,
+        itemHeight:35,
+	    data: ['工作时区长', '休息时区长'],
+	    top: 'bottom',
+	  },
+	  grid:{
+		  left: '6%',
+		  top:'15%'
+	  },
+	  color:["#2B5D88","#447FB8"],
+	  xAxis: [
+	    {
+	      type: 'category',
+	      axisTick: { show: false },
+	      data: ['2021-8-16', '2021-8-18', '2021-8-20', '2021-8-22', '2021-8-24']
+	    }
+	  ],
+	  yAxis: [
+	    {
+	      type: 'value',
+          splitLine: {
+              lineStyle: {
+                  color:'#F0E8D1'
+              }
+          }
+	    }
+	  ],
+	  series: [
+	    {
+	      name: '工作时区长',
+	      type: 'bar',
+	      barWidth:20,
+	      barGap:'20%',/*多个并排柱子设置柱子之间的间距*/
+          barCategoryGap:'150%',
+	      data: [320, 332, 301, 334, 390]
+	    },
+	    {
+	      name: '休息时区长',
+	      type: 'bar',
+	      barWidth:20,
+	      barGap:'20%',/*多个并排柱子设置柱子之间的间距*/
+          barCategoryGap:'150%',
+	      data: [220, 182, 191, 234, 290]
+	    }
+	  ]
+	};
+
+	option && myChart.setOption(option);
+}
 
 //https://jshare.com.cn/demos/hhhhiG?hc-theme=sand-signika
 function initQYTJDiv(){
@@ -45,14 +121,16 @@ function initQYPieDiv(colorArr,seriesDataList){
 	var chart = Highcharts.chart('pie_div', {
 		chart: {
 			type: 'pie',
+			width:1300,
+			height:300,
 			options3d: {
 				enabled: true,
-				alpha: 45,
+				alpha: 60,
 				beta: 0
 			}
 		},
 		title: {
-			text: "各区域总时长:</span><span style=\"color:#0F83E5;font-weight:bold;\">29天6小时10分20秒</span>",
+			text: "<span style=\"font-weight:bold;\">各区域总时长:</span><span style=\"color:#0F83E5;font-weight:bold;\">29天6小时10分20秒</span>",
 			align:"left"
 		},
 		/*
@@ -60,6 +138,12 @@ function initQYPieDiv(colorArr,seriesDataList){
 			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
 		},
 		*/
+		exporting: {//去除右上角图标
+            enabled:false
+        },
+		credits:{//去除右下角highchart.com
+			enabled:false
+		},
 		colors:colorArr,
 		plotOptions: {
 			pie: {
@@ -94,7 +178,7 @@ function initPieLegendDiv(colorArr,seriesDataList){
 	var pieLegendDiv=$("#pie_legend_div")
 	//pieLegendDiv.empty();
 	for(var i=0;i<colorArr.length;i++){
-		if(i==5)
+		if(i==4)
 			break;
 		var appendStr="<div class=\"item_div\">"
 						+"<div class=\"ysfk_div\" style=\"background-color:"+colorArr[i]+"\"></div>"
@@ -314,16 +398,16 @@ function resetDivSize(){
 	padding: 1px;
 }
 .cbsgl_div .tj_info_div .echarts_div .pie_div{
-	width: 1400px;
-	height: 250px;
+	width: 1300px;
+	height: 300px;
 	margin-top: 10px;
-	margin-left: 15px;
+	margin-left: 10px;
 }
 .cbsgl_div .tj_info_div .echarts_div .pie_legend_div{
 	width: 200px;
-	height: 193px;
-	margin-top: -200px;
-	margin-left:80px; 
+	height: 163px;
+	margin-top: -230px;
+	margin-left:68px; 
 	/*
 	background-color: #0f0;
 	*/
@@ -371,6 +455,20 @@ function resetDivSize(){
     border-width: 15px 10px 10px 10px;
     border-color: #D35A28 transparent transparent transparent;
 }
+.cbsgl_div .tj_info_div .echarts_div .bar_div{
+	width: 1400px;
+	height: 300px;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+.cbsgl_div .tj_info_div .echarts_div .gzsjtrb_span{
+	margin-top: -300px;
+	margin-left: 150px;
+	color:#0F83E5;
+	font-size:20px;
+	font-weight:bold;
+	position: absolute;
+}
 </style>
 </head>
 <body>
@@ -410,6 +508,7 @@ function resetDivSize(){
 			<div class="pie_legend_div" id="pie_legend_div">
 			</div>
 			<div class="bar_div" id="bar_div"></div>
+			<span class="gzsjtrb_span">67%</span>
 		</div>
 	</div>
 </div>
