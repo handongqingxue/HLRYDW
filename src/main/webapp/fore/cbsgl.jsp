@@ -9,6 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="<%=basePath %>resource/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="<%=basePath %>resource/js/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="<%=basePath %>resource/js/highcharts/highcharts-3d.js"></script>
+<script type="text/javascript" src="<%=basePath %>resource/js/highcharts/exporting.js"></script>
+<script type="text/javascript" src="<%=basePath %>resource/js/highcharts/highcharts-zh_CN.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/echarts.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>resource/js/calendar/calendar.js"></script>
 <script type="text/javascript" src="<%=basePath %>resource/js/calendar/WdatePicker.js"></script>
@@ -17,8 +21,68 @@
 <script>
 var path='<%=basePath %>';
 $(function(){
+	initQYPie();
 	resetDivSize();
 });
+
+//https://jshare.com.cn/demos/hhhhiG?hc-theme=sand-signika
+function initQYPie(){
+	var colorArr=['#4C87B9','#73BA44','#D35A28','#7DCDD7','#136728','#2D83D7'];
+	var seriesDataList=[];
+	seriesDataList.push({name:'工作区',y:45.0});
+	seriesDataList.push({name:'水处理工作区',y:26.8});
+	//seriesDataList.push([name:'房一工作区',y:12.8]);
+	//seriesDataList.push([name:'房二工作区',y:8.5]);
+	//seriesDataList.push([name:'房三工作区',y:6.2]);
+	//seriesDataList.push([name:'房四工作区',y:0.7]);
+	
+	var chart = Highcharts.chart('pie_div', {
+		chart: {
+			type: 'pie',
+			options3d: {
+				enabled: true,
+				alpha: 45,
+				beta: 0
+			}
+		},
+		title: {
+			text: "各区域总时长:</span><span style=\"color:#0F83E5;font-weight:bold;\">29天6小时10分20秒</span>",
+			align:"left"
+		},
+		/*
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		*/
+		colors:colorArr,
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				depth: 35,
+				dataLabels: {
+					enabled: true,
+					format: '{point.name}:{point.percentage:.1f}%'
+				}
+			}
+		},
+		series: [{
+			type: 'pie',
+			//name: '浏览器占比',
+			/*
+			data: [
+				['工作区',45.0],
+				['水处理工作区',26.8],
+				['房一工作区',12.8],
+				['房二工作区',8.5],
+				['房三工作区',6.2],
+				['房四工作区',0.7]
+			]
+			*/
+			data:seriesDataList
+		}]
+	});
+}
 
 function resetDivSize(){
 	var bodyWidth=$("body").css("width");
@@ -227,6 +291,25 @@ function resetDivSize(){
 	background-color: #fff;
 	padding: 1px;
 }
+.cbsgl_div .tj_info_div .echarts_div .pie_div{
+	width: 1400px;
+	height: 250px;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+.cbsgl_div .tj_info_div .echarts_div .name_list_div{
+	width: 200px;
+	height: 200px;
+	margin-top: -200px;
+	margin-left:80px; 
+	background-color: #0f0;
+	position: absolute;
+}
+.cbsgl_div .tj_info_div .echarts_div .name_list_div .item_div{
+	width: 100%;
+	height: 30px;
+	background-color: #00f;
+}
 </style>
 </head>
 <body>
@@ -262,6 +345,10 @@ function resetDivSize(){
 			</div>
 		</div>
 		<div class="echarts_div" id="echarts_div">
+			<div class="pie_div" id="pie_div"></div>
+			<div class="name_list_div">
+				<div class="item_div"></div>
+			</div>
 		</div>
 	</div>
 </div>
