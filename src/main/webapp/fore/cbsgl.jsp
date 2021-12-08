@@ -27,15 +27,16 @@ $(function(){
 
 //https://jshare.com.cn/demos/hhhhiG?hc-theme=sand-signika
 function initQYPie(){
-	var colorArr=['#4C87B9','#73BA44','#D35A28','#7DCDD7','#136728','#2D83D7'];
+	var colorArr=['#4C87B9','#73BA44','#D35A28','#7DCDD7','#136728','#8883D7'];
 	var seriesDataList=[];
 	seriesDataList.push({name:'工作区',y:45.0});
 	seriesDataList.push({name:'水处理工作区',y:26.8});
-	//seriesDataList.push([name:'房一工作区',y:12.8]);
-	//seriesDataList.push([name:'房二工作区',y:8.5]);
-	//seriesDataList.push([name:'房三工作区',y:6.2]);
-	//seriesDataList.push([name:'房四工作区',y:0.7]);
+	seriesDataList.push({name:'房一工作区',y:12.8});
+	seriesDataList.push({name:'房二工作区',y:8.5});
+	seriesDataList.push({name:'房三工作区',y:6.2});
+	seriesDataList.push({name:'房四工作区',y:3.7});
 	
+	initPieLegendDiv(colorArr,seriesDataList);
 	var chart = Highcharts.chart('pie_div', {
 		chart: {
 			type: 'pie',
@@ -82,6 +83,22 @@ function initQYPie(){
 			data:seriesDataList
 		}]
 	});
+}
+
+function initPieLegendDiv(colorArr,seriesDataList){
+	var pieLegendDiv=$("#pie_legend_div")
+	//pieLegendDiv.empty();
+	for(var i=0;i<colorArr.length;i++){
+		if(i==5)
+			break;
+		var appendStr="<div class=\"item_div\">"
+						+"<div class=\"ysfk_div\" style=\"background-color:"+colorArr[i]+"\"></div>"
+						+"<span class=\"name_span\">"+seriesDataList[i].name+"</span>"
+					+"</div>";
+		pieLegendDiv.append(appendStr);
+	}
+	pieLegendDiv.append("<div class=\"syy_but_div\"></div><span class=\"ym_span\">1/2</span><div class=\"xyy_but_div\"></div>");
+
 }
 
 function resetDivSize(){
@@ -297,18 +314,57 @@ function resetDivSize(){
 	margin-top: 10px;
 	margin-left: 15px;
 }
-.cbsgl_div .tj_info_div .echarts_div .name_list_div{
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div{
 	width: 200px;
-	height: 200px;
+	height: 193px;
 	margin-top: -200px;
 	margin-left:80px; 
+	/*
 	background-color: #0f0;
+	*/
 	position: absolute;
 }
-.cbsgl_div .tj_info_div .echarts_div .name_list_div .item_div{
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .item_div{
 	width: 100%;
 	height: 30px;
+	/*
 	background-color: #00f;
+	*/
+	padding: 1px;
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .item_div .ysfk_div{
+	width: 15px;
+	height: 15px;
+	margin-top:7px; 
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .item_div .name_span{
+	margin-top:-18px;
+	margin-left: 20px;
+	font-size:14px; 
+	font-weight:bold;
+	position: absolute;
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .syy_but_div{
+    width: 0px;
+    height: 0px;
+	border-style: solid;
+    border-width: 10px 10px 15px 10px;
+    border-color: transparent transparent #CCCBCC transparent;
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .ym_span{
+	margin-top:-18px;
+	margin-left:25px;
+	font-weight:bold;
+	position: absolute;
+}
+.cbsgl_div .tj_info_div .echarts_div .pie_legend_div .xyy_but_div{
+    width: 0px;
+    height: 0px;
+    margin-top:-15px;
+    margin-left:60px;
+	border-style: solid;
+    border-width: 15px 10px 10px 10px;
+    border-color: #D35A28 transparent transparent transparent;
 }
 </style>
 </head>
@@ -346,8 +402,7 @@ function resetDivSize(){
 		</div>
 		<div class="echarts_div" id="echarts_div">
 			<div class="pie_div" id="pie_div"></div>
-			<div class="name_list_div">
-				<div class="item_div"></div>
+			<div class="pie_legend_div" id="pie_legend_div">
 			</div>
 		</div>
 	</div>
