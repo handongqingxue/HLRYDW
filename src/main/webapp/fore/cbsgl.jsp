@@ -242,6 +242,9 @@ function resetDivSize(){
 	var leftPanelHeight=leftPanelDiv.css("height");
 	leftPanelHeight=parseInt(leftPanelHeight.substring(0,leftPanelHeight.length-2));
 	
+	lpdMarginLeft=leftPanelDiv.css("margin-left");
+	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
+	
 	var cbsglDiv=$("#cbsgl_div");
 	cbsglDiv.css("width",(bodyWidth-leftPanelWidth-50)+"px");
 	cbsglDiv.css("height",(leftPanelHeight-80)+"px");

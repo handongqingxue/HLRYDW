@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script>
+var lpdMarginLeft;
+var lpdMarginLeftTimer;
 function showChildMenu(pointerImgId){
 	var pointerImgIdNum=pointerImgId.substring(11);
 	var display=$("#child_item_list_div"+pointerImgIdNum).css("display");
@@ -20,6 +22,35 @@ function showChildMenu(pointerImgId){
 
 function doYjqr(){
 	$("#sfqr_img").attr("src",path+"resource/image/202111230034.png");
+}
+
+function openLeftPanelDiv(){
+	var flag;
+	if(lpdMarginLeft==-325)
+		flag=true;
+	else if(lpdMarginLeft==0)
+		flag=false;
+	lpdMarginLeftTimer=setInterval(() => {
+		changeLeftPanelWidth(flag);
+	}, 10);
+}
+
+function changeLeftPanelWidth(flag){
+	if(flag){
+		lpdMarginLeft+=10;
+		if(lpdMarginLeft>0)
+			lpdMarginLeft=0;
+	}
+	else{
+		lpdMarginLeft-=10;
+		if(lpdMarginLeft<-325)
+			lpdMarginLeft=-325;
+	}
+
+	console.log("lpdMarginLeft="+lpdMarginLeft)
+	if(lpdMarginLeft==0||lpdMarginLeft==-325)
+		clearInterval(lpdMarginLeftTimer);
+	$("#left_panel_div").css("margin-left",lpdMarginLeft+"px");
 }
 </script>
 <style type="text/css">
@@ -135,6 +166,14 @@ function doYjqr(){
 	margin-top: -30px;
 	margin-left:100px;
 }
+.left_panel_div .open_but_div{
+	width: 10px;
+	height: 100px;
+	margin-left:325px;
+	margin-top:-136px;
+	background-color: rgba(20,29,57,0.2);
+	position:fixed; 
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -207,6 +246,7 @@ function doYjqr(){
 			<span class="gysgl_name_span" onclick="goPage('cbsgl')">承包商管理</span>
 		</div>
 	</div>
+	<div class="open_but_div" id="open_but_div" onclick="openLeftPanelDiv()"></div>
 </div>
 </body>
 </html>

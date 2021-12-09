@@ -43,6 +43,8 @@ function resetDivSize(){
 	var leftPanelDiv=$("#left_panel_div");
 	leftPanelDiv.css("margin-top",panelMarginTop+"px");
 	leftPanelDiv.css("height",(bodyHeight-topDivHeight)+"px");
+	lpdMarginLeft=leftPanelDiv.css("margin-left");
+	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
 	
 	var leftPanelHeight=leftPanelDiv.css("height");
 	var rightPanelDiv=$("#right_panel_div");

@@ -48,6 +48,9 @@ function resetDivSize(){
 	var leftPanelHeight=leftPanelDiv.css("height");
 	leftPanelHeight=parseInt(leftPanelHeight.substring(0,leftPanelHeight.length-2));
 	
+	lpdMarginLeft=leftPanelDiv.css("margin-left");
+	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
+	
 	var lsgjDiv=$("#lsgj_div");
 	lsgjDiv.css("width",(bodyWidth-leftPanelWidth-50)+"px");
 	lsgjDiv.css("height",(leftPanelHeight-80)+"px");

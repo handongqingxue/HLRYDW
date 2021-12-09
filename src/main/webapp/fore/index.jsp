@@ -587,7 +587,7 @@ function openLeftPanelDiv(){
 	var flag;
 	if(lpbdMarginLeft==-536)
 		flag=true;
-	else if(lpbdMarginLeft==10)
+	else if(lpbdMarginLeft==0)
 		flag=false;
 	lpbdMarginLeftTimer=setInterval(() => {
 		changeLeftPanelWidth(flag);
@@ -597,8 +597,8 @@ function openLeftPanelDiv(){
 function changeLeftPanelWidth(flag){
 	if(flag){
 		lpbdMarginLeft+=10;
-		if(lpbdMarginLeft>10)
-			lpbdMarginLeft=10;
+		if(lpbdMarginLeft>0)
+			lpbdMarginLeft=0;
 	}
 	else{
 		lpbdMarginLeft-=10;
@@ -607,7 +607,7 @@ function changeLeftPanelWidth(flag){
 	}
 
 	console.log("lpbdMarginLeft="+lpbdMarginLeft)
-	if(lpbdMarginLeft==10||lpbdMarginLeft==-536)
+	if(lpbdMarginLeft==0||lpbdMarginLeft==-536)
 		clearInterval(lpbdMarginLeftTimer);
 	$("#left_panel_bg_div").css("margin-left",lpbdMarginLeft+"px");
 	$("#left_panel_div").css("margin-left",lpbdMarginLeft+"px");

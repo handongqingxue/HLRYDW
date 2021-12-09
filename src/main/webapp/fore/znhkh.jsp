@@ -51,6 +51,9 @@ function resetDivSize(){
 	var leftPanelHeight=leftPanelDiv.css("height");
 	leftPanelHeight=parseInt(leftPanelHeight.substring(0,leftPanelHeight.length-2));
 	
+	lpdMarginLeft=leftPanelDiv.css("margin-left");
+	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
+	
 	var znhkhDiv=$("#znhkh_div");
 	znhkhDiv.css("width",(bodyWidth-leftPanelWidth-50)+"px");
 	znhkhDiv.css("height",(leftPanelHeight-80)+"px");
