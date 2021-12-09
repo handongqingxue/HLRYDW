@@ -340,9 +340,9 @@ function initGlxBarDiv(){
 	position: absolute;
 }
 .znhkh_div .title_div .but_div{
-	width: 495px;
+	width: 570px;
 	height: 60px;
-	margin-right: 50px;
+	margin-right: 0px;
 	/*
 	background-color: #0f0;
 	*/
@@ -385,6 +385,13 @@ function initGlxBarDiv(){
 .znhkh_div .title_div .but_div .dcexcel_but_div{
 	margin-left: 373px;
 	margin-top: -40px;
+}
+.znhkh_div .title_div .but_div .gbmb_but_img{
+	width: 35px;
+	height:35px; 
+	margin-top: -50px;
+	float: right;
+	cursor:pointer;
 }
 .znhkh_div .tj_info_div{
 	width: 100%;
@@ -564,6 +571,7 @@ function initGlxBarDiv(){
 			<div class="but_style1_div zr_but_div">昨日</div>
 			<div class="but_style2_div zjyz_but_div">最近7日</div>
 			<div class="but_style2_div dcexcel_but_div">导出Excel</div>
+			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#znhkh_div').css('display','none');">
 		</div>
 	</div>
 	<div class="tj_info_div" id="tj_info_div">

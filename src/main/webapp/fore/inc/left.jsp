@@ -17,6 +17,10 @@ function showChildMenu(pointerImgId){
 		$("#child_item_list_div"+pointerImgIdNum).css("display","none");
 	}
 }
+
+function doYjqr(){
+	$("#sfqr_img").attr("src",path+"resource/image/202111230034.png");
+}
 </script>
 <style type="text/css">
 .left_panel_div{
@@ -46,33 +50,38 @@ function showChildMenu(pointerImgId){
 	line-height: 40px;
 	margin-left: 170px;
 	margin-top:-70px; 
-	color:#898F9B;
+	color:#c4f2fd;
 	text-align:center;
-	background-color: rgba(83,91,79,0.5);
-	border-radius:5px; 
+	border:#646445 solid 1px;
+	cursor:pointer;
+	border-radius:10px; 
 }
 .left_panel_div .menu_list_div{
-	width: 100%;height: auto;color: #96D9E9;
+	width: 100%;
+	height: auto;
+	color: #c4f2fd;
 }
 .left_panel_div .menu_list_div .item_div{
 	width: 100%;
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
 	font-size:17px;
 	/*
 	background-color: #00f;
 	*/
+	border-bottom: #646445 solid 1px;
 }
 .left_panel_div .menu_list_div .item_div .ssdw_img{
 	width: 40px;
 	height: 40px;
+	margin-top: 5px;
 	margin-left: 20px;
 }
 .left_panel_div .menu_list_div .item_div .gjxx_img{
-	width: 30px;
-	height: 30px;
-	margin-top: 5px;
-	margin-left: 25px;
+	width: 25px;
+	height: 25px;
+	margin-top: 13px;
+	margin-left: 28px;
 }
 .left_panel_div .menu_list_div .item_div .sjfx_img,
 .left_panel_div .menu_list_div .item_div .dzwl_img,
@@ -80,21 +89,21 @@ function showChildMenu(pointerImgId){
 .left_panel_div .menu_list_div .item_div .gysgl_img{
 	width: 20px;
 	height: 20px;
-	margin-top: 10px;
+	margin-top: 16px;
 	margin-left: 30px;
 }
 .left_panel_div .menu_list_div .item_div .ssdw_name_span{
 	position: absolute;
 }
 .left_panel_div .menu_list_div .item_div .gjxx_name_span{
-	margin-left: 5px;
+	margin-left: 9px;
 	position: absolute;
 }
 .left_panel_div .menu_list_div .item_div .sjfx_name_span,
 .left_panel_div .menu_list_div .item_div .dzwl_name_span,
 .left_panel_div .menu_list_div .item_div .znxj_name_span,
 .left_panel_div .menu_list_div .item_div .gysgl_name_span{
-	margin-left: 10px;
+	margin-left: 12px;
 	position: absolute;
 }
 .left_panel_div .menu_list_div .item_div .rs_span{
@@ -104,7 +113,7 @@ function showChildMenu(pointerImgId){
 .left_panel_div .menu_list_div .item_div .pointer_img{
 	width: 20px;
 	height: 20px;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-right: 20px;
 	float: right;
 }
@@ -114,8 +123,8 @@ function showChildMenu(pointerImgId){
 }
 .left_panel_div .menu_list_div .child_item_list_div .child_item_div{
 	width: 180px;
-	height: 30px;
-	line-height: 30px;
+	height: 40px;
+	line-height: 40px;
 	margin:auto;
 	font-size:15px;
 }
@@ -132,9 +141,9 @@ function showChildMenu(pointerImgId){
 <body>
 <div class="left_panel_div" id="left_panel_div">
 	<div class="gj_div">
-		<img alt="" src="<%=basePath %>resource/image/202111230006.png">
+		<img id="sfqr_img" alt="" src="<%=basePath %>resource/image/202111230006.png">
 		<span class="gjdj_span">告警等级：低</span>
-		<div class="yjqr_but_div">一键确认</div>
+		<div class="yjqr_but_div" onclick="doYjqr();">一键确认</div>
 	</div>
 	<div class="menu_list_div" id="menu_list_div1">
 		<div class="item_div">

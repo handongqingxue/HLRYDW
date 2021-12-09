@@ -196,9 +196,9 @@ function loadTileset(){
 	position: absolute;
 }
 .gjgl_list_div .title_div .but_div{
-	width: 765px;
+	width: 840px;
 	height: 60px;
-	margin-right: 50px;
+	margin-right: 0px;
 	/*
 	background-color: #0f0;
 	*/
@@ -249,6 +249,13 @@ function loadTileset(){
 .gjgl_list_div .title_div .but_div .yjcl_but_div{
 	margin-left: 643px;
 	margin-top: -40px;
+}
+.gjgl_list_div .title_div .but_div .gbmb_but_img{
+	width: 35px;
+	height:35px; 
+	margin-top: -50px;
+	float: right;
+	cursor:pointer;
 }
 .gjgl_list_div .tool_div{
 	width: 100%;
@@ -534,6 +541,7 @@ function loadTileset(){
 			<div class="but_style2_div dcexcel_but_div">导出Excel</div>
 			<div class="but_style2_div plcl_but_div">批量处理</div>
 			<div class="but_style2_div yjcl_but_div">一键处理</div>
+			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#gjgl_list_div').css('display','none');">
 		</div>
 	</div>
 	<div class="tool_div" id="tool_div">

@@ -195,6 +195,12 @@ function loadTileset(){
 	font-size:25px; 
 	position: absolute;
 }
+.lsgj_div .title_div .gbmb_but_img{
+	width: 35px;
+	height:35px; 
+	float: right;
+	cursor:pointer;
+}
 .lsgj_div .tool_div{
 	width: 100%;
 	height: 60px;
@@ -307,6 +313,7 @@ function loadTileset(){
 	<div class="title_div" id="title_div">
 		<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230027.jpg">
 		<span class="lsgj_text_span">历史轨迹</span>
+		<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#lsgj_div').css('display','none');">
 	</div>
 	<div class="tool_div" id="tool_div">
 		<span class="xzdt_span">选择地图</span>
