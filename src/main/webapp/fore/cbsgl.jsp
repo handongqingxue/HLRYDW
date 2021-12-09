@@ -20,6 +20,10 @@
 <link rel="stylesheet" href="<%=basePath %>resource/css/widgets.css">
 <script>
 var path='<%=basePath %>';
+var plPageNum=0;
+var plPageSize=4;
+var plDataCount=0;
+var plPageCount=0;
 $(function(){
 	initQYTJDiv();
 	initGZSJBarDiv();
@@ -113,7 +117,7 @@ function initQYTJDiv(){
 	seriesDataList.push({name:'房四工作区',y:3.7});
 	
 	initQYPieDiv(colorArr,seriesDataList);
-	initPieLegendDiv(colorArr,seriesDataList);
+	initPieLegendDiv(colorArr,seriesDataList,true);
 	
 }
 
@@ -174,12 +178,28 @@ function initQYPieDiv(colorArr,seriesDataList){
 	});
 }
 
-function initPieLegendDiv(colorArr,seriesDataList){
+function initPieLegendDiv(colorArr,seriesDataList,pageFlag){
 	var pieLegendDiv=$("#pie_legend_div")
-	//pieLegendDiv.empty();
+	pieLegendDiv.empty();
 	var appendStr="";
-	for(var i=0;i<colorArr.length;i++){
-		if(i==4)
+	plDataCount=seriesDataList.length;
+	plPageCount=Math.ceil(plDataCount/plPageSize);
+	if(pageFlag)
+		plPageNum++;
+	else
+		plPageNum--;
+	
+	if(plPageNum>plPageCount)
+		plPageNum=plPageCount;
+	else if(plPageNum<1)
+		plPageNum=1;
+	var startDataNum=(plPageNum-1)*plPageSize;
+	
+	//js如何向函数传递Object类型:https://blog.csdn.net/coolcoffee168/article/details/89395436
+	var colorJson=JSON.stringify(colorArr).replace(/"/g, '&quot;');
+	var seriesDataJson=JSON.stringify(seriesDataList).replace(/"/g, '&quot;');
+	for(var i=startDataNum;i<startDataNum+plPageSize;i++){
+		if(i==colorArr.length)
 			break;
 		appendStr="<div class=\"item_div\">"
 						+"<div class=\"ysfk_div\" style=\"background-color:"+colorArr[i]+"\"></div>"
@@ -188,12 +208,11 @@ function initPieLegendDiv(colorArr,seriesDataList){
 		pieLegendDiv.append(appendStr);
 	}
 	appendStr="<div class=\"syy_but_div\"></div>"
-			+"<div class=\"syy_but_bg_div\" onclick=\"alert(1)\"></div>"
-			+"<span class=\"ym_span\">1/2</span>"
+			+"<div class=\"syy_but_bg_div\" onclick=\"initPieLegendDiv("+colorJson+","+seriesDataJson+",false)\"></div>"
+			+"<span class=\"ym_span\">"+plPageNum+"/"+plPageCount+"</span>"
 			+"<div class=\"xyy_but_div\"></div>"
-			+"<div class=\"xyy_but_bg_div\" onclick=\"alert(2)\"></div>";
+			+"<div class=\"xyy_but_bg_div\" onclick=\"initPieLegendDiv("+colorJson+","+seriesDataJson+",true)\"></div>";
 	pieLegendDiv.append(appendStr);
-
 }
 
 function resetDivSize(){

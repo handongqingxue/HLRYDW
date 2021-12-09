@@ -138,7 +138,7 @@ function showChildMenu(pointerImgId){
 	</div>
 	<div class="menu_list_div" id="menu_list_div1">
 		<div class="item_div">
-			<img class="ssdw_img" alt="" src="<%=basePath %>resource/image/202111230010.jpg">
+			<img class="ssdw_img" alt="" src="<%=basePath %>resource/image/202111230010.png">
 			<span class="ssdw_name_span">实时定位</span>
 			<span class="rs_span">人数：200</span>
 			<img class="pointer_img" id="pointer_img1" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
