@@ -41,15 +41,24 @@ function resetDivSize(){
 	
 	var panelMarginTop=-(bodyHeight-topDivHeight);
 	var leftPanelDiv=$("#left_panel_div");
+	
 	leftPanelDiv.css("margin-top",panelMarginTop+"px");
 	leftPanelDiv.css("height",(bodyHeight-topDivHeight)+"px");
+	
+	var leftPanelWidth=leftPanelDiv.css("width");
+	leftPanelWidth=parseInt(leftPanelWidth.substring(0,leftPanelWidth.length-2));
+	var leftPanelHeight=leftPanelDiv.css("height");
+	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
+	
 	lpdMarginLeft=leftPanelDiv.css("margin-left");
 	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
 	
-	var leftPanelHeight=leftPanelDiv.css("height");
-	var rightPanelDiv=$("#right_panel_div");
-	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
-	rightPanelDiv.css("margin-top",-(leftPanelHeight-350)+"px");
+	
+	var rightIframe=$("#right_iframe");
+	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
+	rightIframe.css("height",(leftPanelHeight-80)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-25)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+25)+"px");
 }
 
 function initViewer(){
@@ -151,45 +160,8 @@ function loadTileset(){
 </script>  
 <title>Insert title here</title>
 <style type="text/css">
-.right_panel_div{
-	width: 60px;
-	height: 380px;
-	right:80px;
-	background-color: rgba(29,42,50,0.5);
-	border:#3E8654 solid 2px;
+.right_iframe{
 	position: fixed;
-}
-.right_panel_div .img1{
-	width: 50px;
-	height: 50px;
-	margin-top: 15px;
-	margin-left: 5px;
-}
-.right_panel_div .img2{
-	width: 50px;
-	height: 50px;
-	margin-top: 10px;
-	margin-left: 5px;
-}
-.right_panel_div .img3{
-	width: 50px;
-	height: 50px;
-	margin-top: 5px;
-	margin-left: 5px;
-}
-.right_panel_div .img4{
-	width: 50px;
-	height: 50px;
-	margin-left: 5px;
-}
-.right_panel_div .img5{
-	width: 60px;
-	height: 60px;
-}
-.right_panel_div .img6{
-	width: 50px;
-	height: 77px;
-	margin-left: 5px;
 }
 </style>
 </head>
@@ -197,13 +169,6 @@ function loadTileset(){
 <div id="cesiumContainer" style="width: 100%;height: 952px;background-image: url('<%=basePath %>resource/image/202111230026.png');"></div>
 <%@include file="inc/top.jsp"%>
 <%@include file="inc/left.jsp"%>
-<div class="right_panel_div" id="right_panel_div">
-	<img class="img1" alt="" src="<%=basePath %>resource/image/202111230018.png">
-	<img class="img2" alt="" src="<%=basePath %>resource/image/202111230019.png">
-	<img class="img3" alt="" src="<%=basePath %>resource/image/202111230020.png">
-	<img class="img4" alt="" src="<%=basePath %>resource/image/202111230021.png">
-	<img class="img5" alt="" src="<%=basePath %>resource/image/202111230022.png">
-	<img class="img6" alt="" src="<%=basePath %>resource/image/202111230023.png">
-</div>
+<iframe class="right_iframe" id="right_iframe" src="stTool.jsp" frameborder="0"></iframe>
 </body>
 </html>

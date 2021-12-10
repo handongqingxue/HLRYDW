@@ -7,14 +7,14 @@
 <script type="text/javascript">
 var path='<%=basePath %>';
 function goPage(page){
-	location.href=path+"fore/goPage?page="+page;
+	//location.href=path+"fore/goPage?page="+page;
+	$("#right_iframe").attr("src",page+".jsp");
 }
 </script>
 <style type="text/css">
 body{
 	margin: 0;
 }
-
 .top_div{
 	width:100%;
 	height:80px;
@@ -63,7 +63,7 @@ body{
 	</div>
 	<div class="title_div">人员定位管理平台</div>
 	<div class="right_div">
-		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png" onclick="goPage('main')">
+		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png" onclick="goPage('stTool')">
 		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
 	</div>
 </div>

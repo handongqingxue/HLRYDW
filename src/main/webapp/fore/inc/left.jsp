@@ -56,7 +56,6 @@ function changeLeftPanelWidth(flag){
 <style type="text/css">
 .left_panel_div{
 	width: 325px;
-	height: 500px;
 	background-color: rgba(20,29,57,0.2);
 	position: fixed;
 }
