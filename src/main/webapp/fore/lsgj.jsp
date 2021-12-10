@@ -73,7 +73,7 @@ function resetDivSize(){
 	lsgjSpaceHeight=parseInt(lsgjSpaceHeight.substring(0,lsgjSpaceHeight.length-2));
 	
 	var lsgjMapDiv=$("#lsgj_div #map_div");
-	var lsgjMapHeight=lsgjMapDiv.css("height",(lsgjHeight-lsgjTitleHeight-lsgjToolHeight-lsgjSpaceHeight)+"px");
+	lsgjMapDiv.css("height",(lsgjHeight-lsgjTitleHeight-lsgjToolHeight-lsgjSpaceHeight)+"px");
 }
 
 function initViewer(){

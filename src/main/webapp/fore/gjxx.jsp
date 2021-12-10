@@ -73,7 +73,7 @@ function resetDivSize(){
 	gjglListLTHeight=parseInt(gjglListLTHeight.substring(0,gjglListLTHeight.length-2));
 	
 	var gjglListLDiv=$("#gjgl_list_div #list_div");
-	var gjglListLHeight=gjglListLDiv.css("height",(gjglListHeight-gjglListTitleHeight-gjglListToolHeight-gjglListLTHeight)+"px");
+	gjglListLDiv.css("height",(gjglListHeight-gjglListTitleHeight-gjglListToolHeight-gjglListLTHeight)+"px");
 }
 
 function initViewer(){

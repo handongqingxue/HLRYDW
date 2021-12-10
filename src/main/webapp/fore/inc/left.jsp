@@ -83,7 +83,7 @@ function changeLeftPanelWidth(flag){
 	margin-top:-70px; 
 	color:#c4f2fd;
 	text-align:center;
-	border:#646445 solid 1px;
+	border:#5DC0FF solid 1px;
 	cursor:pointer;
 	border-radius:10px; 
 }
@@ -147,6 +147,7 @@ function changeLeftPanelWidth(flag){
 	margin-top: 15px;
 	margin-right: 20px;
 	float: right;
+	cursor: pointer;
 }
 .left_panel_div .menu_list_div .child_item_list_div{
 	width: 100%;

@@ -80,7 +80,7 @@ function resetDivSize(){
 	tabPagerHeight=parseInt(tabPagerHeight.substring(0,tabPagerHeight.length-2));
 
 	var tabDiv=$("#xgrw_list_div #tab_div");
-	var tabHeight=tabDiv.css("height",(xgrwListHeight-xgrwListTitleHeight-xgrwListToolHeight-tabTitleHeight-tabPagerHeight-50)+"px");
+	tabDiv.css("height",(xgrwListHeight-xgrwListTitleHeight-xgrwListToolHeight-tabTitleHeight-tabPagerHeight-50)+"px");
 }
 
 function initViewer(){
