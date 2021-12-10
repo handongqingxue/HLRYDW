@@ -216,40 +216,15 @@ function initPieLegendDiv(colorArr,seriesDataList,pageFlag){
 }
 
 function resetDivSize(){
-	var bodyWidth=$("body").css("width");
-	var bodyHeight=$("body").css("height");
-	bodyWidth=bodyWidth.substring(0,bodyWidth.length-2);
-	bodyHeight=parseInt(bodyHeight.substring(0,bodyHeight.length-2));
+	var parentDoc=window.parent.document;
 	
-	var cesiumContainerDiv=$("#cesiumContainer");
-	cesiumContainerDiv.css("width",bodyWidth+"px");
-	cesiumContainerDiv.css("height",bodyHeight+"px");
-	
-	var topDiv=$("#top_div");
-	topDiv.css("margin-top",-bodyHeight+"px");
-
-	var topDivHeight=$("#top_div").css("height");
-	topDivHeight=parseInt(topDivHeight.substring(0,topDivHeight.length-2));
-	
-	var panelMarginTop=-(bodyHeight-topDivHeight);
-	var leftPanelDiv=$("#left_panel_div");
-	leftPanelDiv.css("margin-top",panelMarginTop+"px");
-	leftPanelDiv.css("height",(bodyHeight-topDivHeight)+"px");
-
-	var leftPanelDiv=$("#left_panel_div");
-	var leftPanelWidth=leftPanelDiv.css("width");
-	leftPanelWidth=parseInt(leftPanelWidth.substring(0,leftPanelWidth.length-2));
-	var leftPanelHeight=leftPanelDiv.css("height");
-	leftPanelHeight=parseInt(leftPanelHeight.substring(0,leftPanelHeight.length-2));
-	
-	lpdMarginLeft=leftPanelDiv.css("margin-left");
-	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
+	var rightIframe=$("#right_iframe",parentDoc);
+	var rightIframeWidth=rightIframe.css("width");
+	var rightIframeHeight=rightIframe.css("height");
 	
 	var cbsglDiv=$("#cbsgl_div");
-	cbsglDiv.css("width",(bodyWidth-leftPanelWidth-50)+"px");
-	cbsglDiv.css("height",(leftPanelHeight-80)+"px");
-	cbsglDiv.css("margin-top",-(leftPanelHeight-25)+"px");
-	cbsglDiv.css("margin-left",(leftPanelWidth+25)+"px");
+	cbsglDiv.css("width",rightIframeWidth);
+	cbsglDiv.css("height",rightIframeHeight);
 	
 	var cbsglHeight=cbsglDiv.css("height");
 	cbsglHeight=parseInt(cbsglHeight.substring(0,cbsglHeight.length-2));
@@ -521,9 +496,6 @@ function resetDivSize(){
 </style>
 </head>
 <body>
-<div id="cesiumContainer" style="width: 100%;height: 952px;background-image: url('<%=basePath %>resource/image/202111230026.png');"></div>
-<%@include file="inc/top.jsp"%>
-<%@include file="inc/left.jsp"%>
 <div class="cbsgl_div" id="cbsgl_div">
 	<div class="title_div" id="title_div">
 		<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230024.png">

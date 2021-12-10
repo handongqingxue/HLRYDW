@@ -53,12 +53,10 @@ function resetDivSize(){
 	lpdMarginLeft=leftPanelDiv.css("margin-left");
 	lpdMarginLeft=lpdMarginLeft.substring(0,lpdMarginLeft.length-2);
 	
-	
-	var rightIframe=$("#right_iframe");
-	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
-	rightIframe.css("height",(leftPanelHeight-80)+"px");
-	rightIframe.css("margin-top",-(leftPanelHeight-25)+"px");
-	rightIframe.css("margin-left",(leftPanelWidth+25)+"px");
+	var olpbDiv=$("#open_lp_but_div");
+	var olpbHeight=olpbDiv.css("height");
+	olpbHeight=olpbHeight.substring(0,olpbHeight.length-2);
+	olpbDiv.css("margin-top",-(leftPanelHeight/2+olpbHeight/2+50)+"px");
 }
 
 function initViewer(){

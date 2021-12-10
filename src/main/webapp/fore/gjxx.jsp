@@ -22,10 +22,24 @@ $(function(){
 function resetDivSize(){
 	var parentDoc=window.parent.document;
 	
-	var topDivHeight=$("#top_div",parentDoc).css("height");
-	topDivHeight=parseInt(topDivHeight.substring(0,topDivHeight.length-2));
-
+	var bodyWidth=$("body",parentDoc).css("width");
+	var bodyHeight=$("body",parentDoc).css("height");
+	bodyWidth=bodyWidth.substring(0,bodyWidth.length-2);
+	bodyHeight=parseInt(bodyHeight.substring(0,bodyHeight.length-2));
+	
+	var leftPanelDiv=$("#left_panel_div",parentDoc);
+	var leftPanelWidth=leftPanelDiv.css("width");
+	leftPanelWidth=parseInt(leftPanelWidth.substring(0,leftPanelWidth.length-2));
+	var leftPanelHeight=leftPanelDiv.css("height");
+	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
+	
 	var rightIframe=$("#right_iframe",parentDoc);
+	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
+	rightIframe.css("height",(leftPanelHeight-80)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-25)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+25)+"px");
+	rightIframe.css("right","");
+	
 	var rightIframeWidth=rightIframe.css("width");
 	var rightIframeHeight=rightIframe.css("height");
 	

@@ -163,14 +163,13 @@ function changeLeftPanelWidth(flag){
 	width: 100px;
 }
 .left_panel_div .menu_list_div .child_item_list_div .child_item_div .child_rs_div{
-	margin-top: -30px;
+	margin-top: -40px;
 	margin-left:100px;
 }
-.left_panel_div .open_but_div{
+.open_lp_but_div{
 	width: 10px;
 	height: 100px;
 	margin-left:325px;
-	margin-top:-136px;
 	background-color: rgba(20,29,57,0.2);
 	position:fixed; 
 }
@@ -187,7 +186,7 @@ function changeLeftPanelWidth(flag){
 	<div class="menu_list_div" id="menu_list_div1">
 		<div class="item_div">
 			<img class="ssdw_img" alt="" src="<%=basePath %>resource/image/202111230010.png">
-			<span class="ssdw_name_span">实时定位</span>
+			<span class="ssdw_name_span" onclick="goPage('stTool')">实时定位</span>
 			<span class="rs_span">人数：200</span>
 			<img class="pointer_img" id="pointer_img1" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
 		</div>
@@ -246,7 +245,7 @@ function changeLeftPanelWidth(flag){
 			<span class="gysgl_name_span" onclick="goPage('cbsgl')">承包商管理</span>
 		</div>
 	</div>
-	<div class="open_but_div" id="open_but_div" onclick="openLeftPanelDiv()"></div>
 </div>
+	<div class="open_lp_but_div" id="open_lp_but_div" onclick="openLeftPanelDiv()"></div>
 </body>
 </html>

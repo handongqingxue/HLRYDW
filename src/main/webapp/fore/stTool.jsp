@@ -12,24 +12,34 @@
 <script>
 var path='<%=basePath %>';
 $(function(){
+	setTimeout("resetDivSize()",1000);
+});
+
+function resetDivSize(){
 	var parentDoc=window.parent.document;
-	var bodyHeight=$("body",parentDoc).css("height");
-	bodyHeight=bodyHeight.substring(0,bodyHeight.length-2);
-	var topDivHeight=$("#top_div",parentDoc).css("height");
-	topDivHeight=topDivHeight.substring(0,topDivHeight.length-2);
-	var leftPanelHeight=$("#left_panel_div",parentDoc).css("height");
+
+	var leftPanelDiv=$("#left_panel_div",parentDoc);
+	var leftPanelHeight=leftPanelDiv.css("height");
+	leftPanelHeight=parseInt(leftPanelHeight.substring(0,leftPanelHeight.length-2));
 	
 	var rightPanelDiv=$("#right_panel_div");
-	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
-});
+	var rightPanelWidth=rightPanelDiv.css("width");
+	rightPanelWidth=parseInt(rightPanelWidth.substring(0,rightPanelWidth.length-2));
+	var rightPanelHeight=rightPanelDiv.css("height");
+	rightPanelHeight=parseInt(rightPanelHeight.substring(0,rightPanelHeight.length-2));
+
+	var rightIframe=$("#right_iframe",parentDoc);
+	rightIframe.css("width",rightPanelWidth+20+"px");
+	rightIframe.css("height",rightPanelHeight+20+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-342)+"px");
+	rightIframe.css("right","55px");
+}
 </script>
 <title>Insert title here</title>
 <style type="text/css">
 .right_panel_div{
 	width: 60px;
 	height: 380px;
-	margin-top:317px;
-	right:55px;
 	background-color: rgba(29,42,50,0.5);
 	border:#3E8654 solid 2px;
 	position: fixed;
