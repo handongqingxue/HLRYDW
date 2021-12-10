@@ -434,7 +434,7 @@ function resetDivSize(){
 			<div class="but_style2_div dcexcel_but_div">导出Excel</div>
 			<div class="but_style2_div plcl_but_div">批量处理</div>
 			<div class="but_style2_div yjcl_but_div">一键处理</div>
-			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#gjgl_list_div').css('display','none');">
+			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#right_iframe',window.parent.document).css('display','none');">
 		</div>
 	</div>
 	<div class="tool_div" id="tool_div">

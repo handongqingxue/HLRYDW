@@ -9,8 +9,13 @@ var path='<%=basePath %>';
 function goPage(page){
 	if(page=="main")
 		location.href=path+"fore/goPage?page="+page;
-	else
-		$("#right_iframe").attr("src",page+".jsp");
+	else{
+		var rightIframe=$("#right_iframe");
+		var display=rightIframe.css("display");
+		if(display=="none")
+			rightIframe.css("display","block");
+		rightIframe.attr("src",page+".jsp");
+	}
 }
 </script>
 <style type="text/css">

@@ -24,8 +24,25 @@ $(function(){
 
 function resetDivSize(){
 	var parentDoc=window.parent.document;
+
+	var bodyWidth=$("body",parentDoc).css("width");
+	var bodyHeight=$("body",parentDoc).css("height");
+	bodyWidth=bodyWidth.substring(0,bodyWidth.length-2);
+	bodyHeight=parseInt(bodyHeight.substring(0,bodyHeight.length-2));
 	
+	var leftPanelDiv=$("#left_panel_div",parentDoc);
+	var leftPanelWidth=leftPanelDiv.css("width");
+	leftPanelWidth=parseInt(leftPanelWidth.substring(0,leftPanelWidth.length-2));
+	var leftPanelHeight=leftPanelDiv.css("height");
+	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
+
 	var rightIframe=$("#right_iframe",parentDoc);
+	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
+	rightIframe.css("height",(leftPanelHeight-80)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-25)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+25)+"px");
+	rightIframe.css("right","");
+	
 	var rightIframeWidth=rightIframe.css("width");
 	var rightIframeHeight=rightIframe.css("height");
 	
@@ -447,7 +464,7 @@ function initGlxBarDiv(){
 			<div class="but_style1_div zr_but_div">昨日</div>
 			<div class="but_style2_div zjyz_but_div">最近7日</div>
 			<div class="but_style2_div dcexcel_but_div">导出Excel</div>
-			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#znhkh_div').css('display','none');">
+			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#right_iframe',window.parent.document).css('display','none');">
 		</div>
 	</div>
 	<div class="tj_info_div" id="tj_info_div">

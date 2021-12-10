@@ -206,7 +206,7 @@ function resetDivSize(){
 	<div class="title_div" id="title_div">
 		<img class="icon_img" alt="" src="<%=basePath %>resource/image/202111230027.jpg">
 		<span class="lsgj_text_span">历史轨迹</span>
-		<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#lsgj_div').css('display','none');">
+		<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#right_iframe',window.parent.document).css('display','none');">
 	</div>
 	<div class="tool_div" id="tool_div">
 		<span class="xzdt_span">选择地图</span>

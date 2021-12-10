@@ -493,7 +493,7 @@ function resetDivSize(){
 			<div class="but_style1_div zr_but_div">昨日</div>
 			<div class="but_style2_div zjyz_but_div">最近7日</div>
 			<div class="but_style2_div dcexcel_but_div">导出Excel</div>
-			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#xgrw_list_div').css('display','none');">
+			<img class="gbmb_but_img" alt="" src="<%=basePath %>resource/image/202111230033.png" onclick="$('#right_iframe',window.parent.document).css('display','none');">
 		</div>
 	</div>
 	<div class="list_div" id="list_div">
