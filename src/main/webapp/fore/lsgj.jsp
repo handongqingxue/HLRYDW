@@ -41,10 +41,12 @@ function resetDivSize(){
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
 	var rightIframeHeight=rightIframe.css("height");
 	
 	var lsgjDiv=$("#lsgj_div");
-	lsgjDiv.css("width",rightIframeWidth);
+	var frameRightSpace=8;
+	lsgjDiv.css("width",rightIframeWidth-frameRightSpace+"px");
 	lsgjDiv.css("height",rightIframeHeight);
 	
 	var lsgjHeight=lsgjDiv.css("height");
@@ -75,7 +77,7 @@ function resetDivSize(){
 	border-radius:8px;
 }
 .lsgj_div .title_div{
-	width: 99%;
+	width: 100%;
 	height: 60px;
 }
 .lsgj_div .title_div .icon_img{

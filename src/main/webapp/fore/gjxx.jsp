@@ -41,12 +41,16 @@ function resetDivSize(){
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
 	var rightIframeHeight=rightIframe.css("height");
 	
 	var gjglListDiv=$("#gjgl_list_div");
-	gjglListDiv.css("width",rightIframeWidth);
+	var frameRightSpace=10;
+	gjglListDiv.css("width",rightIframeWidth-frameRightSpace+"px");
 	gjglListDiv.css("height",rightIframeHeight);
 
+	var gjglListWidth=gjglListDiv.css("width");
+	gjglListWidth=parseInt(gjglListWidth.substring(0,gjglListWidth.length-2));
 	var gjglListHeight=gjglListDiv.css("height");
 	gjglListHeight=parseInt(gjglListHeight.substring(0,gjglListHeight.length-2));
 	
@@ -64,6 +68,36 @@ function resetDivSize(){
 	
 	var gjglListLDiv=$("#gjgl_list_div #list_div");
 	gjglListLDiv.css("height",(gjglListHeight-gjglListTitleHeight-gjglListToolHeight-gjglListLTHeight)+"px");
+	
+	var khColWidth=150;
+	var bjrColWidth=100;
+	var bjlxColWidth=100;
+	var fsqyColWidth=100;
+	var bmdwColWidth=100;
+	var kssjColWidth=200;
+	var jssjColWidth=200;
+	var clztColWidth=100;
+	var clrColWidth=100;
+	var clsjColWidth=200;
+	var czColWidth=100;
+	
+	$("#list_title_div .kh_col_div").css("width",(khColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .bjr_col_div").css("width",(bjrColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .bjlx_col_div").css("width",(bjlxColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .fsqy_col_div").css("width",(fsqyColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .bmdw_col_div").css("width",(bmdwColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .kssj_col_div").css("width",(kssjColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .jssj_col_div").css("width",(jssjColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .clzt_col_div").css("width",(clztColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .clr_col_div").css("width",(clrColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .clsj_col_div").css("width",(clsjColWidth/gjglListWidth*100)+"%");
+	$("#list_title_div .cz_col_div").css("width",(czColWidth/gjglListWidth*100)+"%");
+	
+	$("#list_div .item_div .kh_col_div").css("width",(khColWidth/gjglListWidth*100)+"%");
+	$("#list_div .item_div .bjr_col_div").css("width",(bjrColWidth/gjglListWidth*100)+"%");
+	$("#list_div .item_div .bjlx_col_div").css("width",(bjlxColWidth/gjglListWidth*100)+"%");
+	$("#list_div .item_div .fsqy_col_div").css("width",(fsqyColWidth/gjglListWidth*100)+"%");
+	$("#list_div .item_div .bmdw_col_div").css("width",(bmdwColWidth/gjglListWidth*100)+"%");
 }
 </script>
 <title>Insert title here</title>
@@ -75,7 +109,7 @@ function resetDivSize(){
 	border-radius:8px; 
 }
 .gjgl_list_div .title_div{
-	width: 99%;
+	width: 100%;
 	height: 60px;
 }
 .gjgl_list_div .title_div .icon_img{
@@ -272,57 +306,46 @@ function resetDivSize(){
 	text-align: center;
 }
 .gjgl_list_div .list_title_div .kh_col_div{
-	width: 150px;
 	margin-top:-29px;
 	margin-left:50px;
 }
 .gjgl_list_div .list_title_div .bjr_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:200px;
 }
 .gjgl_list_div .list_title_div .bjlx_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:300px;
 }
 .gjgl_list_div .list_title_div .fsqy_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:400px;
 }
 .gjgl_list_div .list_title_div .bmdw_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:500px;
 }
 .gjgl_list_div .list_title_div .kssj_col_div{
-	width: 200px;
 	margin-top:-40px;
 	margin-left:600px;
 }
 .gjgl_list_div .list_title_div .jssj_col_div{
-	width: 200px;
 	margin-top:-40px;
 	margin-left:800px;
 }
 .gjgl_list_div .list_title_div .clzt_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:1000px;
 }
 .gjgl_list_div .list_title_div .clr_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:1100px;
 }
 .gjgl_list_div .list_title_div .clsj_col_div{
-	width: 200px;
 	margin-top:-40px;
 	margin-left:1200px;
 }
 .gjgl_list_div .list_title_div .cz_col_div{
-	width: 100px;
 	margin-top:-40px;
 	margin-left:1400px;
 }
@@ -350,31 +373,26 @@ function resetDivSize(){
 	text-align: center;
 }
 .gjgl_list_div .list_div .item_div .kh_col_div{
-	width: 150px;
 	margin-top:-39px;
 	margin-left:50px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bjr_col_div{
-	width: 100px;
 	margin-top:-60px;
 	margin-left:200px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bjlx_col_div{
-	width: 100px;
 	margin-top:-60px;
 	margin-left:300px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .fsqy_col_div{
-	width: 100px;
 	margin-top:-60px;
 	margin-left:400px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bmdw_col_div{
-	width: 100px;
 	margin-top:-60px;
 	margin-left:500px;
 	color:#262626;

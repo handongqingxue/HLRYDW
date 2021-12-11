@@ -237,12 +237,16 @@ function resetDivSize(){
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
 	var rightIframeHeight=rightIframe.css("height");
 	
 	var cbsglDiv=$("#cbsgl_div");
-	cbsglDiv.css("width",rightIframeWidth);
+	var frameRightSpace=10;
+	cbsglDiv.css("width",rightIframeWidth-frameRightSpace+"px");
 	cbsglDiv.css("height",rightIframeHeight);
-	
+
+	var cbsglWidth=cbsglDiv.css("width");
+	cbsglWidth=parseInt(cbsglWidth.substring(0,cbsglWidth.length-2));
 	var cbsglHeight=cbsglDiv.css("height");
 	cbsglHeight=parseInt(cbsglHeight.substring(0,cbsglHeight.length-2));
 
@@ -251,6 +255,7 @@ function resetDivSize(){
 	znhkhTitleHeight=parseInt(znhkhTitleHeight.substring(0,znhkhTitleHeight.length-2));
 
 	var znhkhTjInfoDiv=$("#cbsgl_div #tj_info_div");
+	znhkhTjInfoDiv.css("width",(cbsglWidth-2)+"px");
 	znhkhTjInfoDiv.css("height",(cbsglHeight-znhkhTitleHeight-2)+"px");
 
 	var znhkhToolDiv=$("#cbsgl_div #tool_div");
@@ -270,7 +275,7 @@ function resetDivSize(){
 	border-radius:8px; 
 }
 .cbsgl_div .title_div{
-	width: 99%;
+	width: 100%;
 	height: 60px;
 }
 .cbsgl_div .title_div .icon_img{
@@ -341,7 +346,6 @@ function resetDivSize(){
 	cursor:pointer;
 }
 .cbsgl_div .tj_info_div{
-	width: 99%;
 	background-color: #EFF3F6;
 	padding: 1px;
 }

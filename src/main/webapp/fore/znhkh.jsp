@@ -44,12 +44,16 @@ function resetDivSize(){
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
 	var rightIframeHeight=rightIframe.css("height");
 	
 	var znhkhDiv=$("#znhkh_div");
-	znhkhDiv.css("width",rightIframeWidth);
+	var frameRightSpace=10;
+	znhkhDiv.css("width",rightIframeWidth-frameRightSpace+"px");
 	znhkhDiv.css("height",rightIframeHeight);
-	
+
+	var znhkhWidth=znhkhDiv.css("width");
+	znhkhWidth=parseInt(znhkhWidth.substring(0,znhkhWidth.length-2));
 	var znhkhHeight=znhkhDiv.css("height");
 	znhkhHeight=parseInt(znhkhHeight.substring(0,znhkhHeight.length-2));
 
@@ -58,6 +62,7 @@ function resetDivSize(){
 	znhkhTitleHeight=parseInt(znhkhTitleHeight.substring(0,znhkhTitleHeight.length-2));
 
 	var znhkhTjInfoDiv=$("#znhkh_div #tj_info_div");
+	znhkhTjInfoDiv.css("width",(znhkhWidth-2)+"px");
 	znhkhTjInfoDiv.css("height",(znhkhHeight-znhkhTitleHeight-2)+"px");
 
 	var znhkhToolDiv=$("#znhkh_div #tool_div");
@@ -219,7 +224,7 @@ function initGlxBarDiv(){
 	border-radius:8px; 
 }
 .znhkh_div .title_div{
-	width: 99%;
+	width: 100%;
 	height: 60px;
 }
 .znhkh_div .title_div .icon_img{
@@ -290,7 +295,6 @@ function initGlxBarDiv(){
 	cursor:pointer;
 }
 .znhkh_div .tj_info_div{
-	width: 99%;
 	background-color: #EFF3F6;
 	padding: 1px;
 }

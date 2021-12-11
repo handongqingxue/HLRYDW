@@ -41,12 +41,16 @@ function resetDivSize(){
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
 	var rightIframeHeight=rightIframe.css("height");
 	
 	var xgrwListDiv=$("#xgrw_list_div");
-	xgrwListDiv.css("width",rightIframeWidth);
+	var frameRightSpace=10;
+	xgrwListDiv.css("width",rightIframeWidth-frameRightSpace+"px");
 	xgrwListDiv.css("height",rightIframeHeight);
 	
+	var xgrwListWidth=xgrwListDiv.css("width");
+	xgrwListWidth=xgrwListWidth.substring(0,xgrwListWidth.length-2);
 	var xgrwListHeight=xgrwListDiv.css("height");
 	xgrwListHeight=parseInt(xgrwListHeight.substring(0,xgrwListHeight.length-2));
 
@@ -55,7 +59,8 @@ function resetDivSize(){
 	xgrwListTitleHeight=parseInt(xgrwListTitleHeight.substring(0,xgrwListTitleHeight.length-2));
 
 	var xgrwListLDiv=$("#xgrw_list_div #list_div");
-	var xgrwListLHeight=xgrwListLDiv.css("height",(xgrwListHeight-xgrwListTitleHeight)+"px");
+	xgrwListLDiv.css("width",(xgrwListWidth-2)+"px");
+	xgrwListLDiv.css("height",(xgrwListHeight-xgrwListTitleHeight)+"px");
 
 	var xgrwListToolDiv=$("#xgrw_list_div #tool_div");
 	var xgrwListToolHeight=xgrwListToolDiv.css("height");
@@ -82,7 +87,7 @@ function resetDivSize(){
 	border-radius:8px; 
 }
 .xgrw_list_div .title_div{
-	width: 99%;
+	width: 100%;
 	height: 60px;
 }
 .xgrw_list_div .title_div .icon_img{
@@ -153,7 +158,6 @@ function resetDivSize(){
 	cursor:pointer;
 }
 .xgrw_list_div .list_div{
-	width: 99%;
 	background-color: #EFF3F6;
 	padding: 1px;
 }
