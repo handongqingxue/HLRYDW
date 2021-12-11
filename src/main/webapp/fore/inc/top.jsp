@@ -7,7 +7,7 @@
 <script type="text/javascript">
 var path='<%=basePath %>';
 function goPage(page){
-	if(page=="main")
+	if(page=="index"||page=="main")
 		location.href=path+"fore/goPage?page="+page;
 	else{
 		var rightIframe=$("#right_iframe");
@@ -70,8 +70,8 @@ body{
 	</div>
 	<div class="title_div">人员定位管理平台</div>
 	<div class="right_div">
-		<img class="but_img" alt="" src="<%=basePath %>resource/image/202111230002.png" onclick="goPage('main')">
-		<img class="but_img qht_but_img" alt="" src="<%=basePath %>resource/image/202111230003.png">
+		<img class="but_img" alt="" title="${param.page eq 'main'?'返货总览':'进入主界面'}" src="<%=basePath %>resource/image/202111230002.png" onclick="goPage('${param.page eq 'main'?'index':'main'}')">
+		<img class="but_img qht_but_img" alt="" title="进入后台设置" src="<%=basePath %>resource/image/202111230003.png">
 	</div>
 </div>
 </body>

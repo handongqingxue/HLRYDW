@@ -44,34 +44,37 @@ function resetDivSize(){
 	border:#3E8654 solid 2px;
 	position: fixed;
 }
-.right_panel_div .img1{
+.right_panel_div img{
+	cursor: pointer;
+}
+.right_panel_div .yg_img{
 	width: 50px;
 	height: 50px;
 	margin-top: 15px;
 	margin-left: 5px;
 }
-.right_panel_div .img2{
+.right_panel_div .fk_img{
 	width: 50px;
 	height: 50px;
 	margin-top: 10px;
 	margin-left: 5px;
 }
-.right_panel_div .img3{
+.right_panel_div .cl_img{
 	width: 50px;
 	height: 50px;
 	margin-top: 5px;
 	margin-left: 5px;
 }
-.right_panel_div .img4{
+.right_panel_div .spld_img{
 	width: 50px;
 	height: 50px;
 	margin-left: 5px;
 }
-.right_panel_div .img5{
+.right_panel_div .wg_img{
 	width: 60px;
 	height: 60px;
 }
-.right_panel_div .img6{
+.right_panel_div .zj_img{
 	width: 50px;
 	height: 77px;
 	margin-left: 5px;
@@ -80,12 +83,12 @@ function resetDivSize(){
 </head>
 <body>
 <div class="right_panel_div" id="right_panel_div">
-	<img class="img1" alt="" src="<%=basePath %>resource/image/202111230018.png">
-	<img class="img2" alt="" src="<%=basePath %>resource/image/202111230019.png">
-	<img class="img3" alt="" src="<%=basePath %>resource/image/202111230020.png">
-	<img class="img4" alt="" src="<%=basePath %>resource/image/202111230021.png">
-	<img class="img5" alt="" src="<%=basePath %>resource/image/202111230022.png">
-	<img class="img6" alt="" src="<%=basePath %>resource/image/202111230023.png">
+	<img class="yg_img" alt="" title="员工" src="<%=basePath %>resource/image/202111230018.png">
+	<img class="fk_img" alt="" title="访客" src="<%=basePath %>resource/image/202111230019.png">
+	<img class="cl_img" alt="" title="车辆" src="<%=basePath %>resource/image/202111230020.png">
+	<img class="spld_img" alt="" title="视频联动" src="<%=basePath %>resource/image/202111230021.png">
+	<img class="wg_img" alt="" title="网关" src="<%=basePath %>resource/image/202111230022.png">
+	<img class="zj_img" alt="" title="闸机" src="<%=basePath %>resource/image/202111230023.png">
 </div>
 </body>
 </html>

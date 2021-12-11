@@ -39,8 +39,8 @@ function resetDivSize(){
 	var rightIframe=$("#right_iframe",parentDoc);
 	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
 	rightIframe.css("height",(leftPanelHeight-80)+"px");
-	rightIframe.css("margin-top",-(leftPanelHeight-25)+"px");
-	rightIframe.css("margin-left",(leftPanelWidth+25)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-7)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+15)+"px");
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
@@ -219,7 +219,7 @@ function initGlxBarDiv(){
 	border-radius:8px; 
 }
 .znhkh_div .title_div{
-	width: 100%;
+	width: 99%;
 	height: 60px;
 }
 .znhkh_div .title_div .icon_img{
@@ -290,7 +290,7 @@ function initGlxBarDiv(){
 	cursor:pointer;
 }
 .znhkh_div .tj_info_div{
-	width: 100%;
+	width: 99%;
 	background-color: #EFF3F6;
 	padding: 1px;
 }

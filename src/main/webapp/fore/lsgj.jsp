@@ -36,8 +36,8 @@ function resetDivSize(){
 	var rightIframe=$("#right_iframe",parentDoc);
 	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
 	rightIframe.css("height",(leftPanelHeight-80)+"px");
-	rightIframe.css("margin-top",-(leftPanelHeight-25)+"px");
-	rightIframe.css("margin-left",(leftPanelWidth+25)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-7)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+15)+"px");
 	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
@@ -75,7 +75,7 @@ function resetDivSize(){
 	border-radius:8px;
 }
 .lsgj_div .title_div{
-	width: 100%;
+	width: 99%;
 	height: 60px;
 }
 .lsgj_div .title_div .icon_img{

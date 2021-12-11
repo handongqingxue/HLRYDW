@@ -94,13 +94,17 @@ function changeLeftPanelWidth(flag){
 }
 .left_panel_div .menu_list_div .item_div{
 	width: 100%;
-	height: 50px;
-	line-height: 50px;
+	height: 60px;
+	line-height: 60px;
 	font-size:17px;
 	/*
 	background-color: #00f;
 	*/
 	border-bottom: #646445 solid 1px;
+}
+.left_panel_div .menu_list_div .gjxx_item_div,
+.left_panel_div .menu_list_div .gysgl_item_div{
+	cursor: pointer;
 }
 .left_panel_div .menu_list_div .item_div .ssdw_img{
 	width: 40px;
@@ -144,7 +148,7 @@ function changeLeftPanelWidth(flag){
 .left_panel_div .menu_list_div .item_div .pointer_img{
 	width: 20px;
 	height: 20px;
-	margin-top: 15px;
+	margin-top: 20px;
 	margin-right: 20px;
 	float: right;
 	cursor: pointer;
@@ -159,6 +163,7 @@ function changeLeftPanelWidth(flag){
 	line-height: 40px;
 	margin:auto;
 	font-size:15px;
+	cursor: pointer;
 }
 .left_panel_div .menu_list_div .child_item_list_div .child_item_div .child_name_div{
 	width: 100px;
@@ -171,7 +176,9 @@ function changeLeftPanelWidth(flag){
 	width: 10px;
 	height: 100px;
 	margin-left:325px;
-	background-color: rgba(20,29,57,0.2);
+	background-color: #5DAFE5;
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
 	position:fixed; 
 }
 </style>
@@ -201,9 +208,9 @@ function changeLeftPanelWidth(flag){
 				<div class="child_rs_div">人数：15</div>
 			</div>
 		</div>
-		<div class="item_div">
+		<div class="item_div gjxx_item_div" onclick="goPage('gjxx')">
 			<img class="gjxx_img" alt="" src="<%=basePath %>resource/image/202111230013.png">
-			<span class="gjxx_name_span" onclick="goPage('gjxx')">告警信息</span>
+			<span class="gjxx_name_span">告警信息</span>
 		</div>
 		<div class="item_div">
 			<img class="sjfx_img" alt="" src="<%=basePath %>resource/image/202111230014.png">
@@ -211,8 +218,8 @@ function changeLeftPanelWidth(flag){
 			<img class="pointer_img" id="pointer_img2" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
 		</div>
 		<div class="child_item_list_div" id="child_item_list_div2">
-			<div class="child_item_div">
-				<div class="child_name_div" onclick="goPage('lsgj')">历史轨迹</div>
+			<div class="child_item_div" onclick="goPage('lsgj')">
+				<div class="child_name_div">历史轨迹</div>
 			</div>
 			<div class="child_item_div">
 				<div class="child_name_div">位置追踪</div>
@@ -234,16 +241,16 @@ function changeLeftPanelWidth(flag){
 			<img class="pointer_img" id="pointer_img3" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
 		</div>
 		<div class="child_item_list_div" id="child_item_list_div3">
-			<div class="child_item_div">
-				<div class="child_name_div" onclick="goPage('xgrw')">巡更任务</div>
+			<div class="child_item_div" onclick="goPage('xgrw')">
+				<div class="child_name_div">巡更任务</div>
 			</div>
-			<div class="child_item_div">
-				<div class="child_name_div" onclick="goPage('znhkh')">智能化考核</div>
+			<div class="child_item_div" onclick="goPage('znhkh')">
+				<div class="child_name_div">智能化考核</div>
 			</div>
 		</div>
-		<div class="item_div">
+		<div class="item_div gysgl_item_div" onclick="goPage('cbsgl')">
 			<img class="gysgl_img" alt="" src="<%=basePath %>resource/image/202111230017.png">
-			<span class="gysgl_name_span" onclick="goPage('cbsgl')">承包商管理</span>
+			<span class="gysgl_name_span">承包商管理</span>
 		</div>
 	</div>
 </div>
