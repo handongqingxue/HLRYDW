@@ -80,24 +80,119 @@ function resetDivSize(){
 	var clrColWidth=100;
 	var clsjColWidth=200;
 	var czColWidth=100;
+	var marginLeft=50;
 	
-	$("#list_title_div .kh_col_div").css("width",(khColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .bjr_col_div").css("width",(bjrColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .bjlx_col_div").css("width",(bjlxColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .fsqy_col_div").css("width",(fsqyColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .bmdw_col_div").css("width",(bmdwColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .kssj_col_div").css("width",(kssjColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .jssj_col_div").css("width",(jssjColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .clzt_col_div").css("width",(clztColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .clr_col_div").css("width",(clrColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .clsj_col_div").css("width",(clsjColWidth/gjglListWidth*100)+"%");
-	$("#list_title_div .cz_col_div").css("width",(czColWidth/gjglListWidth*100)+"%");
+	var listTitleDiv=$("#list_title_div");
+	var listItemDiv=$("#list_div .item_div");
 	
-	$("#list_div .item_div .kh_col_div").css("width",(khColWidth/gjglListWidth*100)+"%");
-	$("#list_div .item_div .bjr_col_div").css("width",(bjrColWidth/gjglListWidth*100)+"%");
-	$("#list_div .item_div .bjlx_col_div").css("width",(bjlxColWidth/gjglListWidth*100)+"%");
-	$("#list_div .item_div .fsqy_col_div").css("width",(fsqyColWidth/gjglListWidth*100)+"%");
-	$("#list_div .item_div .bmdw_col_div").css("width",(bmdwColWidth/gjglListWidth*100)+"%");
+	var listTitleKhColDiv=listTitleDiv.find(".kh_col_div");
+	var khColWidthPercent=khColWidth/gjglListWidth*100;
+	listTitleKhColDiv.css("width",khColWidthPercent+"%");
+	listTitleKhColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemKhColDiv=listItemDiv.find(".kh_col_div");
+	listItemKhColDiv.css("width",khColWidthPercent+"%");
+	listItemKhColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=khColWidth;
+	var listTitleBjrColDiv=listTitleDiv.find(".bjr_col_div");
+	var bjrColWidthPercent=bjrColWidth/gjglListWidth*100;
+	listTitleBjrColDiv.css("width",bjrColWidthPercent+"%");
+	listTitleBjrColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemBjrColDiv=listItemDiv.find(".bjr_col_div");
+	listItemBjrColDiv.css("width",bjrColWidthPercent+"%");
+	listItemBjrColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=bjrColWidth;
+	var listTitleBjlxColDiv=listTitleDiv.find(".bjlx_col_div");
+	var bjlxColWidthPercent=bjlxColWidth/gjglListWidth*100;
+	listTitleBjlxColDiv.css("width",bjlxColWidthPercent+"%");
+	listTitleBjlxColDiv.css("margin-left",marginLeft+"px");
+
+	var listItemBjlxColDiv=listItemDiv.find(".bjlx_col_div");
+	listItemBjlxColDiv.css("width",(bjlxColWidth/gjglListWidth*100)+"%");
+	listItemBjlxColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=bjlxColWidth;
+	var fsqyColWidthPercent=fsqyColWidth/gjglListWidth*100;
+	var listTitleFsqyColDiv=listTitleDiv.find(".fsqy_col_div");
+	listTitleFsqyColDiv.css("width",fsqyColWidthPercent+"%");
+	listTitleFsqyColDiv.css("margin-left",marginLeft+"px");
+
+	var listItemFsqyColDiv=listItemDiv.find(".fsqy_col_div");
+	listItemFsqyColDiv.css("width",fsqyColWidthPercent+"%");
+	listItemFsqyColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=fsqyColWidth;
+	var bmdwColWidthPercent=bmdwColWidth/gjglListWidth*100;
+	var listTitleBmdwColDiv=listTitleDiv.find(".bmdw_col_div");
+	listTitleBmdwColDiv.css("width",bmdwColWidthPercent+"%");
+	listTitleBmdwColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemBmdwColDiv=listItemDiv.find(".bmdw_col_div");
+	listItemBmdwColDiv.css("width",bmdwColWidthPercent+"%");
+	listItemBmdwColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=bmdwColWidth;
+	var kssjColWidthPercent=kssjColWidth/gjglListWidth*100;
+	var listTitleKssjColDiv=listTitleDiv.find(".kssj_col_div");
+	listTitleKssjColDiv.css("width",kssjColWidthPercent+"%");
+	listTitleKssjColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemKssjColDiv=listItemDiv.find(".kssj_col_div");
+	listItemKssjColDiv.css("width",kssjColWidthPercent+"%");
+	listItemKssjColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=kssjColWidth;
+	var jssjColWidthPercent=jssjColWidth/gjglListWidth*100;
+	var listTitleJssjColDiv=listTitleDiv.find(".jssj_col_div");
+	listTitleJssjColDiv.css("width",jssjColWidthPercent+"%");
+	listTitleJssjColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemJssjColDiv=listItemDiv.find(".jssj_col_div");
+	listItemJssjColDiv.css("width",jssjColWidthPercent+"%");
+	listItemJssjColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=jssjColWidth;
+	var clztColWidthPercent=clztColWidth/gjglListWidth*100;
+	var listTitleClztColDiv=listTitleDiv.find(".clzt_col_div");
+	listTitleClztColDiv.css("width",clztColWidthPercent+"%");
+	listTitleClztColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemClztColDiv=listItemDiv.find(".clzt_col_div");
+	listItemClztColDiv.css("width",clztColWidthPercent+"%");
+	listItemClztColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=clztColWidth;
+	var clrColWidthPercent=clrColWidth/gjglListWidth*100;
+	var listTitleClrColDiv=listTitleDiv.find(".clr_col_div");
+	listTitleClrColDiv.css("width",clrColWidthPercent+"%");
+	listTitleClrColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemClrColDiv=listItemDiv.find(".clr_col_div");
+	listItemClrColDiv.css("width",clrColWidthPercent+"%");
+	listItemClrColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=clrColWidth;
+	var clsjColWidthPercent=clsjColWidth/gjglListWidth*100;
+	var listTitleClsjColDiv=listTitleDiv.find(".clsj_col_div");
+	listTitleClsjColDiv.css("width",clsjColWidthPercent+"%");
+	listTitleClsjColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemClsjColDiv=listItemDiv.find(".clsj_col_div");
+	listItemClsjColDiv.css("width",clsjColWidthPercent+"%");
+	listItemClsjColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=clsjColWidth;
+	var czColWidthPercent=czColWidth/gjglListWidth*100;
+	var listTitleCzColDiv=listTitleDiv.find(".cz_col_div");
+	listTitleCzColDiv.css("width",czColWidthPercent+"%");
+	listTitleCzColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemCzColDiv=listItemDiv.find(".cz_col_div");
+	listItemCzColDiv.css("width",czColWidthPercent+"%");
+	listItemCzColDiv.css("margin-left",marginLeft+"px");
 }
 </script>
 <title>Insert title here</title>
@@ -307,47 +402,36 @@ function resetDivSize(){
 }
 .gjgl_list_div .list_title_div .kh_col_div{
 	margin-top:-29px;
-	margin-left:50px;
 }
 .gjgl_list_div .list_title_div .bjr_col_div{
 	margin-top:-40px;
-	margin-left:200px;
 }
 .gjgl_list_div .list_title_div .bjlx_col_div{
 	margin-top:-40px;
-	margin-left:300px;
 }
 .gjgl_list_div .list_title_div .fsqy_col_div{
 	margin-top:-40px;
-	margin-left:400px;
 }
 .gjgl_list_div .list_title_div .bmdw_col_div{
 	margin-top:-40px;
-	margin-left:500px;
 }
 .gjgl_list_div .list_title_div .kssj_col_div{
 	margin-top:-40px;
-	margin-left:600px;
 }
 .gjgl_list_div .list_title_div .jssj_col_div{
 	margin-top:-40px;
-	margin-left:800px;
 }
 .gjgl_list_div .list_title_div .clzt_col_div{
 	margin-top:-40px;
-	margin-left:1000px;
 }
 .gjgl_list_div .list_title_div .clr_col_div{
 	margin-top:-40px;
-	margin-left:1100px;
 }
 .gjgl_list_div .list_title_div .clsj_col_div{
 	margin-top:-40px;
-	margin-left:1200px;
 }
 .gjgl_list_div .list_title_div .cz_col_div{
 	margin-top:-40px;
-	margin-left:1400px;
 }
 .gjgl_list_div .list_div{
 	width: 100%;
@@ -374,63 +458,46 @@ function resetDivSize(){
 }
 .gjgl_list_div .list_div .item_div .kh_col_div{
 	margin-top:-39px;
-	margin-left:50px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bjr_col_div{
 	margin-top:-60px;
-	margin-left:200px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bjlx_col_div{
 	margin-top:-60px;
-	margin-left:300px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .fsqy_col_div{
 	margin-top:-60px;
-	margin-left:400px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .bmdw_col_div{
 	margin-top:-60px;
-	margin-left:500px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .kssj_col_div{
-	width: 200px;
 	margin-top:-60px;
-	margin-left:600px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .jssj_col_div{
-	width: 200px;
 	margin-top:-60px;
-	margin-left:800px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .clzt_col_div{
-	width: 100px;
 	margin-top:-60px;
-	margin-left:1000px;
 	color:#9A0808;
 }
 .gjgl_list_div .list_div .item_div .clr_col_div{
-	width: 100px;
 	margin-top:-60px;
-	margin-left:1100px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .clsj_col_div{
-	width: 200px;
 	margin-top:-60px;
-	margin-left:1200px;
 	color:#262626;
 }
 .gjgl_list_div .list_div .item_div .cz_col_div{
-	width: 100px;
 	margin-top:-60px;
-	margin-left:1400px;
 }
 .gjgl_list_div .list_div .item_div .cz_col_div .cz_img{
 	width: 30px;

@@ -263,53 +263,53 @@ function resetDivSize(){
 	text-align: center;
 }
 .xgrw_list_div .list_div .tab_title_div .xh_col_div{
-	width: 100px;
+	width: 133px;
 	margin-top:-29px;
 }
 .xgrw_list_div .list_div .tab_title_div .rwmc_col_div{
-	width: 150px;
+	width: 156px;
 	margin-top:-40px;
-	margin-left:100px;
+	margin-left:133px;
 }
 .xgrw_list_div .list_div .tab_title_div .zt_col_div{
-	width: 100px;
+	width: 125px;
 	margin-top:-40px;
-	margin-left:250px;
+	margin-left:289px;
 }
 .xgrw_list_div .list_div .tab_title_div .xjlx_col_div{
-	width: 100px;
+	width: 164px;
 	margin-top:-40px;
-	margin-left:350px;
+	margin-left:414px;
 }
 .xgrw_list_div .list_div .tab_title_div .fzr_col_div{
-	width: 100px;
+	width: 139px;
 	margin-top:-40px;
-	margin-left:450px;
+	margin-left:578px;
 }
 .xgrw_list_div .list_div .tab_title_div .zxr_col_div{
-	width: 100px;
+	width: 139px;
 	margin-top:-40px;
-	margin-left:550px;
+	margin-left:717px;
 }
 .xgrw_list_div .list_div .tab_title_div .ssbm_col_div{
-	width: 100px;
+	width: 173px;
 	margin-top:-40px;
-	margin-left:650px;
+	margin-left:856px;
 }
 .xgrw_list_div .list_div .tab_title_div .pc_col_div{
-	width: 100px;
+	width: 133px;
 	margin-top:-40px;
-	margin-left:750px;
+	margin-left:1029px;
 }
 .xgrw_list_div .list_div .tab_title_div .gj_col_div{
-	width: 100px;
+	width: 145px;
 	margin-top:-40px;
-	margin-left:850px;
+	margin-left:1162px;
 }
 .xgrw_list_div .list_div .tab_title_div .cz_col_div{
-	width: 100px;
+	width: 160px;
 	margin-top:-40px;
-	margin-left:950px;
+	margin-left:1307px;
 }
 .xgrw_list_div .list_div .tab_div{
 	width: 98%;
@@ -333,55 +333,55 @@ function resetDivSize(){
 	text-align: center;
 }
 .xgrw_list_div .list_div .tab_div .item_div .xh_col_div{
-	width: 100px;
+	width: 133px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .rwmc_col_div{
-	width: 150px;
+	width: 156px;
 	margin-top:-60px;
-	margin-left:100px;
+	margin-left:133px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .zt_col_div{
-	width: 100px;
+	width: 125px;
 	margin-top:-60px;
-	margin-left:250px;
+	margin-left:289px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .xjlx_col_div{
-	width: 100px;
+	width: 164px;
 	margin-top:-60px;
-	margin-left:350px;
+	margin-left:414px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .fzr_col_div{
-	width: 100px;
+	width: 139px;
 	margin-top:-60px;
-	margin-left:450px;
+	margin-left:578px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .zxr_col_div{
-	width: 100px;
+	width: 139px;
 	margin-top:-60px;
-	margin-left:550px;
+	margin-left:717px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .ssbm_col_div{
-	width: 100px;
+	width: 173px;
 	margin-top:-60px;
-	margin-left:650px;
+	margin-left:856px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .pc_col_div{
-	width: 100px;
+	width: 133px;
 	margin-top:-60px;
-	margin-left:750px;
+	margin-left:1029px;
 	color:#262626;
 }
 .xgrw_list_div .list_div .tab_div .item_div .gj_col_div{
-	width: 100px;
+	width: 145px;
 	margin-top:-60px;
-	margin-left:850px;
+	margin-left:1162px;
 	padding: 1px;
 }
 .xgrw_list_div .list_div .tab_div .item_div .gj_col_div .ck_but_div{
@@ -396,10 +396,10 @@ function resetDivSize(){
 	border-radius:10px;
 }
 .xgrw_list_div .list_div .tab_div .item_div .cz_col_div{
-	width: 100px;
+	width: 160px;
 	line-height:53px;
 	margin-top:-60px;
-	margin-left:950px;
+	margin-left:1307px;
 }
 .xgrw_list_div .list_div .tab_div .item_div .cz_col_div span{
 	color: #00f;
