@@ -35,6 +35,10 @@ $(function(){
 	initRyfbtjPieDiv();
 });
 
+function goBjym(){
+	location.href=path+"fore/goPage?page=main&openIframe=gjxx";
+}
+
 //https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential
 function initCQZXRSTJListPie(){
 	initCQZXRSTJItemPie('qyyg_pie_div',"#19CDFF",2000,"#FF3950",800,"企业员工");
@@ -873,12 +877,12 @@ function changeRightPanelWidth(flag){
 	background-color: #FA1B04;
 }
 .right_panel_div .ssgj_div .jrbjym_but_div{
-	width: 200px;
-	height: 50px;
-	line-height: 50px;
+	width: 180px;
+	height: 42px;
+	line-height: 42px;
 	margin:20px auto 0; 
 	color:#fff;
-	font-size:21px;
+	font-size:18px;
 	text-align:center;
 	background-color: #00B551;
 	cursor:pointer;
@@ -1007,7 +1011,7 @@ function changeRightPanelWidth(flag){
 				<div class="but_div wcl_but_div">未处理</div>
 			</div>
 		</div>
-		<div class="jrbjym_but_div">进入报警页面</div>
+		<div class="jrbjym_but_div" onclick="goBjym();">进入报警页面</div>
 	</div>
 	<div class="ryfbtj_div">
 		<div class="title_div">人员分布统计</div>

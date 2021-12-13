@@ -11,7 +11,7 @@
 	height: 350px;
 	margin-top:-500px;
 	background-color: rgba(29,42,50,0.5);
-	border:#5DAFE5 solid 2px;
+	border:#5DAFE5 solid 1px;
 	right:65px;
 	position: fixed;
 }

@@ -20,6 +20,8 @@ var path='<%=basePath %>';
 $(function(){
 	//initViewer();
 	//loadTileset();
+	if('${param.openIframe}'=="gjxx")
+		goPage("gjxx");
 	resetDivSize();
 });
 
