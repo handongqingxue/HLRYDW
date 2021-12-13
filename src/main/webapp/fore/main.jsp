@@ -160,6 +160,7 @@ function loadTileset(){
 <style type="text/css">
 .right_iframe{
 	position: fixed;
+	z-index: 1;
 }
 </style>
 </head>
@@ -167,6 +168,7 @@ function loadTileset(){
 <div id="cesiumContainer" style="width: 100%;height: 952px;background-image: url('<%=basePath %>resource/image/202111230026.png');"></div>
 <%@include file="inc/top.jsp"%>
 <%@include file="inc/left.jsp"%>
-<iframe class="right_iframe" id="right_iframe" src="stTool.jsp" frameborder="0"></iframe>
+<iframe class="right_iframe" id="right_iframe" src="" frameborder="0"></iframe>
+<%@include file="stTool.jsp"%>
 </body>
 </html>

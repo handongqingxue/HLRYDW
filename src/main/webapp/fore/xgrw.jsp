@@ -38,7 +38,6 @@ function resetDivSize(){
 	rightIframe.css("height",(leftPanelHeight-80)+"px");
 	rightIframe.css("margin-top",-(leftPanelHeight-7)+"px");
 	rightIframe.css("margin-left",(leftPanelWidth+15)+"px");
-	rightIframe.css("right","");
 	
 	var rightIframeWidth=rightIframe.css("width");
 	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);

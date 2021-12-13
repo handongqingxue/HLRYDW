@@ -11,10 +11,14 @@ function goPage(page){
 		location.href=path+"fore/goPage?page="+page;
 	else{
 		var rightIframe=$("#right_iframe");
-		var display=rightIframe.css("display");
-		if(display=="none")
-			rightIframe.css("display","block");
-		rightIframe.attr("src",page+".jsp");
+		if(page=="ssdw")
+			rightIframe.attr("src","");
+		else{
+			var display=rightIframe.css("display");
+			if(display=="none")
+				rightIframe.css("display","block");
+			rightIframe.attr("src",page+".jsp");
+		}
 	}
 }
 </script>

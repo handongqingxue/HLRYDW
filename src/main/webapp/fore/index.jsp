@@ -799,6 +799,7 @@ function changeRightPanelWidth(flag){
 	/*
 	background-color: #00f;
 	*/
+	cursor: pointer;
 	position:fixed; 
 }
 
@@ -872,12 +873,12 @@ function changeRightPanelWidth(flag){
 	background-color: #FA1B04;
 }
 .right_panel_div .ssgj_div .jrbjym_but_div{
-	width: 210px;
-	height: 55px;
-	line-height: 55px;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
 	margin:20px auto 0; 
 	color:#fff;
-	font-size:23px;
+	font-size:21px;
 	text-align:center;
 	background-color: #00B551;
 	cursor:pointer;
@@ -908,6 +909,7 @@ function changeRightPanelWidth(flag){
 	/*
 	background-color: #00f;
 	*/
+	cursor: pointer;
 	position:fixed; 
 }
 </style>

@@ -199,11 +199,11 @@ function changeLeftPanelWidth(flag){
 			<img class="pointer_img" id="pointer_img1" alt="" src="<%=basePath %>resource/image/202111230011.png" onclick="showChildMenu(this.id);">
 		</div>
 		<div class="child_item_list_div" id="child_item_list_div1">
-			<div class="child_item_div" onclick="goPage('stTool')">
+			<div class="child_item_div" onclick="goPage('ssdw')">
 				<div class="child_name_div">一车间一楼</div>
 				<div class="child_rs_div">人数：200</div>
 			</div>
-			<div class="child_item_div" onclick="goPage('stTool')">
+			<div class="child_item_div" onclick="goPage('ssdw')">
 				<div class="child_name_div">2号仓库</div>
 				<div class="child_rs_div">人数：15</div>
 			</div>
