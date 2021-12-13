@@ -82,11 +82,10 @@ function resetDivSize(){
 	var czColWidthPercent=6.59;
 	var marginLeft=50;
 	
-	var listTitleDiv=$("#list_title_div");
 	var listItemDiv=$("#list_div .item_div");
 
 	var khColWidth=khColWidthPercent*gjglListWidth/100;
-	var listTitleKhColDiv=listTitleDiv.find(".kh_col_div");
+	var listTitleKhColDiv=gjglListLTDiv.find(".kh_col_div");
 	listTitleKhColDiv.css("width",khColWidthPercent+"%");
 	listTitleKhColDiv.css("margin-left",marginLeft+"px");
 	
@@ -96,7 +95,7 @@ function resetDivSize(){
 
 	marginLeft+=khColWidth;
 	var bjrColWidth=bjrColWidthPercent*gjglListWidth/100;
-	var listTitleBjrColDiv=listTitleDiv.find(".bjr_col_div");
+	var listTitleBjrColDiv=gjglListLTDiv.find(".bjr_col_div");
 	listTitleBjrColDiv.css("width",bjrColWidthPercent+"%");
 	listTitleBjrColDiv.css("margin-left",marginLeft+"px");
 	
@@ -106,7 +105,7 @@ function resetDivSize(){
 
 	marginLeft+=bjrColWidth;
 	var bjlxColWidth=bjlxColWidthPercent*gjglListWidth/100;
-	var listTitleBjlxColDiv=listTitleDiv.find(".bjlx_col_div");
+	var listTitleBjlxColDiv=gjglListLTDiv.find(".bjlx_col_div");
 	listTitleBjlxColDiv.css("width",bjlxColWidthPercent+"%");
 	listTitleBjlxColDiv.css("margin-left",marginLeft+"px");
 
@@ -116,7 +115,7 @@ function resetDivSize(){
 
 	marginLeft+=bjlxColWidth;
 	var fsqyColWidth=fsqyColWidthPercent*gjglListWidth/100;
-	var listTitleFsqyColDiv=listTitleDiv.find(".fsqy_col_div");
+	var listTitleFsqyColDiv=gjglListLTDiv.find(".fsqy_col_div");
 	listTitleFsqyColDiv.css("width",fsqyColWidthPercent+"%");
 	listTitleFsqyColDiv.css("margin-left",marginLeft+"px");
 
@@ -126,7 +125,7 @@ function resetDivSize(){
 
 	marginLeft+=fsqyColWidth;
 	var bmdwColWidth=bmdwColWidthPercent*gjglListWidth/100;
-	var listTitleBmdwColDiv=listTitleDiv.find(".bmdw_col_div");
+	var listTitleBmdwColDiv=gjglListLTDiv.find(".bmdw_col_div");
 	listTitleBmdwColDiv.css("width",bmdwColWidthPercent+"%");
 	listTitleBmdwColDiv.css("margin-left",marginLeft+"px");
 	
@@ -136,7 +135,7 @@ function resetDivSize(){
 
 	marginLeft+=bmdwColWidth;
 	var kssjColWidth=kssjColWidthPercent*gjglListWidth/100;
-	var listTitleKssjColDiv=listTitleDiv.find(".kssj_col_div");
+	var listTitleKssjColDiv=gjglListLTDiv.find(".kssj_col_div");
 	listTitleKssjColDiv.css("width",kssjColWidthPercent+"%");
 	listTitleKssjColDiv.css("margin-left",marginLeft+"px");
 	
@@ -146,7 +145,7 @@ function resetDivSize(){
 
 	marginLeft+=kssjColWidth;
 	var jssjColWidth=jssjColWidthPercent*gjglListWidth/100;
-	var listTitleJssjColDiv=listTitleDiv.find(".jssj_col_div");
+	var listTitleJssjColDiv=gjglListLTDiv.find(".jssj_col_div");
 	listTitleJssjColDiv.css("width",jssjColWidthPercent+"%");
 	listTitleJssjColDiv.css("margin-left",marginLeft+"px");
 	
@@ -156,7 +155,7 @@ function resetDivSize(){
 
 	marginLeft+=jssjColWidth;
 	var clztColWidth=clztColWidthPercent*gjglListWidth/100;
-	var listTitleClztColDiv=listTitleDiv.find(".clzt_col_div");
+	var listTitleClztColDiv=gjglListLTDiv.find(".clzt_col_div");
 	listTitleClztColDiv.css("width",clztColWidthPercent+"%");
 	listTitleClztColDiv.css("margin-left",marginLeft+"px");
 	
@@ -166,7 +165,7 @@ function resetDivSize(){
 
 	marginLeft+=clztColWidth;
 	var clrColWidth=clrColWidthPercent*gjglListWidth/100;
-	var listTitleClrColDiv=listTitleDiv.find(".clr_col_div");
+	var listTitleClrColDiv=gjglListLTDiv.find(".clr_col_div");
 	listTitleClrColDiv.css("width",clrColWidthPercent+"%");
 	listTitleClrColDiv.css("margin-left",marginLeft+"px");
 	
@@ -176,7 +175,7 @@ function resetDivSize(){
 
 	marginLeft+=clrColWidth;
 	var clsjColWidth=clsjColWidthPercent*gjglListWidth/100;
-	var listTitleClsjColDiv=listTitleDiv.find(".clsj_col_div");
+	var listTitleClsjColDiv=gjglListLTDiv.find(".clsj_col_div");
 	listTitleClsjColDiv.css("width",clsjColWidthPercent+"%");
 	listTitleClsjColDiv.css("margin-left",marginLeft+"px");
 	
@@ -186,7 +185,7 @@ function resetDivSize(){
 
 	marginLeft+=clsjColWidth;
 	var czColWidth=czColWidthPercent*gjglListWidth/100;
-	var listTitleCzColDiv=listTitleDiv.find(".cz_col_div");
+	var listTitleCzColDiv=gjglListLTDiv.find(".cz_col_div");
 	listTitleCzColDiv.css("width",czColWidthPercent+"%");
 	listTitleCzColDiv.css("margin-left",marginLeft+"px");
 	
