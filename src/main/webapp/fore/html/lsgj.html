@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="js/calendar/calendar.js"></script>
+<script type="text/javascript" src="js/calendar/WdatePicker.js"></script>
+<script type="text/javascript" src="js/Cesium.js"></script>
+<link rel="stylesheet" href="css/widgets.css">
+<script>
+$(function(){
+	resetDivSize();
+});
+
+function resetDivSize(){
+	var parentDoc=window.parent.document;
+	
+	var bodyWidth=$("body",parentDoc).css("width");
+	var bodyHeight=$("body",parentDoc).css("height");
+	bodyWidth=bodyWidth.substring(0,bodyWidth.length-2);
+	bodyHeight=parseInt(bodyHeight.substring(0,bodyHeight.length-2));
+	
+	var leftPanelDiv=$("#left_panel_div",parentDoc);
+	var leftPanelWidth=leftPanelDiv.css("width");
+	leftPanelWidth=parseInt(leftPanelWidth.substring(0,leftPanelWidth.length-2));
+	var leftPanelHeight=leftPanelDiv.css("height");
+	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
+	
+	var rightIframe=$("#right_iframe",parentDoc);
+	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
+	rightIframe.css("height",(leftPanelHeight-80)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-7)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+15)+"px");
+	
+	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
+	var rightIframeHeight=rightIframe.css("height");
+	
+	var lsgjDiv=$("#lsgj_div");
+	var frameRightSpace=8;
+	lsgjDiv.css("width",rightIframeWidth-frameRightSpace+"px");
+	lsgjDiv.css("height",rightIframeHeight);
+	
+	var lsgjHeight=lsgjDiv.css("height");
+	lsgjHeight=parseInt(lsgjHeight.substring(0,lsgjHeight.length-2));
+	
+	var lsgjTitleDiv=$("#lsgj_div #title_div");
+	var lsgjTitleHeight=lsgjTitleDiv.css("height");
+	lsgjTitleHeight=parseInt(lsgjTitleHeight.substring(0,lsgjTitleHeight.length-2));
+	
+	var lsgjToolDiv=$("#lsgj_div #tool_div");
+	var lsgjToolHeight=lsgjToolDiv.css("height");
+	lsgjToolHeight=parseInt(lsgjToolHeight.substring(0,lsgjToolHeight.length-2));
+	
+	var lsgjSpaceDiv=$("#lsgj_div #space_div");
+	var lsgjSpaceHeight=lsgjSpaceDiv.css("height");
+	lsgjSpaceHeight=parseInt(lsgjSpaceHeight.substring(0,lsgjSpaceHeight.length-2));
+	
+	var lsgjMapDiv=$("#lsgj_div #map_div");
+	lsgjMapDiv.css("height",(lsgjHeight-lsgjTitleHeight-lsgjToolHeight-lsgjSpaceHeight)+"px");
+}
+</script>
+<title>Insert title here</title>
+<style type="text/css">
+.lsgj_div{
+	background-color: rgba(39,42,49,0.5);
+	border:1px solid rgba(39,42,49,0.5);
+	position: fixed;
+	border-radius:8px;
+}
+.lsgj_div .title_div{
+	width: 100%;
+	height: 60px;
+}
+.lsgj_div .title_div .icon_img{
+	width: 40px;
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.lsgj_div .title_div .lsgj_text_span{
+	margin-top: 15px;
+	margin-left:30px;
+	color: #fff;
+	font-size:25px; 
+	position: absolute;
+}
+.lsgj_div .title_div .gbmb_but_img{
+	width: 35px;
+	height:35px; 
+	float: right;
+	cursor:pointer;
+}
+.lsgj_div .tool_div{
+	width: 100%;
+	height: 60px;
+	background-color: #EFF3F6;
+}
+.lsgj_div .tool_div .xzdt_span{
+	margin-top: 15px;
+	margin-left:20px; 
+	position: absolute;
+}
+.lsgj_div .tool_div .xzdt_sel{
+	width: 150px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 100px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.lsgj_div .tool_div .ry_span{
+	margin-top: 15px;
+	margin-left:295px; 
+	position: absolute;
+}
+.lsgj_div .tool_div .ry_inp{
+	width: 120px;
+	height:26px;
+	margin-top: 12px;
+	margin-left: 350px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.lsgj_div .tool_div .sj_span{
+	margin-top: 15px;
+	margin-left:520px; 
+	position: absolute;
+}
+.lsgj_div .tool_div .rq_wp{
+	width: 100px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 570px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.lsgj_div .tool_div .kssj_wp{
+	width: 120px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 690px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.lsgj_div .tool_div .zhi_span{
+	margin-top: 15px;
+	margin-left:830px; 
+	position: absolute;
+}
+.lsgj_div .tool_div .jssj_wp{
+	width: 120px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 865px;
+	position: absolute;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	border-radius:5px; 
+}
+.lsgj_div .tool_div .cx_but_div{
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 12px;
+	margin-left:1020px; 
+	color: #fff;
+	font-size: 16px;
+	background-color: #5DC0FF;
+	position: absolute;
+	cursor: pointer;
+	border-radius: 12px;
+}
+.lsgj_div .tool_div .cx_but_div .text_span{
+	margin-left: 20px;
+}
+.lsgj_div .tool_div .cx_but_div img{
+	margin-top: 5px;
+	margin-right: 15px;
+	float: right;
+}
+.lsgj_div .space_div{
+	width: 100%;
+	height: 40px;
+	background-color: #264476;
+}
+</style>
+</head>
+<body>
+<div class="lsgj_div" id="lsgj_div">
+	<div class="title_div" id="title_div">
+		<img class="icon_img" alt="" src="image/202111230027.jpg">
+		<span class="lsgj_text_span">历史轨迹</span>
+		<img class="gbmb_but_img" alt="" src="image/202111230033.png" onclick="$('#right_iframe',window.parent.document).css('display','none');">
+	</div>
+	<div class="tool_div" id="tool_div">
+		<span class="xzdt_span">选择地图</span>
+		<select class="xzdt_sel">
+			<option>请选择</option>
+			<option>一层</option>
+			<option>二层</option>
+		</select>
+		<span class="ry_span">人员</span>
+		<input class="ry_inp" type="text" placeholder="请输入人员姓名"/>
+		<span class="sj_span">时间</span>
+		<input type="text"  class="Wdate rq_wp" placeholder="请选择日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" readonly="readonly"/>
+		<input type="text"  class="Wdate kssj_wp" placeholder="请选择开始时间" onclick="WdatePicker({ dateFmt: 'HH:mm:ss' })" readonly="readonly"/>
+		<span class="zhi_span">至</span>
+		<input type="text"  class="Wdate jssj_wp" placeholder="请选择结束时间" onclick="WdatePicker({ dateFmt: 'HH:mm:ss' })" readonly="readonly"/>
+		<div class="cx_but_div">
+			<span class="text_span">查询</span>
+			<img alt="" src="image/202111230032.png">
+		</div>
+	</div>
+	<div class="space_div" id="space_div"></div>
+	<div class="map_div" id="map_div" style="width: 100%;background-color: #fff;"></div>
+</div>
+</body>
+</html>

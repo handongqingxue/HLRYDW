@@ -179,6 +179,7 @@ function changeLeftPanelWidth(flag){
 	background-color: #5DAFE5;
 	border-top-right-radius:10px;
 	border-bottom-right-radius:10px;
+	cursor:pointer;
 	position:fixed; 
 }
 </style>

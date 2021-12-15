@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="js/calendar/calendar.js"></script>
+<script type="text/javascript" src="js/calendar/WdatePicker.js"></script>
+<script type="text/javascript" src="js/Cesium.js"></script>
+<link rel="stylesheet" href="css/widgets.css">
+<script>
+$(function(){
+	resetDivSize();
+});
+
+function resetDivSize(){
+	var parentDoc=window.parent.document;
+	
+	var bodyWidth=$("body",parentDoc).css("width");
+	var bodyHeight=$("body",parentDoc).css("height");
+	bodyWidth=bodyWidth.substring(0,bodyWidth.length-2);
+	bodyHeight=parseInt(bodyHeight.substring(0,bodyHeight.length-2));
+	
+	var leftPanelDiv=$("#left_panel_div",parentDoc);
+	var leftPanelWidth=leftPanelDiv.css("width");
+	leftPanelWidth=parseInt(leftPanelWidth.substring(0,leftPanelWidth.length-2));
+	var leftPanelHeight=leftPanelDiv.css("height");
+	leftPanelHeight=leftPanelHeight.substring(0,leftPanelHeight.length-2);
+	
+	var rightIframe=$("#right_iframe",parentDoc);
+	rightIframe.css("width",(bodyWidth-leftPanelWidth-50)+"px");
+	rightIframe.css("height",(leftPanelHeight-80)+"px");
+	rightIframe.css("margin-top",-(leftPanelHeight-7)+"px");
+	rightIframe.css("margin-left",(leftPanelWidth+15)+"px");
+	
+	var rightIframeWidth=rightIframe.css("width");
+	rightIframeWidth=rightIframeWidth.substring(0,rightIframeWidth.length-2);
+	var rightIframeHeight=rightIframe.css("height");
+	
+	var gjglListDiv=$("#gjgl_list_div");
+	var frameRightSpace=10;
+	gjglListDiv.css("width",rightIframeWidth-frameRightSpace+"px");
+	gjglListDiv.css("height",rightIframeHeight);
+
+	var gjglListWidth=gjglListDiv.css("width");
+	gjglListWidth=parseInt(gjglListWidth.substring(0,gjglListWidth.length-2));
+	var gjglListHeight=gjglListDiv.css("height");
+	gjglListHeight=parseInt(gjglListHeight.substring(0,gjglListHeight.length-2));
+	
+	var gjglListTitleDiv=$("#gjgl_list_div #title_div");
+	var gjglListTitleHeight=gjglListTitleDiv.css("height");
+	gjglListTitleHeight=parseInt(gjglListTitleHeight.substring(0,gjglListTitleHeight.length-2));
+
+	var gjglListToolDiv=$("#gjgl_list_div #tool_div");
+	var gjglListToolHeight=gjglListToolDiv.css("height");
+	gjglListToolHeight=parseInt(gjglListToolHeight.substring(0,gjglListToolHeight.length-2));
+
+	var gjglListLTDiv=$("#gjgl_list_div #list_title_div");
+	var gjglListLTHeight=gjglListLTDiv.css("height");
+	gjglListLTHeight=parseInt(gjglListLTHeight.substring(0,gjglListLTHeight.length-2));
+	
+	var gjglListLDiv=$("#gjgl_list_div #list_div");
+	gjglListLDiv.css("height",(gjglListHeight-gjglListTitleHeight-gjglListToolHeight-gjglListLTHeight)+"px");
+	
+	var khColWidthPercent=9.88;
+	var bjrColWidthPercent=6.59;
+	var bjlxColWidthPercent=6.59;
+	var fsqyColWidthPercent=6.59;
+	var bmdwColWidthPercent=6.59;
+	var kssjColWidthPercent=13.18;
+	var jssjColWidthPercent=13.18;
+	var clztColWidthPercent=6.59;
+	var clrColWidthPercent=6.59;
+	var clsjColWidthPercent=13.18;
+	var czColWidthPercent=6.59;
+	var marginLeft=50;
+	
+	var listItemDiv=$("#list_div .item_div");
+
+	var khColWidth=khColWidthPercent*gjglListWidth/100;
+	var listTitleKhColDiv=gjglListLTDiv.find(".kh_col_div");
+	listTitleKhColDiv.css("width",khColWidthPercent+"%");
+	listTitleKhColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemKhColDiv=listItemDiv.find(".kh_col_div");
+	listItemKhColDiv.css("width",khColWidthPercent+"%");
+	listItemKhColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=khColWidth;
+	var bjrColWidth=bjrColWidthPercent*gjglListWidth/100;
+	var listTitleBjrColDiv=gjglListLTDiv.find(".bjr_col_div");
+	listTitleBjrColDiv.css("width",bjrColWidthPercent+"%");
+	listTitleBjrColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemBjrColDiv=listItemDiv.find(".bjr_col_div");
+	listItemBjrColDiv.css("width",bjrColWidthPercent+"%");
+	listItemBjrColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=bjrColWidth;
+	var bjlxColWidth=bjlxColWidthPercent*gjglListWidth/100;
+	var listTitleBjlxColDiv=gjglListLTDiv.find(".bjlx_col_div");
+	listTitleBjlxColDiv.css("width",bjlxColWidthPercent+"%");
+	listTitleBjlxColDiv.css("margin-left",marginLeft+"px");
+
+	var listItemBjlxColDiv=listItemDiv.find(".bjlx_col_div");
+	listItemBjlxColDiv.css("width",(bjlxColWidth/gjglListWidth*100)+"%");
+	listItemBjlxColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=bjlxColWidth;
+	var fsqyColWidth=fsqyColWidthPercent*gjglListWidth/100;
+	var listTitleFsqyColDiv=gjglListLTDiv.find(".fsqy_col_div");
+	listTitleFsqyColDiv.css("width",fsqyColWidthPercent+"%");
+	listTitleFsqyColDiv.css("margin-left",marginLeft+"px");
+
+	var listItemFsqyColDiv=listItemDiv.find(".fsqy_col_div");
+	listItemFsqyColDiv.css("width",fsqyColWidthPercent+"%");
+	listItemFsqyColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=fsqyColWidth;
+	var bmdwColWidth=bmdwColWidthPercent*gjglListWidth/100;
+	var listTitleBmdwColDiv=gjglListLTDiv.find(".bmdw_col_div");
+	listTitleBmdwColDiv.css("width",bmdwColWidthPercent+"%");
+	listTitleBmdwColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemBmdwColDiv=listItemDiv.find(".bmdw_col_div");
+	listItemBmdwColDiv.css("width",bmdwColWidthPercent+"%");
+	listItemBmdwColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=bmdwColWidth;
+	var kssjColWidth=kssjColWidthPercent*gjglListWidth/100;
+	var listTitleKssjColDiv=gjglListLTDiv.find(".kssj_col_div");
+	listTitleKssjColDiv.css("width",kssjColWidthPercent+"%");
+	listTitleKssjColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemKssjColDiv=listItemDiv.find(".kssj_col_div");
+	listItemKssjColDiv.css("width",kssjColWidthPercent+"%");
+	listItemKssjColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=kssjColWidth;
+	var jssjColWidth=jssjColWidthPercent*gjglListWidth/100;
+	var listTitleJssjColDiv=gjglListLTDiv.find(".jssj_col_div");
+	listTitleJssjColDiv.css("width",jssjColWidthPercent+"%");
+	listTitleJssjColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemJssjColDiv=listItemDiv.find(".jssj_col_div");
+	listItemJssjColDiv.css("width",jssjColWidthPercent+"%");
+	listItemJssjColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=jssjColWidth;
+	var clztColWidth=clztColWidthPercent*gjglListWidth/100;
+	var listTitleClztColDiv=gjglListLTDiv.find(".clzt_col_div");
+	listTitleClztColDiv.css("width",clztColWidthPercent+"%");
+	listTitleClztColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemClztColDiv=listItemDiv.find(".clzt_col_div");
+	listItemClztColDiv.css("width",clztColWidthPercent+"%");
+	listItemClztColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=clztColWidth;
+	var clrColWidth=clrColWidthPercent*gjglListWidth/100;
+	var listTitleClrColDiv=gjglListLTDiv.find(".clr_col_div");
+	listTitleClrColDiv.css("width",clrColWidthPercent+"%");
+	listTitleClrColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemClrColDiv=listItemDiv.find(".clr_col_div");
+	listItemClrColDiv.css("width",clrColWidthPercent+"%");
+	listItemClrColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=clrColWidth;
+	var clsjColWidth=clsjColWidthPercent*gjglListWidth/100;
+	var listTitleClsjColDiv=gjglListLTDiv.find(".clsj_col_div");
+	listTitleClsjColDiv.css("width",clsjColWidthPercent+"%");
+	listTitleClsjColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemClsjColDiv=listItemDiv.find(".clsj_col_div");
+	listItemClsjColDiv.css("width",clsjColWidthPercent+"%");
+	listItemClsjColDiv.css("margin-left",marginLeft+"px");
+
+	marginLeft+=clsjColWidth;
+	var czColWidth=czColWidthPercent*gjglListWidth/100;
+	var listTitleCzColDiv=gjglListLTDiv.find(".cz_col_div");
+	listTitleCzColDiv.css("width",czColWidthPercent+"%");
+	listTitleCzColDiv.css("margin-left",marginLeft+"px");
+	
+	var listItemCzColDiv=listItemDiv.find(".cz_col_div");
+	listItemCzColDiv.css("width",czColWidthPercent+"%");
+	listItemCzColDiv.css("margin-left",marginLeft+"px");
+}
+</script>
+<title>Document</title>
+<style type="text/css">
+.gjgl_list_div{
+	background-color: rgba(39,42,49,0.5);
+	border:1px solid rgba(39,42,49,0.5);
+	position: fixed;
+	border-radius:8px; 
+}
+.gjgl_list_div .title_div{
+	width: 100%;
+	height: 60px;
+}
+.gjgl_list_div .title_div .icon_img{
+	width: 40px;
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.gjgl_list_div .title_div .gjgl_text_span{
+	margin-top: 15px;
+	margin-left:30px;
+	color: #fff;
+	font-size:25px; 
+	position: absolute;
+}
+.gjgl_list_div .title_div .but_div{
+	width: 840px;
+	height: 60px;
+	margin-right: 0px;
+	/*
+	background-color: #0f0;
+	*/
+	float: right;
+}
+.gjgl_list_div .title_div .but_div .but_style1_div{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	color:#fff;
+	font-size:18px; 
+	text-align:center;
+	background-color: rgba(75,79,109,0.5);
+	cursor:pointer;
+	border:#71683F solid 1px;
+	border-radius:5px;
+}
+.gjgl_list_div .title_div .but_div .jr_but_div{
+	margin-top:10px; 
+}
+.gjgl_list_div .title_div .but_div .zr_but_div{
+	margin-left: 120px;
+	margin-top: -42px;
+}
+.gjgl_list_div .title_div .but_div .but_style2_div{
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	background-color: #5A61F7;
+	cursor:pointer;
+	border-radius:5px;
+}
+.gjgl_list_div .title_div .but_div .zjyz_but_div{
+	margin-left: 238px;
+	margin-top: -41px;
+}
+.gjgl_list_div .title_div .but_div .dcexcel_but_div{
+	margin-left: 373px;
+	margin-top: -40px;
+}
+.gjgl_list_div .title_div .but_div .plcl_but_div{
+	margin-left: 508px;
+	margin-top: -40px;
+}
+.gjgl_list_div .title_div .but_div .yjcl_but_div{
+	margin-left: 643px;
+	margin-top: -40px;
+}
+.gjgl_list_div .title_div .but_div .gbmb_but_img{
+	width: 35px;
+	height:35px; 
+	margin-top: -50px;
+	float: right;
+	cursor:pointer;
+}
+.gjgl_list_div .tool_div{
+	width: 100%;
+	height: 60px;
+	background-color: #EFF3F6;
+}
+.gjgl_list_div .tool_div .lx_span{
+	margin-top: 15px;
+	margin-left:20px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .lx_sel{
+	width: 160px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 80px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.gjgl_list_div .tool_div .zt_span{
+	margin-top: 15px;
+	margin-left:280px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .zt_sel{
+	width: 100px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 340px;
+	color: #3B3B3B;
+	background-color: #fff;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.gjgl_list_div .tool_div .sj_span{
+	margin-top: 15px;
+	margin-left:480px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .kssj_wp{
+	width: 150px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 530px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.gjgl_list_div .tool_div .zhi_span{
+	margin-top: 15px;
+	margin-left:700px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .jssj_wp{
+	width: 150px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 730px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.gjgl_list_div .tool_div .kh_span{
+	margin-top: 15px;
+	margin-left:905px; 
+	position: absolute;
+}
+.gjgl_list_div .tool_div .kh_inp{
+	width: 150px;
+	height:30px;
+	margin-top: 12px;
+	margin-left: 960px;
+	color: #3B3B3B;
+	border: #E5E7EC solid 2px;
+	position: absolute;
+	border-radius:5px; 
+}
+.gjgl_list_div .tool_div .cx_but_div{
+	width: 110px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 12px;
+	margin-left:1150px;
+	color: #fff;
+	font-size: 16px;
+	background-color: #5DC0FF;
+	position: absolute;
+	cursor: pointer;
+	border-radius: 12px;
+}
+.gjgl_list_div .tool_div .cx_but_div .text_span{
+	margin-left: 20px;
+}
+.gjgl_list_div .tool_div .cx_but_div img{
+	margin-top: 5px;
+	margin-right: 15px;
+	float: right;
+}
+.gjgl_list_div .list_title_div{
+	width: 100%;
+	height: 40px;
+	background-color: #264476;
+}
+.gjgl_list_div .list_title_div .all_sel_cb{
+	margin-top: 12px;
+	margin-left: 15px;
+}
+.gjgl_list_div .list_title_div .col_div{
+	height: 40px;
+	line-height: 40px;
+	color:#fff;
+	text-align: center;
+}
+.gjgl_list_div .list_title_div .kh_col_div{
+	margin-top:-29px;
+}
+.gjgl_list_div .list_title_div .bjr_col_div,
+.gjgl_list_div .list_title_div .bjlx_col_div,
+.gjgl_list_div .list_title_div .fsqy_col_div,
+.gjgl_list_div .list_title_div .bmdw_col_div,
+.gjgl_list_div .list_title_div .kssj_col_div,
+.gjgl_list_div .list_title_div .jssj_col_div,
+.gjgl_list_div .list_title_div .clzt_col_div,
+.gjgl_list_div .list_title_div .clr_col_div,
+.gjgl_list_div .list_title_div .clsj_col_div,
+.gjgl_list_div .list_title_div .cz_col_div{
+	margin-top:-40px;
+}
+.gjgl_list_div .list_div{
+	width: 100%;
+	background-color: #EFF3F6;
+}
+.gjgl_list_div .list_div .item_div{
+	width: 100%;
+	height: 60px;
+}
+.gjgl_list_div .list_div .item_style1{
+	background-color: #EFF3F6;
+}
+.gjgl_list_div .list_div .item_style2{
+	background-color: #fff;
+}
+.gjgl_list_div .list_div .item_div .sel_cb{
+	margin-top: 22px;
+	margin-left: 15px;
+}
+.gjgl_list_div .list_div .item_div .col_div{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.gjgl_list_div .list_div .item_div .kh_col_div{
+	margin-top:-39px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .bjr_col_div,
+.gjgl_list_div .list_div .item_div .bjlx_col_div,
+.gjgl_list_div .list_div .item_div .fsqy_col_div,
+.gjgl_list_div .list_div .item_div .bmdw_col_div,
+.gjgl_list_div .list_div .item_div .kssj_col_div,
+.gjgl_list_div .list_div .item_div .jssj_col_div,
+.gjgl_list_div .list_div .item_div .clr_col_div,
+.gjgl_list_div .list_div .item_div .clsj_col_div{
+	margin-top:-60px;
+	color:#262626;
+}
+.gjgl_list_div .list_div .item_div .clzt_col_div{
+	margin-top:-60px;
+	color:#9A0808;
+}
+.gjgl_list_div .list_div .item_div .cz_col_div{
+	margin-top:-60px;
+}
+.gjgl_list_div .list_div .item_div .cz_col_div .cz_img{
+	width: 30px;
+	height:30px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="gjgl_list_div" id="gjgl_list_div">
+   <div class="title_div" id="title_div">
+		<img class="icon_img" alt="" src="image/202111230024.png">
+		<span class="gjgl_text_span">告警管理</span>
+		<div class="but_div">
+			<div class="but_style1_div jr_but_div">今日</div>
+			<div class="but_style1_div zr_but_div">昨日</div>
+			<div class="but_style2_div zjyz_but_div">最近7日</div>
+			<div class="but_style2_div dcexcel_but_div">导出Excel</div>
+			<div class="but_style2_div plcl_but_div">批量处理</div>
+			<div class="but_style2_div yjcl_but_div">一键处理</div>
+			<img class="gbmb_but_img" alt="" src="image/202111230033.png" onclick="$('#right_iframe',window.parent.document).css('display','none');">
+		</div>
+	</div>
+	<div class="tool_div" id="tool_div">
+		<span class="lx_span">类型</span>
+		<select class="lx_sel">
+			<option>请选择</option>
+			<option>aaaa</option>
+			<option>bbbb</option>
+		</select>
+		<span class="zt_span">状态</span>
+		<select class="zt_sel">
+			<option>请选择</option>
+			<option>未处理</option>
+			<option>已处理</option>
+		</select>
+		<span class="sj_span">时间</span>
+		<input type="text"  class="Wdate kssj_wp" placeholder="请选择开始时间" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+		<span class="zhi_span">至</span>
+		<input type="text"  class="Wdate jssj_wp" placeholder="请选择结束时间" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" readonly="readonly"/>
+		<span class="kh_span">卡号</span>
+		<input class="kh_inp" type="text" placeholder="请输入卡号"/>
+		<div class="cx_but_div">
+			<span class="text_span">查询</span>
+			<img alt="" src="image/202111230032.png">
+		</div>
+	</div>
+	<div class="list_title_div" id="list_title_div">
+		<input class="all_sel_cb" type="checkbox"/>
+		<div class="col_div kh_col_div">卡号</div>
+		<div class="col_div bjr_col_div">报警人</div>
+		<div class="col_div bjlx_col_div">报警类型</div>
+		<div class="col_div fsqy_col_div">发生区域</div>
+		<div class="col_div bmdw_col_div">部门/单位</div>
+		<div class="col_div kssj_col_div">开始时间</div>
+		<div class="col_div jssj_col_div">结束时间</div>
+		<div class="col_div clzt_col_div">处理状态</div>
+		<div class="col_div clr_col_div">处理人</div>
+		<div class="col_div clsj_col_div">处理时间</div>
+		<div class="col_div cz_col_div">操作</div>
+	</div>
+	<div class="list_div" id="list_div">
+		<div class="item_div item_style1">
+			<input class="sel_cb" type="checkbox"/>
+			<div class="col_div kh_col_div">123456</div>
+			<div class="col_div bjr_col_div">李铁玉</div>
+			<div class="col_div bjlx_col_div">滞留报警</div>
+			<div class="col_div fsqy_col_div">一车间</div>
+			<div class="col_div bmdw_col_div">生产部</div>
+			<div class="col_div kssj_col_div">1997-07-01 12:05:05</div>
+			<div class="col_div jssj_col_div">1997-07-01 13:05:05</div>
+			<div class="col_div clzt_col_div">未处理</div>
+			<div class="col_div clr_col_div">于祥海</div>
+			<div class="col_div clsj_col_div">1997-07-01 14:05:05</div>
+			<div class="col_div cz_col_div">
+				<img class="cz_img" alt="" src="image/202111230025.png">
+			</div>
+		</div>
+		<div class="item_div item_style2">
+			<input class="sel_cb" type="checkbox"/>
+			<div class="col_div kh_col_div">123456</div>
+			<div class="col_div bjr_col_div">李铁玉</div>
+			<div class="col_div bjlx_col_div">滞留报警</div>
+			<div class="col_div fsqy_col_div">一车间</div>
+			<div class="col_div bmdw_col_div">生产部</div>
+			<div class="col_div kssj_col_div">1997-07-01 12:05:05</div>
+			<div class="col_div jssj_col_div">1997-07-01 13:05:05</div>
+			<div class="col_div clzt_col_div">未处理</div>
+			<div class="col_div clr_col_div">于祥海</div>
+			<div class="col_div clsj_col_div">1997-07-01 14:05:05</div>
+			<div class="col_div cz_col_div">
+				<img class="cz_img" alt="" src="image/202111230025.png">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
