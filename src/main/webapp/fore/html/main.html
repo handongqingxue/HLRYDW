@@ -17,10 +17,16 @@
 $(function(){
 	//initViewer();
 	//loadTileset();
-	if('${param.openIframe}'=="gjxx")
+	if(getQueryString("openIframe")=="gjxx")
 		goPage("gjxx");
 	resetDivSize();
 });
+
+function getQueryString(name){
+	 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	 var r = window.location.search.substr(1).match(reg);
+	 if(r!=null)return  unescape(r[2]); return null;
+}
 
 function resetDivSize(){
 	var bodyWidth=$("body").css("width");
@@ -223,8 +229,6 @@ function changeLeftPanelWidth(flag){
 	$("#open_lp_but_div").css("margin-left",lpdMarginLeft+325+"px");
 }
 //左边菜单js结束
-
-
 </script>  
 <style type="text/css">
 /**上部区域样式开始**/
@@ -447,16 +451,21 @@ body{
 }
 /**右下角悬浮窗区域样式结束**/
 
+/**右窗口样式代码区域开始**/
 .right_iframe{
 	position: fixed;
 	z-index: 1;
 }
+/**右窗口样式代码区域结束**/
 </style>
 <title>Document</title>
 </head>
 <body>
+<!-- 地图代码区域开始 -->
 <div id="cesiumContainer" style="width: 100%;height: 952px;background-image: url('image/202111230026.png');"></div>
+<!-- 地图代码区域结束 -->
 
+<!-- 顶部代码区域开始 -->
 <div class="top_div" id="top_div">
 	<div class="left_div">
 		<span>2019-10-16 10:10:10</span>
@@ -468,7 +477,9 @@ body{
 		<img class="but_img qht_but_img" alt="" title="进入后台设置" src="image/202111230003.png">
 	</div>
 </div>
+<!-- 顶部代码区域结束 -->
 
+<!-- 左菜单代码区域开始 -->
 <div class="left_panel_div" id="left_panel_div">
 	<div class="gj_div">
 		<img id="sfqr_img" alt="" src="image/202111230006.png">
@@ -539,9 +550,13 @@ body{
 	</div>
 </div>
 <div class="open_lp_but_div" id="open_lp_but_div" onclick="openLeftPanelDiv()"></div>
+<!-- 左菜单代码区域结束 -->
 
+<!-- 右窗口代码区域开始 -->
 <iframe class="right_iframe" id="right_iframe" src="" frameborder="0"></iframe>
+<!-- 右窗口代码区域结束 -->
 
+<!-- 右下角悬浮窗口代码区域开始 -->
 <div class="stt_panel_div" id="stt_panel_div">
 	<img class="yg_img" alt="" title="员工" src="image/202111230018.png">
 	<img class="fk_img" alt="" title="访客" src="image/202111230019.png">
@@ -550,5 +565,6 @@ body{
 	<img class="wg_img" alt="" title="网关" src="image/202111230022.png">
 	<img class="zj_img" alt="" title="闸机" src="image/202111230023.png">
 </div>
+<!-- 右下角悬浮窗口代码区域结束 -->
 </body>
 </html>
