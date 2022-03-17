@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="HLRYDW">
+    <wb-module deploy-name="HLRYDWQDHtml">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <property name="context-root" value="HLRYDW"/>
-        <property name="java-output-path" value="/HLRYDW/target/classes"/>
+        <property name="java-output-path" value="/HLRYDWQDHtml/target/classes"/>
+        <property name="context-root" value="HLRYDWQDHtml"/>
     </wb-module>
 </project-modules>

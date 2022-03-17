@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>hualing.cn</groupId>
-  <artifactId>HLRYDW</artifactId>
+  <artifactId>HLRYDWQDHtml</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>HLRYDW Maven Webapp</name>
+  <name>HLRYDWQDHtml Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -59,6 +59,6 @@
 	</dependency>
   </dependencies>
   <build>
-    <finalName>HLRYDW</finalName>
+    <finalName>HLRYDWQDHtml</finalName>
   </build>
 </project>
